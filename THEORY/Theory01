@@ -51,17 +51,7 @@ In case of DBMS data maybe stored in files, but in RDBMS data is stored in table
    iv) DQl (Data Query Language)
    v) TCL (Transaction Control Language)
 	
-	1. DDL (Data Definition Language) 
-	-> Its is used to create, define, delete the structure of database structure.
-	-> They deals with structure of the objects.
-	-> They interact with database directly , they enforce an implicit commit before and after the statement.
-	-> In it we can not undo(rollback) the changes.
-	-> Auto commit before and after after DDL Command.
-	-> They are faster than other commands. 
-	Example : CREATE, ALTER, DROP, TRUNCATE, RENAME.
-	
-	2. DML (Data Manipulation Language) 
-	
+
 #### SQL vs MySQL## 
 SQL - Language , MySQL - Software
 SQL can not store data by itself but MySQL store data in database and  tables.

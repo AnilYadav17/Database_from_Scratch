@@ -1,3 +1,13 @@
+1. DDL (Data Definition Language) 
+	-> Its is used to create, define, delete the structure of database structure.
+	-> They deals with structure of the objects.
+	-> They interact with database directly , they enforce an implicit commit before and after the statement.
+	-> In it we can not undo(rollback) the changes.
+	-> Auto commit before and after after DDL Command.
+	-> They are faster than other commands. 
+	Example : CREATE, ALTER, DROP, TRUNCATE, RENAME.
+	
+
 ##DML - DATA  MANIPULATION LANGUAGE
 -> Deals with the data only.
 -> These commands interect with buffer first then with the database.
