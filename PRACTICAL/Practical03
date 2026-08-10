@@ -1,0 +1,159 @@
+==================================================
+MYSQL PRIMARY KEY PRACTICAL
+==================================================
+
+
+1. PRIMARY KEY
+
+Explanation:
+Uniquely identifies each row.
+
+
+==================================================
+2. PRIMARY KEY WITH COLUMN
+==================================================
+
+Query:
+
+CREATE TABLE pyemployee(
+    empid INT PRIMARY KEY,
+    name VARCHAR(20),
+    salary DECIMAL(10,2)
+);
+
+Explanation:
+Creates a table with empid as primary key.
+
+Output:
+
+Query OK, 0 rows affected (1.36 sec)
+
+
+==================================================
+3. PRIMARY KEY WITH CONSTRAINT
+==================================================
+
+Query:
+
+CREATE TABLE pyemployee1(
+    empid INT,
+    name VARCHAR(20),
+    salary DECIMAL(10,2),
+    CONSTRAINT pk_employee PRIMARY KEY(empid)
+);
+
+Explanation:
+Creates a named primary key.
+
+Output:
+
+Query OK, 0 rows affected (0.70 sec)
+
+
+==================================================
+4. PRIMARY KEY USING ALTER
+==================================================
+
+Query:
+
+CREATE TABLE pyemployee3(
+    empid INT,
+    name VARCHAR(20),
+    salary DECIMAL(10,2)
+);
+
+Explanation:
+Creates table without primary key.
+
+Output:
+
+Query OK, 0 rows affected (1.40 sec)
+
+
+Query:
+
+ALTER TABLE pyemployee3
+ADD PRIMARY KEY(empid);
+
+Explanation:
+Adds primary key to existing table.
+
+Output:
+
+Query OK, 0 rows affected (2.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+==================================================
+5. CHECK PRIMARY KEY
+==================================================
+
+Query:
+
+DESC pyemployee3;
+
+Explanation:
+Shows table structure.
+
+Output:
+
++--------+---------------+------+-----+---------+-------+
+| Field  | Type          | Null | Key | Default | Extra |
++--------+---------------+------+-----+---------+-------+
+| empid  | int           | NO   | PRI | NULL    |       |
+| name   | varchar(20)   | YES  |     | NULL    |       |
+| salary | decimal(10,2) | YES  |     | NULL    |       |
++--------+---------------+------+-----+---------+-------+
+
+
+==================================================
+PRIMARY KEY METHODS
+==================================================
+
+1. During table creation:
+
+empid INT PRIMARY KEY;
+
+
+2. Using constraint:
+
+CONSTRAINT pk_employee PRIMARY KEY(empid);
+
+
+3. Using ALTER:
+
+ALTER TABLE pyemployee3
+ADD PRIMARY KEY(empid);
+
+
+==================================================
+IMPORTANT POINTS
+==================================================
+
+PRIMARY KEY
+→ Unique and NOT NULL.
+
+PRI
+→ Primary key.
+
+NO under NULL
+→ NULL is not allowed.
+
+DECIMAL(10,2)
+→ Decimal value with 2 digits after decimal.
+
+
+==================================================
+EXAMPLE
+==================================================
+
+empid = 101
+name = Anil
+salary = 25000.50
+
+
+Here:
+
+101 → Unique employee ID
+Anil → Employee name
+25000.50 → Salary
