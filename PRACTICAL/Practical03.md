@@ -1,39 +1,45 @@
 ==================================================
-MYSQL PRIMARY KEY PRACTICAL
+# MYSQL PRIMARY KEY PRACTICAL
 ==================================================
 
 
-1. PRIMARY KEY
+### 1. PRIMARY KEY
 
 Explanation:
 Uniquely identifies each row.
 
 
 ==================================================
-2. PRIMARY KEY WITH COLUMN
+# 2. PRIMARY KEY WITH COLUMN
 ==================================================
 
-Query:
+**Query:**
+```sql
 
 CREATE TABLE pyemployee(
     empid INT PRIMARY KEY,
     name VARCHAR(20),
     salary DECIMAL(10,2)
 );
+```
 
-Explanation:
+**Explanation:**
 Creates a table with empid as primary key.
 
-Output:
+**Output:**
+```text
 
 Query OK, 0 rows affected (1.36 sec)
 
+```
+
 
 ==================================================
-3. PRIMARY KEY WITH CONSTRAINT
+# 3. PRIMARY KEY WITH CONSTRAINT
 ==================================================
 
-Query:
+**Query:**
+```sql
 
 CREATE TABLE pyemployee1(
     empid INT,
@@ -41,61 +47,76 @@ CREATE TABLE pyemployee1(
     salary DECIMAL(10,2),
     CONSTRAINT pk_employee PRIMARY KEY(empid)
 );
+```
 
-Explanation:
+**Explanation:**
 Creates a named primary key.
 
-Output:
+**Output:**
+```text
 
 Query OK, 0 rows affected (0.70 sec)
 
+```
+
 
 ==================================================
-4. PRIMARY KEY USING ALTER
+# 4. PRIMARY KEY USING ALTER
 ==================================================
 
-Query:
+**Query:**
+```sql
 
 CREATE TABLE pyemployee3(
     empid INT,
     name VARCHAR(20),
     salary DECIMAL(10,2)
 );
+```
 
-Explanation:
+**Explanation:**
 Creates table without primary key.
 
-Output:
+**Output:**
+```text
 
 Query OK, 0 rows affected (1.40 sec)
 
 
-Query:
+**Query:**
+```sql
 
 ALTER TABLE pyemployee3
 ADD PRIMARY KEY(empid);
+```
 
-Explanation:
+**Explanation:**
 Adds primary key to existing table.
 
-Output:
+**Output:**
+```text
 
 Query OK, 0 rows affected (2.03 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
+```
+
 
 ==================================================
-5. CHECK PRIMARY KEY
+# 5. CHECK PRIMARY KEY
 ==================================================
 
-Query:
+**Query:**
+```sql
 
 DESC pyemployee3;
+```
 
-Explanation:
+**Explanation:**
 Shows table structure.
 
-Output:
+**Output:**
+```text
 
 +--------+---------------+------+-----+---------+-------+
 | Field  | Type          | Null | Key | Default | Extra |
@@ -105,29 +126,31 @@ Output:
 | salary | decimal(10,2) | YES  |     | NULL    |       |
 +--------+---------------+------+-----+---------+-------+
 
+```
+
 
 ==================================================
-PRIMARY KEY METHODS
+# PRIMARY KEY METHODS
 ==================================================
 
-1. During table creation:
+### 1. During table creation:
 
 empid INT PRIMARY KEY;
 
 
-2. Using constraint:
+### 2. Using constraint:
 
 CONSTRAINT pk_employee PRIMARY KEY(empid);
 
 
-3. Using ALTER:
+### 3. Using ALTER:
 
 ALTER TABLE pyemployee3
 ADD PRIMARY KEY(empid);
 
 
 ==================================================
-IMPORTANT POINTS
+# IMPORTANT POINTS
 ==================================================
 
 PRIMARY KEY
@@ -144,7 +167,7 @@ DECIMAL(10,2)
 
 
 ==================================================
-EXAMPLE
+# EXAMPLE
 ==================================================
 
 empid = 101
