@@ -1,10 +1,9 @@
 ==================================================
-MYSQL DATABASE, TABLE & DATA BASICS
+# MYSQL DATABASE, TABLE & DATA BASICS
 ==================================================
 
 
-1. LOGIN TO MYSQL
------------------
+### 1. LOGIN TO MYSQL
 
 Command:
 mysql -u root -p
@@ -12,39 +11,46 @@ mysql -u root -p
 Explanation:
 Logs into MySQL using the root user and password.
 
-Output:
+**Output:**
+```text
 Welcome to the MySQL monitor.
 Server version: 8.0.46-0ubuntu0.24.04.3 (Ubuntu)
 
+```
+
 
 ==================================================
-DATABASE CREATION
+# DATABASE CREATION
 ==================================================
 
 
-2. CREATE DATABASE
-------------------
+### 2. CREATE DATABASE
 
-Query:
+**Query:**
+```sql
 CREATE DATABASE batch18;
+```
 
-Explanation:
+**Explanation:**
 Creates a new database named batch18.
 
-Output:
+**Output:**
+```text
 Query OK, 1 row affected (1.30 sec)
 
 
-3. SHOW DATABASES
------------------
+### 3. SHOW DATABASES
 
-Query:
+**Query:**
+```sql
 SHOW DATABASES;
+```
 
-Explanation:
+**Explanation:**
 Displays all databases available in MySQL.
 
-Output:
+**Output:**
+```text
 +--------------------+
 | Database           |
 +--------------------+
@@ -64,84 +70,98 @@ Output:
 12 rows in set (0.09 sec)
 
 
-4. CREATE EXISTING DATABASE
----------------------------
+### 4. CREATE EXISTING DATABASE
 
-Query:
+**Query:**
+```sql
 CREATE DATABASE batch18;
+```
 
-Explanation:
+**Explanation:**
 Gives an error because batch18 already exists.
 
-Output:
+**Output:**
+```text
 ERROR 1007 (HY000): Can't create database 'batch18'; database exists
 
 
-5. CREATE DATABASE IF NOT EXISTS
---------------------------------
+### 5. CREATE DATABASE IF NOT EXISTS
 
-Query:
+**Query:**
+```sql
 CREATE DATABASE IF NOT EXISTS batch18;
+```
 
-Explanation:
+**Explanation:**
 Creates the database only if it does not already exist.
 
-Output:
+**Output:**
+```text
 Query OK, 1 row affected, 1 warning (0.18 sec)
+```
+
 
 Note:
 The warning occurs because batch18 already exists.
 
 
-6. SELECT DATABASE
-------------------
+### 6. SELECT DATABASE
 
-Query:
+**Query:**
+```sql
 USE batch18;
+```
 
-Explanation:
+**Explanation:**
 Selects batch18 as the current database.
 
-Output:
+**Output:**
+```text
 Database changed
 
 
-7. WRONG DATABASE SYNTAX
-------------------------
+### 7. WRONG DATABASE SYNTAX
 
-Query:
+**Query:**
+```sql
 SELECT @DATABASE();
+```
 
-Explanation:
+**Explanation:**
 Incorrect syntax because DATABASE() is a function.
 
-Output:
+**Output:**
+```text
 ERROR 1064 (42000): You have an error in your SQL syntax;
 
 
-8. WRONG @@DATABASE SYNTAX
---------------------------
+### 8. WRONG @@DATABASE SYNTAX
 
-Query:
+**Query:**
+```sql
 SELECT @@DATABASE();
+```
 
-Explanation:
+**Explanation:**
 Incorrect syntax because DATABASE() is not used with @@.
 
-Output:
+**Output:**
+```text
 ERROR 1064 (42000): You have an error in your SQL syntax;
 
 
-9. CHECK CURRENT DATABASE
--------------------------
+### 9. CHECK CURRENT DATABASE
 
-Query:
+**Query:**
+```sql
 SELECT DATABASE();
+```
 
-Explanation:
+**Explanation:**
 Shows the currently selected database.
 
-Output:
+**Output:**
+```text
 +------------+
 | database() |
 +------------+
@@ -149,42 +169,48 @@ Output:
 +------------+
 
 
-10. CREATE ANOTHER DATABASE
----------------------------
+### 10. CREATE ANOTHER DATABASE
 
-Query:
+**Query:**
+```sql
 CREATE DATABASE newone;
+```
 
-Explanation:
+**Explanation:**
 Creates a new database named newone.
 
-Output:
+**Output:**
+```text
 Query OK, 1 row affected (0.24 sec)
 
 
-11. USE NEWONE
---------------
+### 11. USE NEWONE
 
-Query:
+**Query:**
+```sql
 USE newone;
+```
 
-Explanation:
+**Explanation:**
 Selects newone as the current database.
 
-Output:
+**Output:**
+```text
 Database changed
 
 
-12. CHECK CURRENT DATABASE
---------------------------
+### 12. CHECK CURRENT DATABASE
 
-Query:
+**Query:**
+```sql
 SELECT DATABASE();
+```
 
-Explanation:
+**Explanation:**
 Shows the currently selected database.
 
-Output:
+**Output:**
+```text
 +------------+
 | database() |
 +------------+
@@ -192,90 +218,104 @@ Output:
 +------------+
 
 
-13. DROP DATABASE
------------------
+### 13. DROP DATABASE
 
-Query:
+**Query:**
+```sql
 DROP DATABASE newone;
+```
 
-Explanation:
+**Explanation:**
 Permanently deletes the newone database.
 
-Output:
+**Output:**
+```text
 Query OK, 0 rows affected (1.25 sec)
 
 
-14. USE NON-EXISTING DATABASE
-----------------------------
+### 14. USE NON-EXISTING DATABASE
 
-Query:
+**Query:**
+```sql
 USE batck18;
+```
 
-Explanation:
+**Explanation:**
 Gives an error because batck18 does not exist.
 
-Output:
+**Output:**
+```text
 ERROR 1049 (42000): Unknown database 'batck18'
 
 
-15. USE CORRECT DATABASE
------------------------
+### 15. USE CORRECT DATABASE
 
-Query:
+**Query:**
+```sql
 USE batch18;
+```
 
-Explanation:
+**Explanation:**
 Selects the existing batch18 database.
 
-Output:
+**Output:**
+```text
 Database changed
 
 
-16. DROP DATABASE IF EXISTS
----------------------------
+### 16. DROP DATABASE IF EXISTS
 
-Query:
+**Query:**
+```sql
 DROP DATABASE IF EXISTS newone;
+```
 
-Explanation:
+**Explanation:**
 Deletes newone if it exists and avoids an error if it does not exist.
 
-Output:
+**Output:**
+```text
 Query OK, 0 rows affected, 1 warning (0.07 sec)
 
+```
+
 
 ==================================================
-TABLE CREATION
+# TABLE CREATION
 ==================================================
 
 
-17. CREATE STUDENT TABLE
-------------------------
+### 17. CREATE STUDENT TABLE
 
-Query:
+**Query:**
+```sql
 CREATE TABLE student(
     id INT,
     name VARCHAR(20),
     age INT
 );
+```
 
-Explanation:
+**Explanation:**
 Creates a student table with id, name and age columns.
 
-Output:
+**Output:**
+```text
 Query OK, 0 rows affected (7.56 sec)
 
 
-18. DESCRIBE TABLE
------------------
+### 18. DESCRIBE TABLE
 
-Query:
+**Query:**
+```sql
 DESC student;
+```
 
-Explanation:
+**Explanation:**
 Shows the structure of the student table.
 
-Output:
+**Output:**
+```text
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -285,16 +325,18 @@ Output:
 +-------+-------------+------+-----+---------+-------+
 
 
-19. SHOW TABLES
----------------
+### 19. SHOW TABLES
 
-Query:
+**Query:**
+```sql
 SHOW TABLES;
+```
 
-Explanation:
+**Explanation:**
 Displays all tables in the current database.
 
-Output:
+**Output:**
+```text
 +-------------------+
 | Tables_in_batch18 |
 +-------------------+
@@ -302,29 +344,33 @@ Output:
 +-------------------+
 
 
-20. CREATE TABLE A
-------------------
+### 20. CREATE TABLE A
 
-Query:
+**Query:**
+```sql
 CREATE TABLE A(A INT);
+```
 
-Explanation:
+**Explanation:**
 Creates a table named A with one integer column named A.
 
-Output:
+**Output:**
+```text
 Query OK, 0 rows affected (2.15 sec)
 
 
-21. DESCRIBE TABLE A
---------------------
+### 21. DESCRIBE TABLE A
 
-Query:
+**Query:**
+```sql
 DESC A;
+```
 
-Explanation:
+**Explanation:**
 Shows the structure of table A.
 
-Output:
+**Output:**
+```text
 +-------+------+------+-----+---------+-------+
 | Field | Type | Null | Key | Default | Extra |
 +-------+------+------+-----+---------+-------+
@@ -332,16 +378,18 @@ Output:
 +-------+------+------+-----+---------+-------+
 
 
-22. SHOW TABLES
----------------
+### 22. SHOW TABLES
 
-Query:
+**Query:**
+```sql
 SHOW TABLES;
+```
 
-Explanation:
+**Explanation:**
 Displays all tables in batch18.
 
-Output:
+**Output:**
+```text
 +-------------------+
 | Tables_in_batch18 |
 +-------------------+
@@ -349,73 +397,87 @@ Output:
 | student           |
 +-------------------+
 
+```
+
 
 ==================================================
-SELECT DATA
+# SELECT DATA
 ==================================================
 
 
-23. SELECT ALL DATA FROM STUDENT
---------------------------------
+### 23. SELECT ALL DATA FROM STUDENT
 
-Query:
+**Query:**
+```sql
 SELECT * FROM student;
+```
 
-Explanation:
+**Explanation:**
 Displays all columns and all rows from student.
 
-Output:
+**Output:**
+```text
 Empty set (0.07 sec)
+```
+
 
 Note:
 The table exists, but no data has been inserted.
 
 
-24. SELECT TABLE USING WRONG CASE
----------------------------------
+### 24. SELECT TABLE USING WRONG CASE
 
-Query:
+**Query:**
+```sql
 SELECT * FROM a;
+```
 
-Explanation:
+**Explanation:**
 Gives an error because the actual table name is A.
 
-Output:
+**Output:**
+```text
 ERROR 1146 (42S02): Table 'batch18.a' doesn't exist
 
 
-25. SELECT TABLE A
-------------------
+### 25. SELECT TABLE A
 
-Query:
+**Query:**
+```sql
 SELECT * FROM A;
+```
 
-Explanation:
+**Explanation:**
 Displays all data from table A.
 
-Output:
+**Output:**
+```text
 Empty set (0.02 sec)
 
+```
+
 
 ==================================================
-PRIMARY KEY
+# PRIMARY KEY
 ==================================================
 
 
-26. CREATE STUDENT1 TABLE
--------------------------
+### 26. CREATE STUDENT1 TABLE
 
-Query:
+**Query:**
+```sql
 CREATE TABLE student1(
     id INT PRIMARY KEY,
     name VARCHAR(20),
     age INT
 );
+```
 
-Explanation:
+**Explanation:**
 Creates student1 with id as the PRIMARY KEY.
 
-Output:
+**Output:**
+```text
 Query OK, 0 rows affected (1.47 sec)
 
 
@@ -429,39 +491,47 @@ Important Points:
 • A table can have only one PRIMARY KEY.
 • PRIMARY KEY uniquely identifies every record.
 
+```
+
 
 ==================================================
-CREATE TABLE AS SELECT
+# CREATE TABLE AS SELECT
 ==================================================
 
 
-27. CREATE EMPLOYEE FROM STUDENT
---------------------------------
+### 27. CREATE EMPLOYEE FROM STUDENT
 
-Query:
+**Query:**
+```sql
 CREATE TABLE employee AS SELECT * FROM student;
+```
 
-Explanation:
+**Explanation:**
 Creates employee table with the same columns and copies all data from student.
 
-Output:
+**Output:**
+```text
 Query OK, 0 rows affected (1.83 sec)
 Records: 0  Duplicates: 0  Warnings: 0
+```
+
 
 Note:
 Student was empty at this time, so employee also contains no records.
 
 
-28. DESCRIBE EMPLOYEE
----------------------
+### 28. DESCRIBE EMPLOYEE
 
-Query:
+**Query:**
+```sql
 DESC employee;
+```
 
-Explanation:
+**Explanation:**
 Shows the structure of the employee table.
 
-Output:
+**Output:**
+```text
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -471,16 +541,18 @@ Output:
 +-------+-------------+------+-----+---------+-------+
 
 
-29. SHOW TABLES
----------------
+### 29. SHOW TABLES
 
-Query:
+**Query:**
+```sql
 SHOW TABLES;
+```
 
-Explanation:
+**Explanation:**
 Shows all tables currently present in batch18.
 
-Output:
+**Output:**
+```text
 +-------------------+
 | Tables_in_batch18 |
 +-------------------+
@@ -491,30 +563,34 @@ Output:
 +-------------------+
 
 
-30. CREATE TABLE WITH SELECTED COLUMNS
---------------------------------------
+### 30. CREATE TABLE WITH SELECTED COLUMNS
 
-Query:
+**Query:**
+```sql
 CREATE TABLE emp2 AS SELECT id,name FROM student;
+```
 
-Explanation:
+**Explanation:**
 Creates emp2 using only the id and name columns from student.
 
-Output:
+**Output:**
+```text
 Query OK, 0 rows affected (1.38 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
 
-31. DESCRIBE EMP2
------------------
+### 31. DESCRIBE EMP2
 
-Query:
+**Query:**
+```sql
 DESC emp2;
+```
 
-Explanation:
+**Explanation:**
 Shows the structure of emp2.
 
-Output:
+**Output:**
+```text
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -522,22 +598,26 @@ Output:
 | name  | varchar(20) | YES  |     | NULL    |       |
 +-------+-------------+------+-----+---------+-------+
 
+```
+
 
 ==================================================
-CREATE TABLE WITHOUT DATA
+# CREATE TABLE WITHOUT DATA
 ==================================================
 
 
-32. CREATE EMP3 WITHOUT DATA
-----------------------------
+### 32. CREATE EMP3 WITHOUT DATA
 
-Query:
+**Query:**
+```sql
 CREATE TABLE emp3 AS SELECT * FROM student WHERE 1=2;
+```
 
-Explanation:
+**Explanation:**
 Creates emp3 with the same structure as student but copies no records.
 
-Output:
+**Output:**
+```text
 Query OK, 0 rows affected (1.67 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
@@ -554,77 +634,91 @@ No rows are copied.
 But:
 The table structure is created.
 
+```
+
 
 ==================================================
-INSERT DATA
+# INSERT DATA
 ==================================================
 
 
-33. INSERT RECORD INTO STUDENT
-------------------------------
+### 33. INSERT RECORD INTO STUDENT
 
-Query:
+**Query:**
+```sql
 INSERT INTO student VALUES(101,"Anil",30);
+```
 
-Explanation:
+**Explanation:**
 Inserts one student record into the student table.
 
-Output:
+**Output:**
+```text
 Query OK, 1 row affected (0.17 sec)
 
 
-34. WRONG SELECT KEYWORD
-------------------------
+### 34. WRONG SELECT KEYWORD
 
-Query:
+**Query:**
+```sql
 SELECT * FORM student;
+```
 
-Explanation:
+**Explanation:**
 Gives an error because FORM is incorrect; the correct keyword is FROM.
 
-Output:
+**Output:**
+```text
 ERROR 1064 (42000): You have an error in your SQL syntax;
 
 
-35. WRONG SELECT ON STUDENT1
-----------------------------
+### 35. WRONG SELECT ON STUDENT1
 
-Query:
+**Query:**
+```sql
 SELECT * FORM student1;
+```
 
-Explanation:
+**Explanation:**
 Again gives an error because FORM should be FROM.
 
-Output:
+**Output:**
+```text
 ERROR 1064 (42000): You have an error in your SQL syntax;
 
 
-36. SELECT STUDENT1
--------------------
+### 36. SELECT STUDENT1
 
-Query:
+**Query:**
+```sql
 SELECT * FROM student1;
+```
 
-Explanation:
+**Explanation:**
 Displays all records from student1.
 
-Output:
+**Output:**
+```text
 Empty set (0.06 sec)
+```
+
 
 Note:
 student1 has no records yet.
 
 
-37. SELECT STUDENT
-------------------
+### 37. SELECT STUDENT
 
-Query:
+**Query:**
+```sql
 SELECT * FROM student;
+```
 
-Explanation:
+**Explanation:**
 Displays all records from student.
 
-Output:
+**Output:**
+```text
 +------+------+------+
 | id   | name | age  |
 +------+------+------+
@@ -632,71 +726,83 @@ Output:
 +------+------+------+
 1 row in set (0.00 sec)
 
+```
+
 
 ==================================================
-COPY TABLE WITHOUT DATA
+# COPY TABLE WITHOUT DATA
 ==================================================
 
 
-38. CREATE COPY1 WITHOUT DATA
------------------------------
+### 38. CREATE COPY1 WITHOUT DATA
 
-Query:
+**Query:**
+```sql
 CREATE TABLE copy1 AS SELECT * FROM student WHERE 1=2;
+```
 
-Explanation:
+**Explanation:**
 Creates copy1 with the same columns as student but without copying data.
 
-Output:
+**Output:**
+```text
 Query OK, 0 rows affected (2.08 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
 
-39. CHECK COPY1
----------------
+### 39. CHECK COPY1
 
-Query:
+**Query:**
+```sql
 SELECT * FROM copy1;
+```
 
-Explanation:
+**Explanation:**
 Displays data from copy1.
 
-Output:
+**Output:**
+```text
 Empty set (0.00 sec)
+
+```
 
 Reason:
 WHERE 1=2 prevented the rows from being copied.
 
 
 ==================================================
-COPY TABLE WITH DATA
+# COPY TABLE WITH DATA
 ==================================================
 
 
-40. CREATE COPY2 WITH DATA
---------------------------
+### 40. CREATE COPY2 WITH DATA
 
-Query:
+**Query:**
+```sql
 CREATE TABLE copy2 AS SELECT * FROM student;
+```
 
-Explanation:
+**Explanation:**
 Creates copy2 with the same columns and copies all data from student.
 
-Output:
+**Output:**
+```text
 Query OK, 1 row affected (1.98 sec)
 Records: 1  Duplicates: 0  Warnings: 0
 
 
-41. CHECK COPY2
----------------
+### 41. CHECK COPY2
 
-Query:
+**Query:**
+```sql
 SELECT * FROM copy2;
+```
 
-Explanation:
+**Explanation:**
 Displays the copied data from copy2.
 
-Output:
+**Output:**
+```text
 +------+------+------+
 | id   | name | age  |
 +------+------+------+
@@ -704,9 +810,11 @@ Output:
 +------+------+------+
 1 row in set (0.00 sec)
 
+```
+
 
 ==================================================
-IMPORTANT CONCEPT
+# IMPORTANT CONCEPT
 ==================================================
 
 CREATE TABLE new_table AS SELECT ...
@@ -742,7 +850,7 @@ CREATE TABLE copy2 AS SELECT * FROM student;
 
 
 ==================================================
-CTAS QUICK COMPARISON
+# CTAS QUICK COMPARISON
 ==================================================
 
 COMMAND:
@@ -778,7 +886,7 @@ Structure + Data
 
 
 ==================================================
-IMPORTANT COMMANDS
+# IMPORTANT COMMANDS
 ==================================================
 
 CREATE DATABASE database_name;
@@ -847,10 +955,10 @@ WHERE 1=2
 
 
 ==================================================
-IMPORTANT ERRORS FROM YOUR PRACTICE
+# IMPORTANT ERRORS FROM YOUR PRACTICE
 ==================================================
 
-1. Database already exists:
+### 1. Database already exists:
 
 CREATE DATABASE batch18;
 
@@ -858,7 +966,7 @@ ERROR 1007:
 Database exists.
 
 
-2. Wrong database name:
+### 2. Wrong database name:
 
 USE batck18;
 
@@ -866,7 +974,7 @@ ERROR 1049:
 Unknown database.
 
 
-3. Wrong DATABASE syntax:
+### 3. Wrong DATABASE syntax:
 
 SELECT @DATABASE();
 
@@ -874,7 +982,7 @@ ERROR 1064:
 Syntax error.
 
 
-4. Wrong table name/case:
+### 4. Wrong table name/case:
 
 SELECT * FROM a;
 
@@ -882,7 +990,7 @@ ERROR 1146:
 Table 'batch18.a' doesn't exist.
 
 
-5. Wrong keyword:
+### 5. Wrong keyword:
 
 SELECT * FORM student;
 
@@ -894,7 +1002,7 @@ SELECT * FROM student;
 
 
 ==================================================
-CURRENT DATABASE
+# CURRENT DATABASE
 ==================================================
 
 batch18
@@ -902,7 +1010,7 @@ batch18
 
 CURRENT TABLES
 ==============
-
+# 
 A
 employee
 emp2
