@@ -1,16 +1,18 @@
 ===========================
-MySQL Basic SELECT Commands
+# MySQL Basic SELECT Commands
 ===========================
 
-1. Check MySQL Version
-----------------------
-Query:
+### 1. Check MySQL Version
+**Query:**
+```sql
 SELECT VERSION();
+```
 
-Explanation:
+**Explanation:**
 Returns the installed MySQL server version.
 
-Output:
+**Output:**
+```text
 +-------------------------+
 | version()               |
 +-------------------------+
@@ -18,15 +20,17 @@ Output:
 +-------------------------+
 
 
-2. Current Date and Time
-------------------------
-Query:
+### 2. Current Date and Time
+**Query:**
+```sql
 SELECT NOW();
+```
 
-Explanation:
+**Explanation:**
 Returns the current system date and time.
 
-Output:
+**Output:**
+```text
 +---------------------+
 | now()               |
 +---------------------+
@@ -34,15 +38,17 @@ Output:
 +---------------------+
 
 
-3. Current Time
----------------
-Query:
+### 3. Current Time
+**Query:**
+```sql
 SELECT CURTIME();
+```
 
-Explanation:
+**Explanation:**
 Returns only the current time.
 
-Output:
+**Output:**
+```text
 +-----------+
 | curtime() |
 +-----------+
@@ -50,27 +56,31 @@ Output:
 +-----------+
 
 
-4. Current Logged-in User (Wrong)
----------------------------------
-Query:
+### 4. Current Logged-in User (Wrong)
+**Query:**
+```sql
 SELECT USER;
+```
 
-Explanation:
+**Explanation:**
 ERROR because USER is treated as a column name.
 
-Output:
+**Output:**
+```text
 ERROR 1054 (42S22): Unknown column 'user' in 'field list'
 
 
-5. Current Logged-in User (Correct)
------------------------------------
-Query:
+### 5. Current Logged-in User (Correct)
+**Query:**
+```sql
 SELECT USER();
+```
 
-Explanation:
+**Explanation:**
 Returns the current MySQL user and host.
 
-Output:
+**Output:**
+```text
 +----------------+
 | user()         |
 +----------------+
@@ -78,34 +88,40 @@ Output:
 +----------------+
 
 
-6. Current Database
--------------------
-Query:
+### 6. Current Database
+**Query:**
+```sql
 SELECT DATABASE();
+```
 
-Explanation:
+**Explanation:**
 Returns the currently selected database.
 
-Output:
+**Output:**
+```text
 +------------+
 | database() |
 +------------+
 | NULL       |
 +------------+
+```
+
 
 Note:
 NULL means no database is selected.
 
 
-7. Show All Databases
----------------------
-Query:
+### 7. Show All Databases
+**Query:**
+```sql
 SHOW DATABASES;
+```
 
-Explanation:
+**Explanation:**
 Displays all databases in MySQL.
 
-Output:
+**Output:**
+```text
 +--------------------+
 | Database           |
 +--------------------+
@@ -123,15 +139,17 @@ Output:
 +--------------------+
 
 
-8. Hostname
------------
-Query:
+### 8. Hostname
+**Query:**
+```sql
 SELECT @@hostname;
+```
 
-Explanation:
+**Explanation:**
 Returns the name of the computer running MySQL.
 
-Output:
+**Output:**
+```text
 +------------+
 | @@hostname |
 +------------+
@@ -139,15 +157,17 @@ Output:
 +------------+
 
 
-9. MySQL Port Number
---------------------
-Query:
+### 9. MySQL Port Number
+**Query:**
+```sql
 SELECT @@port;
+```
 
-Explanation:
+**Explanation:**
 Returns the port number used by MySQL.
 
-Output:
+**Output:**
+```text
 +--------+
 | @@port |
 +--------+
@@ -155,27 +175,31 @@ Output:
 +--------+
 
 
-10. Password Variable (Wrong)
------------------------------
-Query:
+### 10. Password Variable (Wrong)
+**Query:**
+```sql
 SELECT @@password;
+```
 
-Explanation:
+**Explanation:**
 ERROR because this system variable does not exist.
 
-Output:
+**Output:**
+```text
 ERROR 1193 (HY000): Unknown system variable 'password'
 
 
-11. Addition
-------------
-Query:
+### 11. Addition
+**Query:**
+```sql
 SELECT 10+20;
+```
 
-Explanation:
+**Explanation:**
 Adds two numbers.
 
-Output:
+**Output:**
+```text
 +-------+
 | 10+20 |
 +-------+
@@ -183,15 +207,17 @@ Output:
 +-------+
 
 
-12. Modulus (%)
----------------
-Query:
+### 12. Modulus (%)
+**Query:**
+```sql
 SELECT 20%2;
+```
 
-Explanation:
+**Explanation:**
 Returns the remainder after division.
 
-Output:
+**Output:**
+```text
 +------+
 | 20%2 |
 +------+
@@ -199,15 +225,17 @@ Output:
 +------+
 
 
-13. Square Root
----------------
-Query:
+### 13. Square Root
+**Query:**
+```sql
 SELECT SQRT(10);
+```
 
-Explanation:
+**Explanation:**
 Returns the square root of a number.
 
-Output:
+**Output:**
+```text
 +--------------------+
 | sqrt(10)           |
 +--------------------+
@@ -215,30 +243,36 @@ Output:
 +--------------------+
 
 
-14. Wrong Function Name
------------------------
-Query:
+### 14. Wrong Function Name
+**Query:**
+```sql
 SELECT PW(2,5);
+```
 
-Explanation:
+**Explanation:**
 ERROR because PW() is not a valid MySQL function.
 
-Output:
+**Output:**
+```text
 ERROR 1046 (3D000): No database selected
+```
+
 
 Note:
 The intended function is POW(). The error shown is because MySQL interpreted PW as something else while no database was selected.
 
 
-15. Power Function
-------------------
-Query:
+### 15. Power Function
+**Query:**
+```sql
 SELECT POW(2,5);
+```
 
-Explanation:
+**Explanation:**
 Returns 2 raised to the power of 5.
 
-Output:
+**Output:**
+```text
 +----------+
 | pow(2,5) |
 +----------+
@@ -246,15 +280,17 @@ Output:
 +----------+
 
 
-16. Random Number (Seed = 10)
------------------------------
-Query:
+### 16. Random Number (Seed = 10)
+**Query:**
+```sql
 SELECT RAND(10);
+```
 
-Explanation:
+**Explanation:**
 Returns a random number based on seed value 10.
 
-Output:
+**Output:**
+```text
 +--------------------+
 | rand(10)           |
 +--------------------+
@@ -262,15 +298,17 @@ Output:
 +--------------------+
 
 
-17. Random Number (Seed = 100)
-------------------------------
-Query:
+### 17. Random Number (Seed = 100)
+**Query:**
+```sql
 SELECT RAND(100);
+```
 
-Explanation:
+**Explanation:**
 Returns the same random number every time because the seed is fixed.
 
-Output:
+**Output:**
+```text
 +---------------------+
 | rand(100)           |
 +---------------------+
@@ -278,15 +316,17 @@ Output:
 +---------------------+
 
 
-18. Same Seed Again
--------------------
-Query:
+### 18. Same Seed Again
+**Query:**
+```sql
 SELECT RAND(100);
+```
 
-Explanation:
+**Explanation:**
 Same seed produces the same random number.
 
-Output:
+**Output:**
+```text
 +---------------------+
 | rand(100)           |
 +---------------------+
@@ -294,15 +334,17 @@ Output:
 +---------------------+
 
 
-19. Random Number (Seed = 1)
-----------------------------
-Query:
+### 19. Random Number (Seed = 1)
+**Query:**
+```sql
 SELECT RAND(1);
+```
 
-Explanation:
+**Explanation:**
 Returns a random number based on seed value 1.
 
-Output:
+**Output:**
+```text
 +---------------------+
 | rand(1)             |
 +---------------------+
@@ -310,23 +352,27 @@ Output:
 +---------------------+
 
 
-20. Same Seed Again
--------------------
-Query:
+### 20. Same Seed Again
+**Query:**
+```sql
 SELECT RAND(1);
+```
 
-Explanation:
+**Explanation:**
 Same seed gives the same random number again.
 
-Output:
+**Output:**
+```text
 +---------------------+
 | rand(1)             |
 +---------------------+
 | 0.40540353712197724 |
 +---------------------+
+```
+
 
 ==========================
-Important Exam Points
+# Important Exam Points
 ==========================
 
 • VERSION() → MySQL version.
