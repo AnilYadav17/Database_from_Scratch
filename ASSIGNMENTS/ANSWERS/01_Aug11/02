@@ -1,0 +1,50 @@
+-- ==================================================
+-- ASSIGNMENT 02 - EMPLOYEE DATABASE
+-- ==================================================
+-- Database: company_db
+-- Table: employee
+-- Purpose: Create an employee table and insert employee records.
+-- ==================================================
+
+-- 1. CREATE DATABASE
+CREATE DATABASE company_db;
+
+-- 2. SELECT DATABASE
+USE company_db;
+
+-- 3. CREATE EMPLOYEE TABLE
+CREATE TABLE employee (
+    employee_id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_name VARCHAR(50),
+    age INT,
+    department VARCHAR(50),
+    designation VARCHAR(50),
+    salary INT
+);
+
+-- 4. INSERT EMPLOYEE RECORDS
+INSERT INTO employee(employee_name, age, department, designation, salary)
+VALUES
+("Rahul Sharma", 28, "IT", "Developer", 55000),
+("Priya Verma", 26, "HR", "Executive", 42000),
+("Amit Singh", 30, "IT", "Team Lead", 75000),
+("Neha Patel", 27, "Finance", "Accountant", 48000),
+("Rohit Mehta", 32, "IT", "Manager", 90000),
+("Sneha Jain", 25, "Marketing", "Executive", 40000),
+("Karan Gupta", 29, "IT", "Developer", 60000),
+("Pooja Mishra", 31, "HR", "Manager", 80000),
+("Ankit Tiwari", 28, "Finance", "Analyst", 65000),
+("Riya Kapoor", 27, "Marketing", "Manager", 70000);
+
+-- 5. DESCRIBE TABLE
+DESC employee;
+
+-- 6. DISPLAY ALL EMPLOYEE RECORDS
+SELECT * FROM employee;
+
+-- ==================================================
+-- FINAL RESULT
+-- ==================================================
+-- 10 employee records inserted successfully.
+-- employee_id is AUTO_INCREMENT and PRIMARY KEY.
+-- ==================================================

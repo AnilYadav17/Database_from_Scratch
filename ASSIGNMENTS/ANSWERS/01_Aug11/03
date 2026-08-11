@@ -1,0 +1,50 @@
+-- ==================================================
+-- ASSIGNMENT 03 - PRODUCT DATABASE
+-- ==================================================
+-- Database: shop_db
+-- Table: product
+-- Purpose: Create a product table and insert product records.
+-- ==================================================
+
+-- 1. CREATE DATABASE
+CREATE DATABASE shop_db;
+
+-- 2. SELECT DATABASE
+USE shop_db;
+
+-- 3. CREATE PRODUCT TABLE
+CREATE TABLE product (
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(50),
+    category VARCHAR(50),
+    brand VARCHAR(50),
+    price INT,
+    quantity INT
+);
+
+-- 4. INSERT PRODUCT RECORDS
+INSERT INTO product(product_name, category, brand, price, quantity)
+VALUES
+("Laptop", "Electronics", "Dell", 55000, 10),
+("Smartphone", "Electronics", "Samsung", 25000, 15),
+("Keyboard", "Accessories", "Logitech", 1500, 25),
+("Mouse", "Accessories", "HP", 800, 30),
+("Monitor", "Electronics", "LG", 18000, 12),
+("Headphones", "Accessories", "Sony", 3000, 20),
+("Printer", "Electronics", "Canon", 12000, 8),
+("Tablet", "Electronics", "Lenovo", 22000, 14),
+("Webcam", "Accessories", "Logitech", 2500, 18),
+("Speaker", "Accessories", "JBL", 4500, 16);
+
+-- 5. DESCRIBE TABLE
+DESC product;
+
+-- 6. DISPLAY ALL PRODUCT RECORDS
+SELECT * FROM product;
+
+-- ==================================================
+-- FINAL RESULT
+-- ==================================================
+-- 10 product records inserted successfully.
+-- product_id is AUTO_INCREMENT and PRIMARY KEY.
+-- ==================================================

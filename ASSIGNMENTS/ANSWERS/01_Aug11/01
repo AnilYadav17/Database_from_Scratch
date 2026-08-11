@@ -1,0 +1,50 @@
+-- ==================================================
+-- ASSIGNMENT 01 - STUDENT DATABASE
+-- ==================================================
+-- Database: school_db
+-- Table: student
+-- Purpose: Create a student table and insert student records.
+-- ==================================================
+
+-- 1. CREATE DATABASE
+CREATE DATABASE school_db;
+
+-- 2. SELECT DATABASE
+USE school_db;
+
+-- 3. CREATE STUDENT TABLE
+CREATE TABLE student (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    student_name VARCHAR(50),
+    age INT,
+    course VARCHAR(50),
+    city VARCHAR(50),
+    marks INT
+);
+
+-- 4. INSERT STUDENT RECORDS
+INSERT INTO student(student_name, age, course, city, marks)
+VALUES
+("Rahul Sharma", 21, "Python", "Indore", 85),
+("Priya Verma", 22, "Java", "Bhopal", 78),
+("Amit Singh", 20, "Python", "Indore", 92),
+("Neha Patel", 23, "Java", "Pune", 81),
+("Rohit Mehta", 21, "Python", "Mumbai", 88),
+("Sneha Jain", 22, "Java", "Indore", 76),
+("Karan Gupta", 20, "Python", "Delhi", 95),
+("Pooja Mishra", 23, "Java", "Bhopal", 84),
+("Ankit Tiwari", 21, "Python", "Pune", 79),
+("Riya Kapoor", 22, "Java", "Mumbai", 91);
+
+-- 5. DESCRIBE TABLE
+DESC student;
+
+-- 6. DISPLAY ALL STUDENT RECORDS
+SELECT * FROM student;
+
+-- ==================================================
+-- FINAL RESULT
+-- ==================================================
+-- 10 student records inserted successfully.
+-- student_id is AUTO_INCREMENT and PRIMARY KEY.
+-- ==================================================
