@@ -4,7 +4,7 @@
 ### COMPOSITE PRIMARY KEY
 Sometimes one column is not sufficient means neither column is unique in that case we create COMPOSITE KEY.
 
-##syntax
+### Syntax
 ```sql
 create table pycustomer_product(cid int,pid int,quantity int,primary key(cid,pid));
 ```
@@ -19,7 +19,7 @@ PROBLEMS:
     Duplicate IDs can be inserted accidentally.
 To solve the above AUTO INCREMENT is used.
 
-##syntax
+### Syntax
 ```sql
 create table pyemployee5(id int auto_increment primary key,name varchar(20),salary decimal(10,2));
 ```
