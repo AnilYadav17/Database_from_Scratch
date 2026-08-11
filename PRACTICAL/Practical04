@@ -1,0 +1,362 @@
+==================================================
+MYSQL PRACTICAL NOTES
+DATE: 11 AUGUST 2026
+==================================================
+
+
+1. PRIMARY KEY
+==================================================
+
+Explanation:
+Uniquely identifies each record.
+
+
+CREATE TABLE pyemployee(
+    empid INT PRIMARY KEY,
+    name VARCHAR(20),
+    salary DECIMAL(10,2)
+);
+
+Explanation:
+Creates a table with a primary key.
+
+
+ALTER TABLE product
+ADD PRIMARY KEY(pid);
+
+Explanation:
+Adds a primary key to an existing table.
+
+
+DESC pyemployee3;
+
+Explanation:
+Shows the primary key in table structure.
+
+Output:
+
+empid   int          NO   PRI
+name    varchar(20)  YES
+salary  decimal      YES
+
+
+==================================================
+2. PRIMARY KEY RULE
+==================================================
+
+PRIMARY KEY
+→ Unique and NOT NULL.
+
+Example:
+
+pid = 1
+pname = Laptop
+pcategory = Electronics
+pprice = 10000.00
+
+
+INSERT INTO product
+VALUES(1,"Laptop","Electronics",10000);
+
+Explanation:
+Inserts a product record.
+
+
+SELECT * FROM product;
+
+Output:
+
++-----+----------+-------------+----------+
+| pid | pname    | pcategory   | pprice   |
++-----+----------+-------------+----------+
+| 1   | Laptop   | Electronics | 10000.00 |
++-----+----------+-------------+----------+
+
+
+==================================================
+3. COMPOSITE PRIMARY KEY
+==================================================
+
+Explanation:
+Uses multiple columns as one primary key.
+
+
+CREATE TABLE pycustomer_product(
+    cid INT,
+    pid INT,
+    quantity INT,
+    PRIMARY KEY(cid,pid)
+);
+
+Explanation:
+Creates a composite primary key.
+
+
+INSERT INTO pycustomer_product
+VALUES(101,501,2);
+
+INSERT INTO pycustomer_product
+VALUES(102,501,4);
+
+Explanation:
+Both records have different key combinations.
+
+
+SELECT * FROM pycustomer_product;
+
+Output:
+
++-----+-----+----------+
+| cid | pid | quantity |
++-----+-----+----------+
+| 101 | 501 | 2        |
+| 102 | 501 | 4        |
++-----+-----+----------+
+
+
+==================================================
+4. COMPOSITE KEY EXAMPLE
+==================================================
+
+CREATE TABLE pystudent01(
+    sid INT,
+    pid INT,
+    marks INT,
+    PRIMARY KEY(sid,pid)
+);
+
+Explanation:
+sid and pid together form the primary key.
+
+
+INSERT INTO pystudent01
+VALUES(101,501,98);
+
+INSERT INTO pystudent01
+VALUES(101,502,80);
+
+INSERT INTO pystudent01
+VALUES(102,501,75);
+
+INSERT INTO pystudent01
+VALUES(102,502,85);
+
+
+SELECT * FROM pystudent01;
+
+Output:
+
++-----+-----+-------+
+| sid | pid | marks |
++-----+-----+-------+
+| 101 | 501 | 98    |
+| 101 | 502 | 80    |
+| 102 | 501 | 75    |
+| 102 | 502 | 85    |
++-----+-----+-------+
+
+
+==================================================
+5. AUTO_INCREMENT
+==================================================
+
+Explanation:
+Automatically generates the next number.
+
+
+CREATE TABLE pyemployee5(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20),
+    salary DECIMAL(10,2)
+);
+
+Explanation:
+Creates an auto-increment primary key.
+
+
+INSERT INTO pyemployee5(name,salary)
+VALUES("Anil",99999);
+
+INSERT INTO pyemployee5(name,salary)
+VALUES("Abhi",99889);
+
+INSERT INTO pyemployee5(name,salary)
+VALUES("Harsh",99889);
+
+
+SELECT * FROM pyemployee5;
+
+Output:
+
++----+-------+----------+
+| id | name  | salary   |
++----+-------+----------+
+| 1  | Anil  | 99999.00 |
+| 2  | Abhi  | 99889.00 |
+| 3  | Harsh | 99889.00 |
++----+-------+----------+
+
+
+==================================================
+6. AUTO_INCREMENT START VALUE
+==================================================
+
+Explanation:
+Sets the starting value of AUTO_INCREMENT.
+
+
+CREATE TABLE pyemployee7(
+    eid INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20)
+) AUTO_INCREMENT=100;
+
+
+INSERT INTO pyemployee7(name)
+VALUES("Anil");
+
+INSERT INTO pyemployee7(name)
+VALUES("Abhi");
+
+INSERT INTO pyemployee7(name)
+VALUES("Harsh");
+
+INSERT INTO pyemployee7(name)
+VALUES("Bhuma");
+
+
+SELECT * FROM pyemployee7;
+
+Output:
+
++-----+-------+
+| eid | name  |
++-----+-------+
+| 100 | Anil  |
+| 101 | Abhi  |
+| 102 | Harsh |
+| 103 | Bhuma |
++-----+-------+
+
+
+==================================================
+7. AUTO_INCREMENT WITH MANUAL VALUE
+==================================================
+
+CREATE TABLE pyemployee8(
+    eid INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20)
+);
+
+INSERT INTO pyemployee8(name)
+VALUES('Katappa');
+
+INSERT INTO pyemployee8
+VALUES(10,'Bahubali');
+
+INSERT INTO pyemployee8(name)
+VALUES('Rajmata');
+
+
+SELECT * FROM pyemployee8;
+
+Output:
+
++-----+----------+
+| eid | name     |
++-----+----------+
+| 1   | Katappa  |
+| 10  | Bahubali |
+| 11  | Rajmata  |
++-----+----------+
+
+
+==================================================
+8. AUTO_INCREMENT WITH NULL
+==================================================
+
+Explanation:
+NULL allows AUTO_INCREMENT to generate the ID.
+
+
+CREATE TABLE employee5(
+    sid INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20),
+    age INT
+);
+
+
+INSERT INTO employee5(name,age)
+VALUES('Anil',22);
+
+INSERT INTO employee5
+VALUES(NULL,'Abhi',22);
+
+
+SELECT * FROM employee5;
+
+Output:
+
++-----+------+------+
+| sid | name | age  |
++-----+------+------+
+| 1   | Anil | 22   |
+| 2   | Abhi | 22   |
++-----+------+------+
+
+
+
+==================================================
+9. SQL MODE
+==================================================
+
+Query:
+
+SELECT @@sql_mode;
+
+Explanation:
+Shows the current SQL mode.
+
+
+Output:
+
+ONLY_FULL_GROUP_BY,
+STRICT_TRANS_TABLES,
+NO_ZERO_IN_DATE,
+NO_ZERO_DATE,
+ERROR_FOR_DIVISION_BY_ZERO,
+NO_ENGINE_SUBSTITUTION
+
+
+==================================================
+10. SESSION SQL MODE
+==================================================
+
+Query:
+
+SELECT @@SESSION.sql_mode;
+
+Explanation:
+Shows the SQL mode for the current session.
+
+
+==================================================
+QUICK REVISION
+==================================================
+
+PRIMARY KEY
+→ Unique and NOT NULL.
+
+COMPOSITE KEY
+→ Primary key using multiple columns.
+
+AUTO_INCREMENT
+→ Automatically generates numbers.
+
+AUTO_INCREMENT=100
+→ Starts numbering from 100.
+
+@@sql_mode
+→ Shows current SQL mode.
+
+@@SESSION.sql_mode
+→ Shows session SQL mode.
