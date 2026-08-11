@@ -1,0 +1,89 @@
+                                    <----------- 11-08-2026  ------->
+
+
+### COMPOSITE PRIMARY KEY
+Sometimes one column is not sufficient means neither column is unique in that case we create COMPOSITE KEY.
+
+##syntax
+```sql
+create table pycustomer_product(cid int,pid int,quantity int,primary key(cid,pid));
+```
+
+
+### AUTO INCREMENT PROPERTY
+It is a MySQL attribute used with numeric columns to automatically generate a unique number whenever a new a record is inserted into a table.
+It is most commonly used with the PRIMARY KEY so that the user does not have to enter the id manually.
+Whenever a new EMPLOYEE joins we must manually decide the next id.
+PROBLEMS:
+    We may forget the ID.
+    Duplicate IDs can be inserted accidentally.
+To solve the above AUTO INCREMENT is used.
+
+##syntax
+```sql
+create table pyemployee5(id int auto_increment primary key,name varchar(20),salary decimal(10,2));
+```
+
+##Rules:
+i) Only one auto increment column per table is allowed.
+```sql
+mysql> create table pyemployee6(eid int auto_increment ,did int auto_increment );
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+```
+ii) Default Starting value : By Default auto increment starts from 1, by default it increase by one.
+
+##Changing starting value:
+We can change starting value of auto increment.
+```sql
+create table pyemployee7(eid int auto_increment primary key,name varchar(20)) auto_increment=100;
+```
+
+##Manually inserting auto increment value:
+If we manually insert that is greater than auto increment value than MySQL updates next auto increment value from there.
+```sql
+create table pyemployee8(eid int auto_increment primary key,name varchar(20));
+insert into pyemployee8(name) values('Katappa');
+insert into pyemployee8 values(10,'Bahubali');
+insert into pyemployee8(name) values('Rajmata');
+```
+
+
+##Auto increment with null value:
+If we explicitly insert null value into an auto increment column , MySQL treats it as we did not provide any value and automatically generates the next sequence number.
+
+```sql
+ create table employee5(sid int auto_increment primary key,name varchar(20),age int);
+ insert into employee5(name,age) values ('Anil',22);
+ insert into employee5 values (null,'Abhi',22);
+ select * from employee5;
+
++-----+------+------+
+| sid | name | age  |
++-----+------+------+
+|   1 | Anil |   22 |
+|   2 | Abhi |   22 |
++-----+------+------+
+```
+
+##Auto increment with 0 :
+If we insert 0 into an auto increment column then the result depends on MySQL SQL Mode :
+case 1: 
+Default Behaiviur : In most MySQL installation if the MySQL Mode does not include NO_AUTO_VALUE_ON_ZERO then inserting 0 into an auto increment column behaves exactly like inserting null.
+It means MySQL automatically generates the next available value.
+
+case 2:
+When NO_AUTO_VALUE_ON_ZERO mode is enabled then zero is treated an normal value. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
