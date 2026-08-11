@@ -1,12 +1,12 @@
 ==================================================
-MYSQL PRACTICAL NOTES
+# MYSQL PRACTICAL NOTES
 DATE: 11 AUGUST 2026
 ==================================================
+# 
 
-
-1. PRIMARY KEY
+### 1. PRIMARY KEY
 ==================================================
-
+# 
 Explanation:
 Uniquely identifies each record.
 
@@ -33,15 +33,18 @@ DESC pyemployee3;
 Explanation:
 Shows the primary key in table structure.
 
-Output:
+**Output:**
+```text
 
 empid   int          NO   PRI
 name    varchar(20)  YES
 salary  decimal      YES
 
+```
+
 
 ==================================================
-2. PRIMARY KEY RULE
+# 2. PRIMARY KEY RULE
 ==================================================
 
 PRIMARY KEY
@@ -64,7 +67,8 @@ Inserts a product record.
 
 SELECT * FROM product;
 
-Output:
+**Output:**
+```text
 
 +-----+----------+-------------+----------+
 | pid | pname    | pcategory   | pprice   |
@@ -72,9 +76,11 @@ Output:
 | 1   | Laptop   | Electronics | 10000.00 |
 +-----+----------+-------------+----------+
 
+```
+
 
 ==================================================
-3. COMPOSITE PRIMARY KEY
+# 3. COMPOSITE PRIMARY KEY
 ==================================================
 
 Explanation:
@@ -104,7 +110,8 @@ Both records have different key combinations.
 
 SELECT * FROM pycustomer_product;
 
-Output:
+**Output:**
+```text
 
 +-----+-----+----------+
 | cid | pid | quantity |
@@ -113,9 +120,11 @@ Output:
 | 102 | 501 | 4        |
 +-----+-----+----------+
 
+```
+
 
 ==================================================
-4. COMPOSITE KEY EXAMPLE
+# 4. COMPOSITE KEY EXAMPLE
 ==================================================
 
 CREATE TABLE pystudent01(
@@ -144,7 +153,8 @@ VALUES(102,502,85);
 
 SELECT * FROM pystudent01;
 
-Output:
+**Output:**
+```text
 
 +-----+-----+-------+
 | sid | pid | marks |
@@ -155,9 +165,11 @@ Output:
 | 102 | 502 | 85    |
 +-----+-----+-------+
 
+```
+
 
 ==================================================
-5. AUTO_INCREMENT
+# 5. AUTO_INCREMENT
 ==================================================
 
 Explanation:
@@ -186,7 +198,8 @@ VALUES("Harsh",99889);
 
 SELECT * FROM pyemployee5;
 
-Output:
+**Output:**
+```text
 
 +----+-------+----------+
 | id | name  | salary   |
@@ -196,9 +209,11 @@ Output:
 | 3  | Harsh | 99889.00 |
 +----+-------+----------+
 
+```
+
 
 ==================================================
-6. AUTO_INCREMENT START VALUE
+# 6. AUTO_INCREMENT START VALUE
 ==================================================
 
 Explanation:
@@ -226,7 +241,8 @@ VALUES("Bhuma");
 
 SELECT * FROM pyemployee7;
 
-Output:
+**Output:**
+```text
 
 +-----+-------+
 | eid | name  |
@@ -237,9 +253,11 @@ Output:
 | 103 | Bhuma |
 +-----+-------+
 
+```
+
 
 ==================================================
-7. AUTO_INCREMENT WITH MANUAL VALUE
+# 7. AUTO_INCREMENT WITH MANUAL VALUE
 ==================================================
 
 CREATE TABLE pyemployee8(
@@ -259,7 +277,8 @@ VALUES('Rajmata');
 
 SELECT * FROM pyemployee8;
 
-Output:
+**Output:**
+```text
 
 +-----+----------+
 | eid | name     |
@@ -269,9 +288,11 @@ Output:
 | 11  | Rajmata  |
 +-----+----------+
 
+```
+
 
 ==================================================
-8. AUTO_INCREMENT WITH NULL
+# 8. AUTO_INCREMENT WITH NULL
 ==================================================
 
 Explanation:
@@ -294,7 +315,8 @@ VALUES(NULL,'Abhi',22);
 
 SELECT * FROM employee5;
 
-Output:
+**Output:**
+```text
 
 +-----+------+------+
 | sid | name | age  |
@@ -304,20 +326,25 @@ Output:
 +-----+------+------+
 
 
+```
+
 
 ==================================================
-9. SQL MODE
+# 9. SQL MODE
 ==================================================
 
-Query:
+**Query:**
+```sql
 
 SELECT @@sql_mode;
+```
 
-Explanation:
+**Explanation:**
 Shows the current SQL mode.
 
 
-Output:
+**Output:**
+```text
 
 ONLY_FULL_GROUP_BY,
 STRICT_TRANS_TABLES,
@@ -326,21 +353,25 @@ NO_ZERO_DATE,
 ERROR_FOR_DIVISION_BY_ZERO,
 NO_ENGINE_SUBSTITUTION
 
+```
+
 
 ==================================================
-10. SESSION SQL MODE
+# 10. SESSION SQL MODE
 ==================================================
 
-Query:
+**Query:**
+```sql
 
 SELECT @@SESSION.sql_mode;
+```
 
-Explanation:
+**Explanation:**
 Shows the SQL mode for the current session.
 
 
 ==================================================
-QUICK REVISION
+# QUICK REVISION
 ==================================================
 
 PRIMARY KEY
