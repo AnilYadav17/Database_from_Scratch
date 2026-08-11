@@ -15,13 +15,21 @@ Whether you're taking your first steps into data management or brushing up on st
 
 ### 📚 Theory
 Dive deep into core concepts and terminology:
-- **[Theory 01](THEORY/Theory01)**: DBMS vs. RDBMS, intro to SQL and MySQL, Database Objects, and Data Definition Language (DDL).
-- **[Theory 02](THEORY/Theory2)**: Deep dive into DML (Data Manipulation), DQL (Data Query), TCL (Transaction Control), and DCL (Data Control Language).
+- **[Theory 01](THEORY/Theory01.md)**: DBMS vs. RDBMS, intro to SQL and MySQL, Database Objects, and Data Definition Language (DDL).
+- **[Theory 02](THEORY/Theory02.md)**: Deep dive into DML (Data Manipulation), DQL (Data Query), TCL (Transaction Control), and DCL (Data Control Language).
+- **[Theory 03](THEORY/Theory03.md)**: CREATE TABLE AS SELECT (`CTAS`), `INSERT` statements, and introduction to Primary Keys.
+- **[Theory 04](THEORY/Theory04.md)**: Composite Primary Keys, `AUTO_INCREMENT` property, and default starting values.
 
 ### 💻 Practical
 Get your hands dirty with real SQL queries and commands:
-- **[Practical 01](PRACTICAL/Practical01)**: MySQL basic commands — `SELECT`, `VERSION()`, `NOW()`, user info, math functions, and showing databases.
-- **[Practical 02](PRACTICAL/Practical02)**: Creating databases and tables, dropping schemas, inserting data, Primary Keys, and cloning tables with `CTAS` (Create Table As Select).
+- **[Practical 01](PRACTICAL/Practical01.md)**: MySQL basic commands — `SELECT`, `VERSION()`, `NOW()`, user info, math functions, and showing databases.
+- **[Practical 02](PRACTICAL/Practical02.md)**: Creating databases and tables, dropping schemas, inserting data, Primary Keys, and cloning tables with `CTAS` (Create Table As Select).
+- **[Practical 03](PRACTICAL/Practical03.md)**: Deep dive into creating Primary Keys during table creation and using `ALTER`.
+- **[Practical 04](PRACTICAL/Practical04.md)**: Working with Composite Primary Keys, `AUTO_INCREMENT`, starting values, and `SQL_MODE`.
+
+### 📝 Assignments
+Test your knowledge with hands-on practice problems:
+- **[Assignments & Solutions](ASSIGNMENTS)**: Practical assignment questions with their corresponding answers and solution screenshots.
 
 ## 🚀 Getting Started
 
