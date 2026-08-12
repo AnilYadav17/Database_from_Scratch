@@ -117,4 +117,4 @@ The `TRUNCATE` command **does not** fire any `DELETE` triggers associated with t
 
 - `TRUNCATE` vs `DELETE`
 - `TRUNCATE` vs `DROP`
-- `TRUNCATE` and Foreign Keys
+- `TRUNCATE` and `Foreign Keys`
