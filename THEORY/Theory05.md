@@ -36,3 +36,12 @@ It is a MySQL command used to display the exact SQL statement that was used to c
 ```sql 
  show  create table student;
 ```
+
+
+##### TRUNCATE 
+It is used to remove all rows from a table at once.
+
+```sql
+ truncate table tablename;
+```
+![alt text](image.png)
