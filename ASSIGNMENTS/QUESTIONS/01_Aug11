@@ -1,0 +1,96 @@
+ASSIGNMENT 1 – STUDENT MANAGEMENT SYSTEM
+
+Q1. Create a database named school_db and use the database.
+
+Q2. Create a table named student with:
+- student_id – INT, PRIMARY KEY, AUTO_INCREMENT
+- student_name – VARCHAR(50)
+- age – INT
+- course – VARCHAR(50)
+- city – VARCHAR(50)
+- marks – INT
+
+Q3. Insert the following 10 student records:
+
+student_name | age | course | city | marks
+Rahul Sharma | 21 | Python | Indore | 85
+Priya Verma | 22 | Java | Bhopal | 78
+Amit Singh | 20 | Python | Indore | 92
+Neha Patel | 23 | Java | Pune | 81
+Rohit Mehta | 21 | Python | Mumbai | 88
+Sneha Jain | 22 | Java | Indore | 76
+Karan Gupta | 20 | Python | Delhi | 95
+Pooja Mishra | 23 | Java | Bhopal | 84
+Ankit Tiwari | 21 | Python | Pune | 79
+Riya Kapoor | 22 | Java | Mumbai | 91
+
+Q4. Display the structure of the student table using DESC.
+
+Q5. Display all records from the student table.
+
+
+ASSIGNMENT 2 – EMPLOYEE MANAGEMENT SYSTEM
+
+Q1. Create a database named company_db and use the database.
+
+Q2. Create a table named employee with:
+- employee_id – INT, PRIMARY KEY, AUTO_INCREMENT
+- employee_name – VARCHAR(50)
+- age – INT
+- department – VARCHAR(50)
+- designation – VARCHAR(50)
+- salary – INT
+
+Q3. Insert the following 10 employee records:
+
+employee_name | age | department | designation | salary
+Rahul Sharma | 28 | IT | Developer | 55000
+Priya Verma | 26 | HR | Executive | 42000
+Amit Singh | 30 | IT | Team Lead | 75000
+Neha Patel | 27 | Finance | Accountant | 48000
+Rohit Mehta | 32 | IT | Manager | 90000
+Sneha Jain | 25 | Marketing | Executive | 40000
+Karan Gupta | 29 | IT | Developer | 60000
+Pooja Mishra | 31 | HR | Manager | 80000
+Ankit Tiwari | 28 | Finance | Analyst | 65000
+Riya Kapoor | 27 | Marketing | Manager | 70000
+
+Q4. Display the structure of the employee table using DESC.
+
+Q5. Display all records from the employee table.
+
+
+ASSIGNMENT 3 – PRODUCT MANAGEMENT SYSTEM
+
+Q1. Create a database named shop_db and use the database.
+
+Q2. Create a table named product with:
+- product_id – INT, PRIMARY KEY, AUTO_INCREMENT
+- product_name – VARCHAR(50)
+- category – VARCHAR(50)
+- brand – VARCHAR(50)
+- price – INT
+- quantity – INT
+
+Q3. Insert the following 10 product records:
+
+product_name | category | brand | price | quantity
+Laptop | Electronics | Dell | 55000 | 10
+Smartphone | Electronics | Samsung | 25000 | 15
+Keyboard | Accessories | Logitech | 1500 | 25
+Mouse | Accessories | HP | 800 | 30
+Monitor | Electronics | LG | 18000 | 12
+Headphones | Accessories | Sony | 3000 | 20
+Printer | Electronics | Canon | 12000 | 8
+Tablet | Electronics | Lenovo | 22000 | 14
+Webcam | Accessories | Logitech | 2500 | 18
+Speaker | Accessories | JBL | 4500 | 16
+
+Q4. Display the structure of the product table using DESC.
+
+Q5. Display all records from the product table.
+
+
+
+
+
