@@ -1,7 +1,8 @@
 ### auto_increment gap :
 There are several reasons why gaps can occur.
+
 i) If we perform DELETE operation.
-=========== Table STUDENT =============
+## =========== Table STUDENT =============
 1. Anil
 2. Bhumi
 3. Harsh
@@ -45,3 +46,7 @@ It is used to remove all rows from a table at once.
  truncate table tablename;
 ```
 ![alt text](image.png)
+
+## WHY TRUNCATE IS DDL ?
+TRUNCATE Is considered as DDL because it is treated as a Table Level Structurel Operation not as a row by row DML Operation.
+It operates at the table level and deallocates/resets the tables data storage rather than processing indidual row like DELETE.
