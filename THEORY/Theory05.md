@@ -2,7 +2,7 @@
 There are several reasons why gaps can occur.
 
 i) If we perform DELETE operation.
-## =========== Table STUDENT =============
+=========== Table STUDENT =============
 1. Anil
 2. Bhumi
 3. Harsh
@@ -39,7 +39,7 @@ It is a MySQL command used to display the exact SQL statement that was used to c
 ```
 
 
-##### TRUNCATE 
+## TRUNCATE 
 It is used to remove all rows from a table at once.
 
 ```sql
@@ -47,6 +47,12 @@ It is used to remove all rows from a table at once.
 ```
 ![alt text](image.png)
 
-## WHY TRUNCATE IS DDL ?
+### WHY TRUNCATE IS DDL ?
 TRUNCATE Is considered as DDL because it is treated as a Table Level Structurel Operation not as a row by row DML Operation.
 It operates at the table level and deallocates/resets the tables data storage rather than processing indidual row like DELETE.
+![alt text](image-1.png)
+
+TRUNCATE does not accept WHERE CLAUSE;
+TRUNCATE does not delete table structure;
+TRUNCATE command resets auto_increment value; (In case of DELETE does not normally reset auto increment)
+![alt text](image-2.png)
