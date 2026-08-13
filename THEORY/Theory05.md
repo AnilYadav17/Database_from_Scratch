@@ -81,7 +81,7 @@ The `TRUNCATE` command is used to quickly remove all rows from a table at once.
 TRUNCATE TABLE tablename;
 ```
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 ### Why TRUNCATE is considered DDL
 
