@@ -89,7 +89,7 @@ TRUNCATE TABLE tablename;
 
 - It operates at the **table level** and deallocates or resets the table's data storage, rather than processing and logging individual row deletions.
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 - It **does not** accept a `WHERE` clause.
 - It **does not** delete the table's structure.
 - It **resets** the `AUTO_INCREMENT` value (unlike `DELETE`, which normally preserves the increment sequence).
