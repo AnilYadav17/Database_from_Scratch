@@ -94,7 +94,7 @@ TRUNCATE TABLE tablename;
 - It **does not** delete the table's structure.
 - It **resets** the `AUTO_INCREMENT` value (unlike `DELETE`, which normally preserves the increment sequence).
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 ### When to use TRUNCATE
 
