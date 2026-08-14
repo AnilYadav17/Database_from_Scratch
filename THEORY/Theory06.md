@@ -45,7 +45,60 @@ We can use ALTER command <br>
    Add and DROP Foreign key <br>
 ALTER TABLE is one of the mechanism used to evolve the database schema. <br>
 
-#### SYNTAX
+#### SYNTAX:
 ```sql
+>syntax
 ALTER TABLE talbe_name alteroperation;
+```
+<br>
+
+#### ADD  COLUMN:
+```sql
+ALTER TABLE talbe_name ADD COLUMN column_name datatype;
+```
+
+```sql
+ALTER TABLE azadi ADD COLUMN email varchar(20);
+```
+Existing rows will have null value in the newly added **column** when no applicable default is suplied.
+
+
+#### ADD  MULTIPLE COLUMNS:
+```sql
+ALTER TABLE azadi ADD COLUMN mobile varchar(20), ADD COLUMN course varchar(30), ADD COLUMN salary decimal(10,2);
+```
+
+#### ADD  COLUMN AT SPECIFIC POSITION:
+By default a new column is added at the end , but MySQL allow positioning.
+```sql
+ ALTER TABLE azadi ADD COLUMN gender varchar(10) first;
+```
+```sql
+ALTER TABLE azadi ADD COLUMN dob date after name;
+```
+Column order has no bussiness significance 
+
+<br>
+
+#### DROP COLUMN
+Its is used to permanently remove a column from the talbe
+```sql
+ALTER TABLE azadi drop column dob;
+```
+
+#### DROP MULTIPLE COLUMN
+```sql
+ALTER TABLE azadi drop column mobile,drop column course;
+```
+<br>
+
+### MODIFY COLUMN
+It is used to change the definition of an existing column.
+```sql
+>syntax
+alter table table_name modify column column_name newdefinition;
+```
+```sql
+alter table azadi modify column age smallint;
+alter table azadi modify column name varchar(30);
 ```
