@@ -162,6 +162,7 @@ alter table azadstudent drop primary key;
 ```
 
 If key with auto_increment exists: 
+<br>
 ![alt text](images/image4.png)
 <br>
 If the PRIMARY KEY column is also auto_increment then we can not directly remove the PRIMARY KEY because MYSQL requires an auto_increment column to be indexed.
