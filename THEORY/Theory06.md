@@ -1,4 +1,4 @@
-### DROP
+## DROP
 It is DDL comma
 When we use drop the object itself deleted along with the data stored insode it.
 
@@ -29,7 +29,8 @@ DROP is used to remove the entire table.<br>
 -> Also does not support WHERE because it remove the entire table.<br>
 ->  Its a DDL command so can not be Rolled Back.<br>
 
-### ALTER 
+## ALTER 
+
 Its a DDL command used to modify the structure of an existing DataBase object.<br>
 It allow us to change an existing table without droping and recreating the entire table.<br>
 We can use ALTER command <br>
@@ -52,7 +53,7 @@ ALTER TABLE talbe_name alteroperation;
 ```
 <br>
 
-#### ADD  COLUMN:
+### ADD  COLUMN:
 ```sql
 ALTER TABLE talbe_name ADD COLUMN column_name datatype;
 ```
@@ -80,7 +81,7 @@ Column order has no bussiness significance
 
 <br>
 
-#### DROP COLUMN
+### DROP COLUMN
 Its is used to permanently remove a column from the talbe
 ```sql
 ALTER TABLE azadi drop column dob;
@@ -102,3 +103,46 @@ alter table table_name modify column column_name newdefinition;
 alter table azadi modify column age smallint;
 alter table azadi modify column name varchar(30);
 ```
+
+#### MODIFY CONSTRAINTS
+MODIFY can change different aspect of a column definition.
+```sql
+alter table azadi modify column name varchar(30) not null;
+```
+```sql
+alter table azadi modify column salary decimal(10,2) default 1000;
+```
+<br>
+
+### CHANGE COLUMN
+Change column can be uesd to rename a column or change its definition.
+```sql
+>syntax
+alter table table_name change column old_name new_name datatype;
+```
+
+```sql
+alter table azadi change column name full_name varchar(30);
+```
+
+```sql
+alter table azadi  rename column name to full_name ;
+```
+
+#### RENAME TABLE
+```sql
+->Syntax
+alter table oldtablename rename to newtablename;
+```
+```sql
+alter table azadi rename to hamariazadi;
+```
+### RENAME TABLE
+```sql
+RENAME table hamariazadi to sabkiazadi;
+```
+
+### CHANGE vs MODIFY
+MODIFY is used when we want to change the definition but keep the same column name.<br>
+CHANGE is used when we want to rename the column and we want to redefine it.<br>
+
