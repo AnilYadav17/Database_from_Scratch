@@ -172,8 +172,6 @@ FOREIGN KEY using ALTER<br>
 CHECK CONSTRAINTS using ALTER<br>
 DEFAULT using ALTER<br>
 
-H.W.
-Table with 5 data (id ,name, salary ) after
-then Auto and primari using alter  
-then inserting the id without then what will be id 
-then the ID will what????
+
+>H.W.
+Create a table with 5 records containing id, name, and salary. Then add PRIMARY KEY and AUTO_INCREMENT using ALTER TABLE. After that, insert a new record without specifying the id. What ID will MySQL automatically assign?
