@@ -145,4 +145,35 @@ RENAME table hamariazadi to sabkiazadi;
 ### CHANGE vs MODIFY
 MODIFY is used when we want to change the definition but keep the same column name.<br>
 CHANGE is used when we want to rename the column and we want to redefine it.<br>
+<br>
 
+#### ADD PRIMARY KEY
+```sql
+alter table azadstudent add primary key(id);
+```
+
+#### ADD COMPOSITE KEY
+```sql
+```
+
+#### REMOVE PRIMARY KEY
+```sql
+alter table azadstudent drop primary key;
+```
+
+If key with auto_increment exists: 
+![alt text](images/image4.png)
+If the PRIMARY KEY column is also auto_increment then we can not directly remove the PRIMARY KEY because MYSQL requires an auto_increment column to be indexed.
+
+
+> ####  TOPICS WILL BE COVERED LATER
+ADD and DROP UNIQUE CONSTRAINTS Using ALTER<br>
+FOREIGN KEY using ALTER<br>
+CHECK CONSTRAINTS using ALTER<br>
+DEFAULT using ALTER<br>
+
+H.W.
+Table with 5 data (id ,name, salary ) after
+then Auto and primari using alter  
+then inserting the id without then what will be id 
+then the ID will what????

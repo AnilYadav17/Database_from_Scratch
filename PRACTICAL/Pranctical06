@@ -1,0 +1,379 @@
+==================================================
+MYSQL PRACTICAL 06
+==================================================
+
+## 1. DROP TABLE
+
+DROP is a DDL command used to permanently remove a table
+along with its data and structure.
+
+
+DROP TABLE copy2;
+
+
+Explanation:
+The table and its data are completely deleted.
+
+
+==================================================
+2. DROP MULTIPLE TABLES
+==================================================
+
+DROP TABLE pyemployee1, pyemployee3, pyemployee5;
+
+
+Explanation:
+Deletes multiple tables at once.
+
+
+==================================================
+3. DROP TABLE IF EXISTS
+==================================================
+
+DROP TABLE IF EXISTS pyemployee1, pyemployee3, pyemployee5;
+
+
+Explanation:
+Drops the tables only if they exist.
+
+
+==================================================
+4. DROP vs TRUNCATE
+==================================================
+
+TRUNCATE
+→ Removes all rows.
+→ Table structure remains.
+→ Resets AUTO_INCREMENT.
+→ WHERE is not allowed.
+
+DROP
+→ Removes the complete table.
+→ Data and structure are deleted.
+→ AUTO_INCREMENT is also removed.
+→ WHERE is not allowed.
+
+
+==================================================
+5. ALTER TABLE
+==================================================
+
+ALTER is a DDL command used to modify the structure
+of an existing table.
+
+
+Syntax:
+
+ALTER TABLE table_name operation;
+
+
+==================================================
+6. ADD COLUMN
+==================================================
+
+ALTER TABLE azadi
+ADD COLUMN email VARCHAR(20);
+
+
+Explanation:
+Adds a new column at the end.
+
+
+==================================================
+7. ADD MULTIPLE COLUMNS
+==================================================
+
+ALTER TABLE azadi
+ADD COLUMN mobile VARCHAR(20),
+ADD COLUMN course VARCHAR(30),
+ADD COLUMN salary DECIMAL(10,2);
+
+
+Explanation:
+Adds multiple columns at once.
+
+
+==================================================
+8. ADD COLUMN FIRST
+==================================================
+
+ALTER TABLE azadi
+ADD COLUMN gender VARCHAR(10) FIRST;
+
+
+Explanation:
+Adds the column at the beginning.
+
+
+==================================================
+9. ADD COLUMN AFTER
+==================================================
+
+ALTER TABLE azadi
+ADD COLUMN dob DATE AFTER name;
+
+
+Explanation:
+Adds the column after the specified column.
+
+
+==================================================
+10. DROP COLUMN
+==================================================
+
+ALTER TABLE azadi
+DROP COLUMN dob;
+
+
+Explanation:
+Permanently removes a column.
+
+
+==================================================
+11. DROP MULTIPLE COLUMNS
+==================================================
+
+ALTER TABLE azadi
+DROP COLUMN mobile,
+DROP COLUMN course;
+
+
+Explanation:
+Removes multiple columns.
+
+
+==================================================
+12. MODIFY COLUMN
+==================================================
+
+ALTER TABLE azadi
+MODIFY COLUMN age SMALLINT;
+
+
+Explanation:
+Changes the column definition.
+
+
+Example:
+
+ALTER TABLE azadi
+MODIFY COLUMN name VARCHAR(30);
+
+
+==================================================
+13. MODIFY WITH CONSTRAINT
+==================================================
+
+ALTER TABLE azadi
+MODIFY COLUMN name VARCHAR(30) NOT NULL;
+
+
+Explanation:
+Changes datatype and constraint.
+
+
+==================================================
+14. MODIFY DEFAULT VALUE
+==================================================
+
+ALTER TABLE azadi
+MODIFY COLUMN salary DECIMAL(10,2) DEFAULT 1000;
+
+
+Explanation:
+Sets a default value for the column.
+
+
+==================================================
+15. CHANGE COLUMN
+==================================================
+
+ALTER TABLE azadi
+CHANGE COLUMN name full_name VARCHAR(30);
+
+
+Explanation:
+Renames a column and can also change its definition.
+
+
+==================================================
+16. RENAME COLUMN
+==================================================
+
+ALTER TABLE azadi
+RENAME COLUMN name TO full_name;
+
+
+Explanation:
+Renames only the column.
+
+
+==================================================
+17. RENAME TABLE USING ALTER
+==================================================
+
+ALTER TABLE azadi
+RENAME TO hamariazadi;
+
+
+Explanation:
+Renames the table.
+
+
+==================================================
+18. RENAME TABLE
+==================================================
+
+RENAME TABLE hamariazadi TO sabkiazadi;
+
+
+Explanation:
+Renames the table.
+
+
+==================================================
+19. MODIFY vs CHANGE
+==================================================
+
+MODIFY
+→ Changes column definition.
+→ Column name remains same.
+
+CHANGE
+→ Can rename the column.
+→ Can also change its definition.
+
+
+==================================================
+20. ADD PRIMARY KEY
+==================================================
+
+ALTER TABLE azadstudent
+ADD PRIMARY KEY(id);
+
+
+Explanation:
+Adds a primary key to an existing table.
+
+
+==================================================
+21. DROP PRIMARY KEY
+==================================================
+
+ALTER TABLE azadstudent
+DROP PRIMARY KEY;
+
+
+Explanation:
+Removes the primary key.
+
+
+==================================================
+22. IMPORTANT: AUTO_INCREMENT + PRIMARY KEY
+==================================================
+
+If a column has AUTO_INCREMENT, it must have an index.
+
+Therefore, an AUTO_INCREMENT column cannot simply lose
+its only index.
+
+
+==================================================
+23. HOMEWORK PRACTICAL
+==================================================
+
+Create a table with:
+
+id
+name
+salary
+
+
+Insert 5 records.
+
+Then add PRIMARY KEY and AUTO_INCREMENT using ALTER.
+
+
+Example:
+
+CREATE TABLE pyemp(
+    id INT,
+    name VARCHAR(20),
+    salary DECIMAL(10,2)
+);
+
+
+Insert 5 records:
+
+INSERT INTO pyemp
+VALUES
+(1,"Anil",99999),
+(2,"Abhi",99889),
+(3,"Harsh",99889),
+(4,"Bhumii",99777),
+(5,"Kuldeep",99666);
+
+
+Add PRIMARY KEY:
+
+ALTER TABLE pyemp
+ADD PRIMARY KEY(id);
+
+
+Add AUTO_INCREMENT:
+
+ALTER TABLE pyemp
+MODIFY COLUMN id INT AUTO_INCREMENT;
+
+
+Now insert without ID:
+
+INSERT INTO pyemp(name,salary)
+VALUES("Raj",99000);
+
+
+The ID will be:
+
+6
+
+
+Because the next AUTO_INCREMENT value is generated
+automatically.
+
+
+==================================================
+QUICK REVISION
+==================================================
+
+DROP
+→ Deletes table completely.
+
+TRUNCATE
+→ Deletes all rows.
+
+ALTER
+→ Changes table structure.
+
+ADD
+→ Adds column.
+
+DROP COLUMN
+→ Removes column.
+
+MODIFY
+→ Changes column definition.
+
+CHANGE
+→ Renames + changes definition.
+
+RENAME
+→ Changes table/column name.
+
+ADD PRIMARY KEY
+→ Adds primary key.
+
+DROP PRIMARY KEY
+→ Removes primary key.
+
+AUTO_INCREMENT
+→ Automatically generates the next ID.
