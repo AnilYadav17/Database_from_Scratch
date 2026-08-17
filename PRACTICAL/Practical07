@@ -1,0 +1,179 @@
+==================================================
+MYSQL PRACTICAL 07
+==================================================
+
+## 1. NUMERIC TYPES (TINYINT UNSIGNED)
+
+Numeric data types are used to store numbers. By default, they are signed (positive and negative). UNSIGNED allows only positive values and increases the maximum limit.
+
+
+CREATE TABLE demo1(
+    id TINYINT UNSIGNED
+);
+
+DESC demo1;
+
+
+Output:
+
++-------+------------------+------+-----+---------+-------+
+| Field | Type             | Null | Key | Default | Extra |
++-------+------------------+------+-----+---------+-------+
+| id    | tinyint unsigned | YES  |     | NULL    |       |
++-------+------------------+------+-----+---------+-------+
+
+Explanation:
+The table is created with an unsigned tinyint which only takes positive values from 0 to 255.
+
+
+==================================================
+2. NUMERIC TYPES (DECIMAL)
+==================================================
+
+Used for exact decimal values (e.g., currency, salary).
+
+
+CREATE TABLE employee_salary(
+    emp_id INT,
+    salary DECIMAL(10,2)
+);
+
+
+Explanation:
+DECIMAL(10,2) means the number can have up to 10 digits in total, with 2 of those digits coming after the decimal point.
+
+
+==================================================
+3. STRING TYPES (TEXT)
+==================================================
+
+String types are used to store text. TEXT is used for larger strings where VARCHAR isn't sufficient.
+
+
+CREATE TABLE demo2(
+    id INT, 
+    description TEXT
+);
+
+DESC demo2;
+
+
+Output:
+
++-------------+------+------+-----+---------+-------+
+| Field       | Type | Null | Key | Default | Extra |
++-------------+------+------+-----+---------+-------+
+| id          | int  | YES  |     | NULL    |       |
+| description | text | YES  |     | NULL    |       |
++-------------+------+------+-----+---------+-------+
+
+Explanation:
+Creates a table with a standard TEXT column which can store up to 65,535 bytes.
+
+
+==================================================
+4. STRING TYPES (ENUM)
+==================================================
+
+ENUM allows you to restrict a column's value to one of a predefined list of string values.
+
+
+CREATE TABLE demo3(
+    id INT, 
+    status ENUM('active', 'inactive', 'onleave')
+);
+
+
+INSERT INTO demo3 VALUES(101, 'active');
+INSERT INTO demo3 VALUES(102, 'onleave');
+
+SELECT * FROM demo3;
+
+
+Output:
+
++------+---------+
+| id   | status  |
++------+---------+
+|  101 | active  |
+|  102 | onleave |
++------+---------+
+
+Explanation:
+Only predefined values ('active', 'inactive', 'onleave') are accepted.
+
+
+==================================================
+5. ENUM ERROR HANDLING
+==================================================
+
+INSERT INTO demo3 VALUES(103, 'yes');
+
+
+Output:
+
+ERROR 1265 (01000): Data truncated for column 'status' at row 1
+
+Explanation:
+Since 'yes' is not in the ENUM list ('active', 'inactive', 'onleave'), MySQL throws an error.
+
+
+==================================================
+6. STRING TYPES (SET)
+==================================================
+
+SET allows you to select zero or multiple values from a predefined list.
+
+
+CREATE TABLE demo4(
+    id INT, 
+    name VARCHAR(100), 
+    status ENUM('leave', 'active'), 
+    skills SET('java', 'python', 'SQL', 'react')
+);
+
+
+INSERT INTO demo4 
+VALUES (101, 'kuldeep', 'active', 'python'), 
+       (102, 'dhruv', 'leave', 'java,python,SQL');
+
+SELECT * FROM demo4;
+
+
+Output:
+
++------+---------+--------+-----------------+
+| id   | name    | status | skills          |
++------+---------+--------+-----------------+
+|  101 | kuldeep | active | python          |
+|  102 | dhruv   | leave  | java,python,SQL |
++------+---------+--------+-----------------+
+
+Explanation:
+Unlike ENUM which only allows one value, SET allows combining multiple predefined values separated by commas.
+
+
+==================================================
+QUICK REVISION
+==================================================
+
+TINYINT UNSIGNED
+→ Number type that only accepts positive values (0 to 255).
+
+DECIMAL(M,D)
+→ Exact decimal type. M = total digits, D = digits after decimal.
+
+FLOAT / DOUBLE
+→ Approximate decimal types (FLOAT = lower precision, DOUBLE = higher precision).
+
+CHAR / VARCHAR
+→ String types (CHAR = fixed length, VARCHAR = variable length).
+
+TEXT
+→ Used for large string data.
+
+ENUM
+→ Allows inserting exactly one value from a predefined list.
+
+SET
+→ Allows inserting multiple values from a predefined list.
