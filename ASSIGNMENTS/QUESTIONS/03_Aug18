@@ -1,0 +1,337 @@
+==============================================================================================
+02 ASSIGNMENTS
+==============================================================================================
+
+Assignment 1 — Employee Management System
+Objective
+
+Create an Employee Management System database and design tables that cover the MySQL data types taught so far.
+
+Use all the following data types at least once.
+
+TINYINT, SMALLINT, MEDIUMINT, INT, BIGINT, DECIMAL, FLOAT, DOUBLE, CHAR, VARCHAR, TINYTEXT, TEXT, MEDIUMTEXT, LONGTEXT, ENUM,
+SET, DATE, TIME, DATETIME, TIMESTAMP, YEAR, BOOLEAN
+
+Also use:
+
+PRIMARY KEY
+AUTO_INCREMENT
+UNSIGNED
+DEFAULT CURRENT_TIMESTAMP
+ON UPDATE CURRENT_TIMESTAMP
+
+Part 1 — Create Database
+
+Create a database named:
+
+employee_management
+
+Select the database.
+
+Part 2 — Create employees Table
+
+Create a table named:
+
+employees
+
+Use the following columns:
+
+# Column Name Requirement
+
+1 employee_id Employee unique ID; PRIMARY KEY + AUTO_INCREMENT
+2 employee_code Fixed-length employee code
+3 employee_name Employee full name
+4 age Employee age; should not allow negative values
+5 number_of_children Number of children
+6 experience_months Total experience in months
+7 salary Employee annual salary with exact decimal precision
+8 performance_score Employee performance score with approximate decimal value
+9 productivity_score Higher-precision approximate decimal value
+10 department_id Department identification number
+11 employee_status Employment status from predefined values
+12 skills Employee can have multiple skills from predefined values
+13 gender Employee gender from predefined values
+14 date_of_birth Employee date of birth
+15 joining_date Date employee joined company
+16 login_time Daily office login time
+17 interview_datetime Date and time of employee interview
+18 birth_year Employee birth year
+19 is_active Whether employee is currently active
+20 short_note Very small text information
+21 employee_description Employee description
+22 training_history Larger training-related text
+23 employee_profile Very large employee information
+24 created_at Automatically store record creation date/time
+25 updated_at Automatically update when record is modified
+
+Important
+
+You have to decide the appropriate data type for every column.
+
+Do not blindly use VARCHAR everywhere.
+
+For example:
+
+"Employee can have multiple skills from a predefined list."
+
+You should decide which MySQL datatype is appropriate.
+
+Part 3 — Insert Data
+
+Insert at least 15 employees.
+
+Your data must satisfy the following requirements:
+
+Employee ID
+
+Do not manually provide employee_id.
+
+Let AUTO_INCREMENT generate it.
+
+Employee Code
+
+Use fixed-length codes such as:
+
+EMP001
+EMP002
+EMP003
+Age
+
+Use different realistic ages.
+
+Include employees between approximately 22–55 years.
+
+Numeric Data
+
+Use different values for:
+
+Number of children
+Experience in months
+Salary
+Performance score
+Productivity score
+
+Include decimal salary values such as:
+
+52500.50
+78500.75
+125000.25
+Employee Status
+
+Use all predefined statuses that you decide while creating the ENUM.
+
+For example:
+
+ACTIVE
+INACTIVE
+ON_LEAVE
+RESIGNED
+Skills
+
+Use multiple combinations.
+
+For example:
+
+JAVA
+PYTHON,MYSQL
+JAVA,MYSQL
+PYTHON,REACT,AWS
+JAVA,PYTHON,MYSQL
+Gender
+
+Use all values defined in your ENUM.
+
+Dates
+
+Use different:
+
+Birth dates
+Joining dates
+Time
+
+Use different employee login times.
+
+Date + Time
+
+Insert different interview date/time values.
+
+Year
+
+Use different birth years.
+
+Boolean
+
+Insert both:
+
+TRUE
+FALSE
+Text
+
+Provide different values for:
+
+Short note
+Employee description
+Training history
+Employee profile
+Part 4 — TIMESTAMP Requirement
+
+For created_at:
+
+The employee creation date and time should automatically be captured by MySQL.
+
+For updated_at:
+
+The employee modification date and time should automatically change whenever the employee record is updated.
+
+Then:
+
+Insert an employee.
+Check created_at and updated_at.
+Update the employee's name.
+Check both timestamps again.
+Verify that created_at remains unchanged.
+Verify that updated_at changes.
+
+This follows the timestamp behavior covered in your notes.
+
+Part 5 — DDL Operations
+
+After creating and inserting data into employees, perform the following operations.
+
+ALTER TABLE
+Add a column:
+phone_number
+Add a column:
+email
+Modify the size of employee_name.
+Modify the size of employee_code.
+Rename short_note to:
+employee_note
+Drop the email column.
+Drop the phone_number column.
+AUTO_INCREMENT using ALTER
+
+Create another table:
+
+employee_documents
+
+Initially create document_id as a normal integer column.
+
+Then use ALTER TABLE to make document_id an AUTO_INCREMENT column.
+
+CREATE TABLE AS SELECT
+
+Create:
+
+employee_backup
+
+using the existing employees table.
+
+Copy the employee data into it.
+
+TRUNCATE
+
+Create:
+
+employee_test
+
+Insert some records.
+
+Then:
+
+Display the records.
+TRUNCATE the table.
+Display the records again.
+Verify that the table still exists.
+DROP
+
+Finally:
+
+Drop employee_test.
+Drop employee_documents.
+Verify the tables using SHOW TABLES.
+Part 6 — Verification
+
+Execute:
+
+SHOW DATABASES;
+SHOW TABLES;
+DESC employees;
+SHOW CREATE TABLE employees;
+
+Then verify that your employees table contains all the required data types.
+
+Assignment 2 — Library Management System
+
+Design and create a Library Management System database in MySQL.
+
+In this assignment, you have to think and decide everything.
+
+You will be given only the requirements. You must decide:
+
+Database name
+Table names
+Column names
+Data types
+Primary keys
+Auto-increment
+Default values
+Appropriate constraints/data types
+Scenario
+
+A college wants to develop a Library Management System to maintain information about books, students, and book transactions.
+
+The system should store the following information:
+
+1. Books
+
+The library wants to maintain:
+
+Unique identification of every book
+Book title
+Author name
+ISBN number
+Price
+Number of available copies
+Book category
+Publication date
+Whether the book is currently available
+A short description of the book
+
+2. Students
+   The library wants to maintain:
+
+Unique identification of every student
+Student name
+Enrollment/registration number
+Age
+Gender
+Date of birth
+Contact number
+Email
+Whether the student is currently active
+Student registration date
+
+3. Book Issue/Return
+   Whenever a student takes a book from the library, the system should record:
+
+Which student took the book
+Which book was issued
+Issue date
+Expected return date
+Actual return date
+Fine amount, if applicable
+Whether the book has been returned
+Any additional remarks
+Date and time when the transaction was created
+Requirements
+Decide how many tables are required.
+Decide the name of each table.
+Decide all column names yourself.
+Select the most appropriate MySQL data type for every column.
+Decide which columns should be PRIMARY KEY.
+Decide where AUTO_INCREMENT is appropriate.
+Decide where UNSIGNED is appropriate.
+Decide which fields should use ENUM, BOOLEAN, DATE, DATETIME, DECIMAL, etc.
+Create all tables using DDL.
+Insert at least 10 books, 10 students and 15 issue/return transactions.

@@ -177,3 +177,6 @@ DEFAULT using ALTER<br>
 
 >H.W.
 Create a table with 5 records containing id, name, and salary. Then add PRIMARY KEY and AUTO_INCREMENT using ALTER TABLE. After that, insert a new record without specifying the id. What ID will MySQL automatically assign?
+
+
+

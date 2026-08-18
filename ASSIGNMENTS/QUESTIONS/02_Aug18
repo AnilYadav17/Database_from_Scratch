@@ -1,0 +1,177 @@
+==================================================================================
+                              09 QUESTIONS                         
+==================================================================================
+
+
+
+QNO  1: Create and Populate students Table
+Columns:
+
+id INT
+
+name VARCHAR(100)
+
+age INT
+
+gender VARCHAR(10)
+
+address VARCHAR(150)
+
+phone VARCHAR(15)
+
+email VARCHAR(100)
+
+Task:
+
+Insert 5 different student records with dummy data.
+
+QNO  2: Create and Populate books Table
+Columns:
+
+book_id INT
+
+title VARCHAR(150)
+
+author VARCHAR(100)
+
+genre VARCHAR(50)
+
+publication_year INT
+
+price DECIMAL(6,2)
+
+publisher VARCHAR(100)
+
+Task:
+
+Insert 4 book records.
+
+QNO  3: ALTER students Table
+Task:
+
+Add a column dob DATE
+
+Rename column phone to mobile_number
+
+Modify column age to SMALLINT
+
+Drop column email
+
+QNO  4: RENAME Table
+Task:
+
+Rename books table to library_books
+
+QNO  5: TRUNCATE Table
+Task:
+
+Truncate all data from students table
+
+QNO  6: DROP Table
+Task:
+
+Drop the library_books table
+
+QNO  7: Create and Insert into products Table
+Columns:
+
+product_id INT
+
+product_name VARCHAR(100)
+
+category VARCHAR(50)
+
+price DECIMAL(7,2)
+
+stock_quantity INT
+
+supplier_name VARCHAR(100)
+
+manufacture_date DATE
+
+expiry_date DATE
+
+Task:
+
+Insert 6 products (some with expiry dates, some without)
+
+QNO  8: Create and Insert into employees Table
+Columns:
+
+emp_id INT
+
+emp_name VARCHAR(100)
+
+gender VARCHAR(10)
+
+dob DATE
+
+department VARCHAR(100)
+
+position VARCHAR(100)
+
+salary DECIMAL(8,2)
+
+joining_date DATE
+
+phone VARCHAR(15)
+
+Task:
+
+Insert 5 employee records
+
+
+
+
+QNO 9:
+
+
+You are designing a system to store movie reviews. Start with basic details and then evolve the table structure using ALTER, RENAME, TRUNCATE, and DROP, and perform INSERT operations at each stage.
+
+ Initial Table Creation:
+Create a table movie_reviews with the following columns:
+
+review_id INT
+
+movie_title VARCHAR(150)
+
+reviewer_name VARCHAR(100)
+
+rating DECIMAL(2,1)
+
+review_text TEXT
+
+ Insert 3 sample movie reviews
+
+Step 1: Add More Columns (ALTER)
+Add the following columns using ALTER:
+
+review_date DATE
+
+platform VARCHAR(50) — (e.g., IMDb, Rotten Tomatoes)
+
+likes INT
+
+ Insert 2 more rows with new columns
+
+ Step 2: Rename a Column
+Rename the column reviewer_name to critic_name
+
+ Step 3: Modify Column Types
+Modify:
+
+rating to DECIMAL(3,1)
+
+movie_title to VARCHAR(200)
+
+ Step 4: Drop an Unnecessary Column
+Drop the likes column
+
+ Step 5: Truncate the Table
+Truncate the table so all data is removed
+
+ Step 6: Rename the Table
+Rename movie_reviews to archived_reviews
+
+ Step 7: Drop the Table
+Finally, drop the archived_reviews table
