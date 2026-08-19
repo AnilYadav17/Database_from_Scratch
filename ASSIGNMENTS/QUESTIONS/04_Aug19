@@ -1,0 +1,63 @@
+Assignment 1— Employee Management System
+
+You are developing an Employee Management System for a company.
+
+Create an employees table with the following information:
+
+Employee ID
+Employee Name
+Department
+City
+Salary
+Experience in years
+Age
+Joining Date
+Sample Data
+
+Insert at least 15 employees with different values.
+
+Your data must include:
+
+At least 4 different departments — IT, HR, Finance, Sales
+At least 5 different cities — Indore, Bhopal, Pune, Mumbai, Bangalore
+Salaries ranging from ₹30,000 to ₹1,00,000
+Experience ranging from 1 to 10 years
+Age ranging from 22 to 40 years
+Joining dates from 2020 to 2026
+Some employees should have the same department
+Some employees should have the same city
+Some employees should have similar salaries
+Include employees who joined in different years
+
+# Write SQL queries to find:
+
+Employees whose salary is greater than ₹60,000.
+Employees whose salary is less than ₹50,000.
+Employees whose age is greater than 30.
+Employees whose experience is greater than or equal to 5 years.
+Employees working in IT or Finance.
+Employees working in IT, HR, or Sales.
+Employees not working in IT or HR.
+Employees from Indore or Pune.
+Employees who are not from Indore, Mumbai, or Bhopal.
+Employees whose salary is between ₹40,000 and ₹70,000.
+Employees whose age is between 25 and 35.
+Employees whose experience is between 3 and 7 years.
+Employees who joined between 2022 and 2025.
+Employees who joined before 2023.
+Employees who joined after 2024.
+Employees from Indore AND working in IT.
+Employees working in IT AND having salary greater than ₹70,000.
+Employees whose salary is between ₹50,000 and ₹90,000 AND experience is greater than 4 years.
+Employees working in IT or Finance AND salary greater than ₹60,000.
+Employees whose joining date is between 2021 and 2024 AND salary is greater than ₹50,000.
+Employees whose salary is not between ₹40,000 and ₹70,000.
+Employees whose department is not IT, HR, or Sales.
+Employees whose joining date is not between 2022 and 2025.
+Employees from Indore or Pune, whose salary is between ₹45,000 and ₹80,000, and whose experience is more than 3 years.
+Employees who did not join between 2020 and 2023 and whose salary is greater than ₹60,000.
+Find employees who are from Indore, Pune, or Bangalore, whose salary is between ₹50,000 and ₹90,000, and whose experience is at least 4 years.
+Find employees who are not from Bhopal or Mumbai, are not working in HR, and joined between 2021 and 2025.
+Find employees working in IT or Finance, whose salary is greater than ₹60,000, whose age is between 25 and 35, and who joined after 2022.
+Find employees whose salary is NOT between ₹40,000 and ₹75,000, whose experience is between 2 and 8 years, and who are not working in Sales.
+Find employees who are from Indore or Pune, working in IT, Finance, or HR, with salary between ₹45,000 and ₹85,000, and who joined between 2020 and 2024.
