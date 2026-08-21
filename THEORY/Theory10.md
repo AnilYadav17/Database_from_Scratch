@@ -98,3 +98,35 @@ select * from employeebatch where not (city="Indore"  or city="Bhopal");
 ```sql
 select * from employeebatch where not (city="Indore"  or city="Bhopal") and salary > 50000 ;
 ```
+
+<br>
+
+```sql
+select * from employeebatch where city="Indore" or city="Bhopal" and salary>40000 and age>35;
+```
+
+**_This query is converted into:_**
+
+```sql
+select * from employeebatch where city="Indore" or (city="Bhopal" and salary>40000 and age>25);
+```
+
+<br>
+
+**_Write a query to give me employees who are from Indore,Bhopal and earning more than 40000 and age greater 25_.**
+
+```sql
+select * from employeebatch where (city="Indore" or city="Bhopal") and (salary>40000 and age>25);
+```
+
+<br>
+
+So,
+
+```sql
+where not a or b and c
+becomes
+where (not a) or (b and c)
+```
+
+<br>
