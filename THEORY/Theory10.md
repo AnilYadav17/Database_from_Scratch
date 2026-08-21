@@ -1,23 +1,26 @@
+# Query Filtering and Sorting
+
 ## IS NULL and IS NOT NULL
+
+When querying data, evaluating nulls requires special syntax.
 
 ```sql
 select * from employeebatch;
 ```
 
-### _and_
-
+Incorrect way to check for null:
 ```sql
-select * from employeebatch where city=null;
+select * from employeebatch where city = null;
 ```
 
-<br>
+### Note on NULL
+**NULL** means there is no value known or the value has not been provided. It is **not** the same as the following:
+- `0`
+- `''` (empty string)
+- `'Null'` (string containing the word Null)
+- `false`
 
-### **_Note_**
-
-**NULL Means there is no value is known u or value has not been provided. It is not the same as the following: <br>
-0 <br> '' <br> 'Null' <br> false**
-
-**_Is null is used to find rows where a column contains null._**
+`IS NULL` is used to find rows where a column contains a null value.
 
 ```sql
 select * from employeebatch where city is null;
@@ -27,114 +30,100 @@ select * from employeebatch where city is null;
 select * from employeebatch where city is not null;
 ```
 
-<br>
-
-### **_IS NULL with AND_**
-
+### IS NULL with AND
 ```sql
 select * from employee where city is null and salary > 35000;
 ```
 
-<br>
+---
 
-### **_Operator presedence with AND ,OR and NOT_**
+## Operator Precedence with AND, OR, and NOT
 
-When we use multiple conditions inside where mysql has to decide which conditions to evaluate first.
+When using multiple conditions inside a `WHERE` clause, MySQL has to decide which conditions to evaluate first.
 
 ```sql
-select * from employeebatch where city="Indore" or city="Bhopal" and salary>50000;
+select * from employeebatch where city = "Indore" or city = "Bhopal" and salary > 50000;
 ```
 
-In mySql the presedence is
-<br>1. NOT <br>2.AND <br>3.OR
-<br>
-<br>
-When we write :
+In MySQL, the precedence is:
+1. `NOT`
+2. `AND`
+3. `OR`
 
+When we write:
 ```sql
 where a or b and c;
-becomes
-where a and (b and c);
 ```
-
-so our query becomes ->
-
+It becomes:
 ```sql
-select * from employeebatch where city="Indore" or (city="Bhopal" and salary>50000);
+where a or (b and c);
 ```
 
-<br>
-
-**_Write a query to fetch employees who are from indore or bhopal, and there salary must be greater than 40000_**
-
+So our query becomes:
 ```sql
-select * from employeebatch where (city="Indore" or city="Bhopal") and salary>40000;
+select * from employeebatch where city = "Indore" or (city = "Bhopal" and salary > 50000);
 ```
 
-**_Write a query whose city is not indore_**
+### Practice Queries
 
+**1. Write a query to fetch employees who are from Indore or Bhopal, and their salary must be greater than 40000:**
 ```sql
-select * from employeebatch where not city="Indore";
+select * from employeebatch where (city = "Indore" or city = "Bhopal") and salary > 40000;
 ```
 
-**_Equivalent to_**
-
+**2. Write a query whose city is not Indore:**
 ```sql
-select * from employeebatch where not city<>"Indore";
+select * from employeebatch where not city = "Indore";
 ```
-
-**_Write a query to give me employees who are neither from INDORE nor BHOPAL._**
-
+Equivalent to:
 ```sql
-select * from employeebatch where not (city="Indore"  or city="Bhopal");
+select * from employeebatch where city <> "Indore";
 ```
 
-<br>
+**3. Write a query to give me employees who are neither from Indore nor Bhopal:**
+```sql
+select * from employeebatch where not (city = "Indore" or city = "Bhopal");
+```
 
 ### NOT with AND
 
-**_Write a query to give me employees who are not from Indore,Bhopal and earning more than 50000_**
-
+**4. Write a query to give me employees who are not from Indore, Bhopal and earning more than 50000:**
 ```sql
-select * from employeebatch where not (city="Indore"  or city="Bhopal") and salary > 50000 ;
+select * from employeebatch where not (city = "Indore" or city = "Bhopal") and salary > 50000;
 ```
 
-<br>
+### Complex Precedence Examples
 
+Consider this query:
 ```sql
-select * from employeebatch where city="Indore" or city="Bhopal" and salary>40000 and age>35;
+select * from employeebatch where city = "Indore" or city = "Bhopal" and salary > 40000 and age > 35;
 ```
 
-**_This query is converted into:_**
-
+This query is implicitly converted into:
 ```sql
-select * from employeebatch where city="Indore" or (city="Bhopal" and salary>40000 and age>25);
+select * from employeebatch where city = "Indore" or (city = "Bhopal" and salary > 40000 and age > 35);
 ```
 
-<br>
-
-**_Write a query to give me employees who are from Indore,Bhopal and earning more than 40000 and age greater 25_.**
-
+**5. Write a query to give me employees who are from Indore or Bhopal, earning more than 40000, and age greater than 25:**
 ```sql
-select * from employeebatch where (city="Indore" or city="Bhopal") and (salary>40000 and age>25);
+select * from employeebatch where (city = "Indore" or city = "Bhopal") and (salary > 40000 and age > 25);
 ```
 
-<br>
-
-So,
-
+Therefore:
 ```sql
 where not a or b and c
-becomes
+```
+Becomes:
+```sql
 where (not a) or (b and c)
 ```
 
-<br>
+---
 
 ## ORDER BY
 
-It is used to sort the rows return by a select query.<br>
-This does not change the actuall data stored in the table, it only changes the order in which the result is displayed.
+`ORDER BY` is used to sort the rows returned by a `SELECT` query.
+This does not change the actual data stored in the table; it only changes the order in which the result is displayed.
 
 ```sql
 select name from employeebatch order by salary asc;
@@ -145,31 +134,31 @@ select name from employeebatch order by salary desc;
 ```
 
 ```sql
-select * from employeebatch order by  name;
+select * from employeebatch order by name;
 ```
 
 ```sql
 select * from employeebatch order by city;
 ```
 
-**_In above NULL will come in first when ASC_**
+**Note:** When sorting in ascending (`ASC`) order, `NULL` values will appear first.
 
-<br>
+### Practice Queries
 
-**_i) Write a query to select all the IT employee them by high salary to low salary._**
+**1. Write a query to select all the IT employees, ordering them by high salary to low salary:**
+```sql
+select * from employees where department = "IT" order by salary desc;
+```
+*In the above query, the `WHERE` clause decides which rows we want, and `ORDER BY` decides in which order we want those rows displayed.*
+
+### ORDER BY with Multiple Columns
+
+You can sort by multiple columns. The results will be sorted by the first column, and then by the second column if there are ties in the first.
 
 ```sql
-select * from employees where department="IT" order by salary desc;
+select * from employeebatch order by city, salary desc;
 ```
 
-**_In the above query where desides which rows we want and order by decides in which order we want those rows_**
-
-### ORDER BY with multiple columns:-
-
 ```sql
-select * from employeebatch order by city,salary desc;
-```
-
-```sql
-select * from employeebatch order by city desc,salary desc;
+select * from employeebatch order by city desc, salary desc;
 ```
