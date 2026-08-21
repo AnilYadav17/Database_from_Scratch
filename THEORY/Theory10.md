@@ -153,3 +153,23 @@ select * from employeebatch order by city;
 ```
 
 **_In above NULL will come in first when ASC_**
+
+<br>
+
+**_i) Write a query to select all the IT employee them by high salary to low salary._**
+
+```sql
+select * from employees where department="IT" order by salary desc;
+```
+
+**_In the above query where desides which rows we want and order by decides in which order we want those rows_**
+
+### ORDER BY with multiple columns:-
+
+```sql
+select * from employeebatch order by city,salary desc;
+```
+
+```sql
+select * from employeebatch order by city desc,salary desc;
+```
