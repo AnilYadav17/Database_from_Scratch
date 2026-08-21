@@ -130,3 +130,26 @@ where (not a) or (b and c)
 ```
 
 <br>
+
+## ORDER BY
+
+It is used to sort the rows return by a select query.<br>
+This does not change the actuall data stored in the table, it only changes the order in which the result is displayed.
+
+```sql
+select name from employeebatch order by salary asc;
+```
+
+```sql
+select name from employeebatch order by salary desc;
+```
+
+```sql
+select * from employeebatch order by  name;
+```
+
+```sql
+select * from employeebatch order by city;
+```
+
+**_In above NULL will come in first when ASC_**
