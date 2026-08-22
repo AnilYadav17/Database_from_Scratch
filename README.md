@@ -19,13 +19,20 @@ Dive deep into core concepts and terminology:
 - **[Theory 02](THEORY/Theory02.md)**: Deep dive into DML (Data Manipulation), DQL (Data Query), TCL (Transaction Control), and DCL (Data Control Language).
 - **[Theory 03](THEORY/Theory03.md)**: CREATE TABLE AS SELECT (`CTAS`), `INSERT` statements, and introduction to Primary Keys.
 - **[Theory 04](THEORY/Theory04.md)**: Composite Primary Keys, `AUTO_INCREMENT` property, and default starting values.
+- **[Theory 05](THEORY/Theory05.md)**: MySQL Advanced Concepts, `INSERT IGNORE`, `ON DUPLICATE KEY UPDATE`, and `TRUNCATE` command.
+- **[Theory 06](THEORY/Theory06.md)**: `DROP` vs `TRUNCATE`, and comprehensive `ALTER TABLE` operations (Add, Drop, Modify, Change columns).
+- **[Theory 07](THEORY/Theory07.md)**: Data Types in MySQL (Numeric, Decimal, String, Enum, Set).
+- **[Theory 10](THEORY/Theory10.md)**: Query Filtering and Sorting (`IS NULL`, `IS NOT NULL`, `ORDER BY`, Operator Precedence).
 
 ### 💻 Practical
 Get your hands dirty with real SQL queries and commands:
-- **[Practical 01](PRACTICAL/Practical01.md)**: MySQL basic commands — `SELECT`, `VERSION()`, `NOW()`, user info, math functions, and showing databases.
-- **[Practical 02](PRACTICAL/Practical02.md)**: Creating databases and tables, dropping schemas, inserting data, Primary Keys, and cloning tables with `CTAS` (Create Table As Select).
-- **[Practical 03](PRACTICAL/Practical03.md)**: Deep dive into creating Primary Keys during table creation and using `ALTER`.
-- **[Practical 04](PRACTICAL/Practical04.md)**: Working with Composite Primary Keys, `AUTO_INCREMENT`, starting values, and `SQL_MODE`.
+- **[Practical 01](PRACTICAL/Practical01)**: MySQL basic commands — `SELECT`, `VERSION()`, `NOW()`, user info, math functions, and showing databases.
+- **[Practical 02](PRACTICAL/Practical02)**: Creating databases and tables, dropping schemas, inserting data, Primary Keys, and cloning tables with `CTAS` (Create Table As Select).
+- **[Practical 03](PRACTICAL/Practical03)**: Deep dive into creating Primary Keys during table creation and using `ALTER`.
+- **[Practical 04](PRACTICAL/Practical04)**: Working with Composite Primary Keys, `AUTO_INCREMENT`, starting values, and `SQL_MODE`.
+- **[Practical 05](PRACTICAL/Practical05)**: Using `INSERT IGNORE`, `ON DUPLICATE KEY UPDATE`, `SHOW CREATE TABLE`, and `TRUNCATE`.
+- **[Practical 06](PRACTICAL/Practical06)**: Dropping tables/columns, renaming, and exploring `ALTER TABLE` capabilities.
+- **[Practical 07](PRACTICAL/Practical07)**: Working with various Data Types, including Numeric (TINYINT, DECIMAL) and String (TEXT, ENUM, SET).
 
 ### 📝 Assignments
 Test your knowledge with hands-on practice problems:
