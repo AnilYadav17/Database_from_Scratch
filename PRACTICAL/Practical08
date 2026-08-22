@@ -1,0 +1,130 @@
+==================================================
+MYSQL PRACTICAL 08
+==================================================
+
+## 1. DATE TYPE
+
+CREATE TABLE employeedt(
+    id INT, 
+    name VARCHAR(20), 
+    birthdate DATE
+);
+
+DESC employeedt;
+
+INSERT INTO employeedt VALUES (101, 'deepika', '1978-08-03');
+
+SELECT * FROM employeedt;
+-- Output: 101 | deepika | 1978-08-03
+
+
+==================================================
+2. TIME TYPE
+==================================================
+
+CREATE TABLE classschedule(
+    classid INT, 
+    classname VARCHAR(30), 
+    starttime TIME
+);
+
+DESC classschedule;
+
+INSERT INTO classschedule VALUES (50001, 'Java', '09:30:49');
+
+SELECT * FROM classschedule;
+-- Output: 50001 | Java | 09:30:49
+
+
+==================================================
+3. DATETIME TYPE
+==================================================
+
+CREATE TABLE appointment(
+    apid INT, 
+    cusname VARCHAR(20), 
+    aptime DATETIME
+);
+
+DESC appointment;
+
+INSERT INTO appointment VALUES (111, 'rashmika', '2026-08-28 10:20:33');
+
+SELECT * FROM appointment;
+-- Output: 111 | rashmika | 2026-08-28 10:20:33
+
+
+==================================================
+4. TIMESTAMP TYPE
+==================================================
+
+CREATE TABLE employeedt1(
+    id INT, 
+    name VARCHAR(20), 
+    createdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+DESC employeedt1;
+
+SELECT CURRENT_TIMESTAMP;
+-- Output: 2026-08-17 17:18:53
+
+INSERT INTO employeedt1 (id, name) VALUES (1011, 'Sneha');
+
+SELECT * FROM employeedt1;
+-- Output: 1011 | Sneha | 2026-08-17 17:21:25
+
+
+==================================================
+5. TIMESTAMP ON UPDATE
+==================================================
+
+CREATE TABLE employeedt3(
+    id INT, 
+    name VARCHAR(20), 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+DESC employeedt3;
+
+INSERT INTO employeedt3 (id, name) VALUES (101, 'deepika');
+
+SELECT * FROM employeedt3;
+
+UPDATE employeedt3 SET name = 'deepika padukone' WHERE id = 101;
+
+SELECT * FROM employeedt3;
+
+
+==================================================
+6. YEAR TYPE
+==================================================
+
+CREATE TABLE vehicle1(
+    vid INT, 
+    model VARCHAR(20), 
+    mfg_year YEAR
+);
+
+DESC vehicle1;
+
+
+==================================================
+7. BOOLEAN TYPE
+==================================================
+
+CREATE TABLE employeedt4(
+    id INT, 
+    name VARCHAR(20), 
+    is_active BOOLEAN
+);
+
+DESC employeedt4;
+
+INSERT INTO employeedt4 VALUES (101, 'deepika', TRUE);
+INSERT INTO employeedt4 VALUES (102, 'katappa', FALSE);
+INSERT INTO employeedt4 VALUES (103, 'kuldeep', 1);
+INSERT INTO employeedt4 VALUES (104, 'cherry', 15);
+
+SELECT * FROM employeedt4;

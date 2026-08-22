@@ -1,0 +1,100 @@
+==================================================
+MYSQL PRACTICAL 09
+==================================================
+
+CREATE TABLE employeebatch(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(30),
+    age INT,
+    city VARCHAR(40),
+    department VARCHAR(30),
+    Salary DECIMAL(10,2)
+);
+
+DESC employeebatch;
+
+INSERT INTO employeebatch (name, age, city, department, Salary) VALUES 
+('rahul', 25, 'indore', 'IT', 45000),
+('amit', 30, 'bhopal', 'HR', 40000),
+('priya', 28, 'indore', 'IT', 55000),
+('neha', 35, 'pune', 'finance', 60000),
+('ravi', 22, 'bhopal', 'IT', 35000);
+
+
+==================================================
+1. SELECT ALL
+==================================================
+
+SELECT * FROM employeebatch;
+
+
+==================================================
+2. SELECT SPECIFIC COLUMNS
+==================================================
+
+SELECT name, city FROM employeebatch;
+
+SELECT Salary, city, name FROM employeebatch;
+
+
+==================================================
+3. SELECT WITH EXPRESSIONS & ALIAS
+==================================================
+
+SELECT name, Salary, Salary * 12 FROM employeebatch;
+
+SELECT name, Salary, Salary * 12 AS annual_salary FROM employeebatch;
+
+
+==================================================
+4. SELECT DISTINCT
+==================================================
+
+SELECT DISTINCT city FROM employeebatch;
+-- Output: indore, bhopal, pune
+
+SELECT DISTINCT city, department FROM employeebatch;
+
+
+==================================================
+5. WHERE CLAUSE
+==================================================
+
+SELECT * FROM employeebatch WHERE Salary > 50000;
+
+SELECT * FROM employeebatch WHERE city = 'indore';
+
+SELECT * FROM employeebatch WHERE city != 'indore';
+
+
+==================================================
+6. AND / OR / NOT
+==================================================
+
+SELECT * FROM employeebatch WHERE city = 'indore' AND Salary > 50000;
+
+SELECT * FROM employeebatch WHERE city = 'indore' OR Salary > 50000;
+
+SELECT * FROM employeebatch WHERE NOT city = 'indore';
+
+
+==================================================
+7. BETWEEN OPERATOR
+==================================================
+
+SELECT * FROM employeebatch WHERE Salary BETWEEN 40000 AND 55000;
+
+SELECT * FROM employeebatch WHERE Salary NOT BETWEEN 40000 AND 55000;
+
+
+==================================================
+8. IN OPERATOR
+==================================================
+
+SELECT * FROM employeebatch WHERE city IN ('indore', 'bhopal', 'pune');
+
+SELECT * FROM employeebatch WHERE city IN ('indore', 'bhopal') AND age > 28;
+
+SELECT * FROM employeebatch WHERE city NOT IN ('indore', 'bhopal') AND age > 28;
+
+SELECT * FROM employeebatch WHERE age IN (25, 30, 35);
