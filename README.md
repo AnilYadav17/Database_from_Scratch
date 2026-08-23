@@ -76,3 +76,5 @@ Test your knowledge with hands-on practice problems:
 
 ## Community
 Join discussions, ask questions, and help each other out!
+
+## FAQ
