@@ -83,3 +83,5 @@ A: Yes, MySQL works on all major operating systems.
 
 **Q: Is MySQL free?**
 A: Yes, the MySQL Community Edition is free to use.
+
+> "Data is the new oil."
