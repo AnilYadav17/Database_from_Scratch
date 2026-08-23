@@ -65,3 +65,4 @@ Test your knowledge with hands-on practice problems:
 
 ## Tools Used
 - MySQL Command Line Client
+- VS Code or any other text editor
