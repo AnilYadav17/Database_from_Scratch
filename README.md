@@ -69,3 +69,4 @@ Test your knowledge with hands-on practice problems:
 
 ## How to Contribute
 1. Fork the repository
+2. Create a new branch
