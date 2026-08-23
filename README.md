@@ -64,3 +64,4 @@ Test your knowledge with hands-on practice problems:
 - Eagerness to learn about databases.
 
 ## Tools Used
+- MySQL Command Line Client
