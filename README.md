@@ -75,3 +75,4 @@ Test your knowledge with hands-on practice problems:
 5. Open a Pull Request
 
 ## Community
+Join discussions, ask questions, and help each other out!
