@@ -9,6 +9,7 @@ Welcome to the comprehensive mock assessment! This test contains **25 questions*
 ## 📚 Part 1: Theory and Concepts (Multiple Choice & Short Answer)
 
 ### Section A: SQL Languages & Basics
+
 **1. Which of the following SQL commands belongs to Data Manipulation Language (DML)?**
 - [ ] A) `CREATE`
 - [ ] B) `GRANT`
@@ -19,7 +20,7 @@ Welcome to the comprehensive mock assessment! This test contains **25 questions*
 - [ ] A) `TRUNCATE` allows a `WHERE` clause, while `DELETE` does not.
 - [ ] B) `DELETE` removes table structure, while `TRUNCATE` only removes data.
 - [ ] C) `TRUNCATE` is a DDL command that resets the table and `AUTO_INCREMENT`, while `DELETE` is a DML command that removes rows one by one.
-- [ ] D) There is no difference; they are aliases.
+- [ ] D) `DELETE` is used to remove columns, while `TRUNCATE` is used to remove rows.
 
 **3. Which of the following statements about Primary Keys is FALSE?**
 - [ ] A) A table can have multiple Primary Keys.
@@ -34,6 +35,7 @@ Welcome to the comprehensive mock assessment! This test contains **25 questions*
 - [ ] D) Create Table Alter Select
 
 ### Section B: Advanced Table Operations
+
 **5. When using the `INSERT IGNORE` command, what happens if you try to insert a record with a duplicate primary key?**
 - [ ] A) The transaction fails completely and throws an error.
 - [ ] B) The existing record is overwritten with the new data.
@@ -59,6 +61,7 @@ Welcome to the comprehensive mock assessment! This test contains **25 questions*
 - [ ] D) `DROP TABLE`
 
 ### Section C: Table Alterations
+
 **9. Which SQL statement correctly adds a new column named `birth_date` of type `DATE` to an existing table named `users`?**
 - [ ] A) `ALTER TABLE users ADD COLUMN birth_date DATE;`
 - [ ] B) `MODIFY TABLE users ADD birth_date DATE;`
@@ -72,6 +75,7 @@ Welcome to the comprehensive mock assessment! This test contains **25 questions*
 - [ ] D) `UPDATE TABLE users MODIFY age TINYINT;`
 
 ### Section D: Data Types
+
 **11. Which data type is best suited for storing a user's role if the only possible values are 'Admin', 'Editor', or 'Viewer'?**
 - [ ] A) `VARCHAR(50)`
 - [ ] B) `ENUM`
@@ -97,6 +101,7 @@ Welcome to the comprehensive mock assessment! This test contains **25 questions*
 - [ ] D) Defining a default value.
 
 ### Section E: Queries & Functions
+
 **15. Which MySQL function returns the current date and time?**
 - [ ] A) `CURRENT_DATE()`
 - [ ] B) `TODAY()`
