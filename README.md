@@ -3,6 +3,9 @@
   
   # 🗄️ Database From Scratch
   *A comprehensive journey into the world of Databases and SQL using MySQL.*
+  
+  ![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+  ![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)
 </div>
 
 ---
@@ -22,17 +25,21 @@ Dive deep into core concepts and terminology:
 - **[Theory 05](THEORY/Theory05.md)**: MySQL Advanced Concepts, `INSERT IGNORE`, `ON DUPLICATE KEY UPDATE`, and `TRUNCATE` command.
 - **[Theory 06](THEORY/Theory06.md)**: `DROP` vs `TRUNCATE`, and comprehensive `ALTER TABLE` operations (Add, Drop, Modify, Change columns).
 - **[Theory 07](THEORY/Theory07.md)**: Data Types in MySQL (Numeric, Decimal, String, Enum, Set).
+- **[Theory 08](THEORY/Theory08.md)**: Date and Time Data Types in MySQL.
+- **[Theory 09](THEORY/Theory09.md)**: `SELECT` Command in MySQL.
 - **[Theory 10](THEORY/Theory10.md)**: Query Filtering and Sorting (`IS NULL`, `IS NOT NULL`, `ORDER BY`, Operator Precedence).
 
 ### 💻 Practical
 Get your hands dirty with real SQL queries and commands:
 - **[Practical 01](PRACTICAL/Practical01)**: MySQL basic commands — `SELECT`, `VERSION()`, `NOW()`, user info, math functions, and showing databases.
-- **[Practical 02](PRACTICAL/Practical02)**: Creating databases and tables, dropping schemas, inserting data, Primary Keys, and cloning tables with `CTAS` (Create Table As Select).
+- **[Practical 02](PRACTICAL/Practical02)**: Creating databases and tables, dropping schemas, inserting data, Primary Keys, and cloning tables with `CTAS`.
 - **[Practical 03](PRACTICAL/Practical03)**: Deep dive into creating Primary Keys during table creation and using `ALTER`.
 - **[Practical 04](PRACTICAL/Practical04)**: Working with Composite Primary Keys, `AUTO_INCREMENT`, starting values, and `SQL_MODE`.
 - **[Practical 05](PRACTICAL/Practical05)**: Using `INSERT IGNORE`, `ON DUPLICATE KEY UPDATE`, `SHOW CREATE TABLE`, and `TRUNCATE`.
 - **[Practical 06](PRACTICAL/Practical06)**: Dropping tables/columns, renaming, and exploring `ALTER TABLE` capabilities.
 - **[Practical 07](PRACTICAL/Practical07)**: Working with various Data Types, including Numeric (TINYINT, DECIMAL) and String (TEXT, ENUM, SET).
+- **[Practical 08](PRACTICAL/Practical08)**: Working with Date and Time Data Types.
+- **[Practical 09](PRACTICAL/Practical09)**: Fetching data using the `SELECT` command.
 
 ### 📝 Assignments
 Test your knowledge with hands-on practice problems:
@@ -53,35 +60,9 @@ Test your knowledge with hands-on practice problems:
 - **DQL:** `SELECT` (Query your data efficiently.)
 - **TCL:** `COMMIT`, `ROLLBACK` (Control your transactions.)
 
+## 🛠️ Tools Used
+- MySQL Command Line Client
+- VS Code or any text editor
+
 ---
 *Built with 💙 for data enthusiasts everywhere.*
-
-<!-- Add MySQL badge -->
-<!-- Add License badge -->
-
-## Prerequisites
-- Basic understanding of computer systems.
-- Eagerness to learn about databases.
-
-## Tools Used
-- MySQL Command Line Client
-- VS Code or any other text editor
-
-## How to Contribute
-1. Fork the repository
-2. Create a new branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
-
-## Community
-Join discussions, ask questions, and help each other out!
-
-## FAQ
-**Q: Does this work on Windows?**
-A: Yes, MySQL works on all major operating systems.
-
-**Q: Is MySQL free?**
-A: Yes, the MySQL Community Edition is free to use.
-
-> "Data is the new oil."
