@@ -61,3 +61,4 @@ Test your knowledge with hands-on practice problems:
 
 ## Prerequisites
 - Basic understanding of computer systems.
+- Eagerness to learn about databases.
