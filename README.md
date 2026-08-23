@@ -58,3 +58,5 @@ Test your knowledge with hands-on practice problems:
 
 <!-- Add MySQL badge -->
 <!-- Add License badge -->
+
+## Prerequisites
