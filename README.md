@@ -57,3 +57,4 @@ Test your knowledge with hands-on practice problems:
 *Built with 💙 for data enthusiasts everywhere.*
 
 <!-- Add MySQL badge -->
+<!-- Add License badge -->
