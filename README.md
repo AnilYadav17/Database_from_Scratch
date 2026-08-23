@@ -80,3 +80,6 @@ Join discussions, ask questions, and help each other out!
 ## FAQ
 **Q: Does this work on Windows?**
 A: Yes, MySQL works on all major operating systems.
+
+**Q: Is MySQL free?**
+A: Yes, the MySQL Community Edition is free to use.
