@@ -68,3 +68,4 @@ Test your knowledge with hands-on practice problems:
 - VS Code or any other text editor
 
 ## How to Contribute
+1. Fork the repository
