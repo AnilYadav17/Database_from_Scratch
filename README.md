@@ -60,3 +60,4 @@ Test your knowledge with hands-on practice problems:
 <!-- Add License badge -->
 
 ## Prerequisites
+- Basic understanding of computer systems.
