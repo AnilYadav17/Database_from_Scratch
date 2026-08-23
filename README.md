@@ -78,3 +78,5 @@ Test your knowledge with hands-on practice problems:
 Join discussions, ask questions, and help each other out!
 
 ## FAQ
+**Q: Does this work on Windows?**
+A: Yes, MySQL works on all major operating systems.
