@@ -1,0 +1,64 @@
+==================================================
+MYSQL PRACTICAL 10
+==================================================
+
+==================================================
+1. IS NULL and IS NOT NULL
+==================================================
+
+select * from employeebatch;
+
+select * from employeebatch where city = null;
+
+select * from employeebatch where city is null;
+
+select * from employeebatch where city is not null;
+
+select * from employee where city is null and salary > 35000;
+
+
+==================================================
+2. Operator Precedence with AND, OR, and NOT
+==================================================
+
+select * from employeebatch where city = "Indore" or city = "Bhopal" and salary > 50000;
+
+select * from employeebatch where city = "Indore" or (city = "Bhopal" and salary > 50000);
+
+select * from employeebatch where (city = "Indore" or city = "Bhopal") and salary > 40000;
+
+select * from employeebatch where not city = "Indore";
+
+select * from employeebatch where city <> "Indore";
+
+select * from employeebatch where not (city = "Indore" or city = "Bhopal");
+
+select * from employeebatch where not (city = "Indore" or city = "Bhopal") and salary > 50000;
+
+select * from employeebatch where city = "Indore" or city = "Bhopal" and salary > 40000 and age > 35;
+
+select * from employeebatch where (city = "Indore" or city = "Bhopal") and (salary > 40000 and age > 25);
+
+
+==================================================
+3. ORDER BY
+==================================================
+
+select name from employeebatch order by salary asc;
+
+select name from employeebatch order by salary desc;
+
+select * from employeebatch order by name;
+
+select * from employeebatch order by city;
+
+select * from employees where department = "IT" order by salary desc;
+
+
+==================================================
+4. ORDER BY with Multiple Columns
+==================================================
+
+select * from employeebatch order by city, salary desc;
+
+select * from employeebatch order by city desc, salary desc;

@@ -1,0 +1,84 @@
+==================================================
+MYSQL PRACTICAL 11
+==================================================
+
+select name,salary,salary*12 as annual_salary from employeebatch order by salary*12 desc;
+
+
+==================================================
+1. ORDER BY WITH DISTINCT
+==================================================
+
+select distinct city from employeebatch order by city;
+
+select name,city,age,salary from employeebatch where city in ("Indore","Bhopal") order by salary desc,age desc;
+
+
+==================================================
+2. LIMIT
+==================================================
+
+select * from employeebatch limit 2;
+
+select * from employeebatch order by salary desc limit 3;
+
+select * from employeebatch order by salary asc limit 1;
+
+select * from employeebatch where department = "IT" order by salary desc limit 100;
+
+select * from employeebatch where salary > 50000 order by salary desc limit 2;
+
+select distinct city from employeebatch;
+
+
+==================================================
+3. DISTINCT WITH LIMIT
+==================================================
+
+select distinct city from employeebatch limit 2;
+
+select name,salary,salary*12 as annual_salary from employeebatch order by annual_salary desc limit 2;
+
+
+==================================================
+4. OFFSET
+==================================================
+
+SELECT * FROM employeebatch limit 2 offset 2;
+
+SELECT * FROM employeebatch order by salary desc limit 2 offset 2;
+
+SELECT * FROM employeebatch WHERE department = 'IT' order by salary desc limit 1 offset 2;
+
+SELECT * FROM employeebatch limit 2,2;
+
+
+==================================================
+5. UPDATE
+==================================================
+
+update student set city = "Goa";
+
+CREATE TABLE employeeup (
+    employee_id INT PRIMARY KEY AUTO_INCREMENT,
+    employee_name VARCHAR(50),
+    department VARCHAR(50),
+    city VARCHAR(30),
+    salary DECIMAL(10,2),
+    experience INT,
+    age INT,
+    joining_date DATE,
+    status VARCHAR(20)
+);
+
+INSERT INTO employeeup (employee_name, department, city, salary, experience, age, joining_date, status) VALUES 
+('Anil', 'IT', 'Indore', 45000.00, 1, 22, '2025-07-10', 'Active'), 
+('Rahul', 'HR', 'Bhopal', 55000.00, 3, 26, '2023-05-15', 'Active'), 
+('Amit', 'Finance', 'Dewas', 62000.00, 5, 30, '2021-03-20', 'Active'), 
+('Vikas', 'IT', 'Indore', 38000.00, 2, 24, '2024-06-12', 'Inactive'), 
+('Rohit', 'IT', 'Bhopal', 75000.00, 7, 35, '2019-01-25', 'Active'), 
+('Suresh', 'HR', 'Ujjain', 42000.00, 2, 27, '2024-02-18', 'Active'), 
+('Karan', 'Finance', 'Indore', 68000.00, 6, 33, '2020-09-05', 'Inactive'), 
+('Mohit', 'IT', 'Dewas', 50000.00, 4, 29, '2022-11-10', 'Active'), 
+('Deepak', 'Sales', 'Bhopal', 35000.00, 1, 23, '2025-01-08', 'Active'), 
+('Nitin', 'Sales', 'Indore', 58000.00, 4, 31, '2022-04-14', 'Active');
