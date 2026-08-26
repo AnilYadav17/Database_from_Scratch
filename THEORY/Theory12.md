@@ -111,9 +111,8 @@ select employee_name,department, salary from employeeup order by  case  when dep
 update  employeeup set salary= case  when department = 'IT' then salary*1.1  when department = 'HR' then salary*1.07  when department = 'Finance' then salary*1.06  else '4' end;
 ```
 
-WAQ to give increment of 15% whose experience is greater than 8year, give increment of 10% whose is greater than 5 , give increment of 7 % whose ex is greater then 3 year , else 5%
+WAQ to give increment of 15% whose experience is greater than 8year, give increment of 10% whose experience is greater than 5 , give increment of 7 % whose ex is greater then 3 year , else 5%
 
 ```sql
-update  employeeup set salary= case  when experience>8 then salary*1.15  when experienc
-e>5 then salary*1.10  when experience>3 then salary*1.07  else salary*1.05 end;
+update  employeeup set salary= case  when experience>8 then salary*1.15  when experience>5 then salary*1.10  when experience>3 then salary*1.07  else salary*1.05 end;
 ```
