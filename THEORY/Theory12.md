@@ -88,3 +88,19 @@ case
     else result
 end
 ```
+
+```sql
+select employee_name, salary, case  when salary >= 12000 then 'High' when salary >= 60000 then 'medium' else 'low' end as salary_category from employeeup;
+```
+
+![alt text](image.png)
+
+### CASE with ORDER BY:
+
+Case with ORDER BY used when we want custom shorting instead of normal alphabetical or numerical shorting.
+
+```sql
+select employee_name,department, salary from employeeup order by  case  when department = 'IT' then 1 when department = 'HR' then 2 when department = 'Finance' then 3 else '4' end;
+```
+
+![alt text](image-1.png)
