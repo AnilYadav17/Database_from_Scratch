@@ -28,6 +28,8 @@ Dive deep into core concepts and terminology:
 - **[Theory 08](THEORY/Theory08.md)**: Date and Time Data Types in MySQL.
 - **[Theory 09](THEORY/Theory09.md)**: `SELECT` Command in MySQL.
 - **[Theory 10](THEORY/Theory10.md)**: Query Filtering and Sorting (`IS NULL`, `IS NOT NULL`, `ORDER BY`, Operator Precedence).
+- **[Theory 11](THEORY/Theory11.md)**: `ORDER BY` with `DISTINCT`, `LIMIT`, `OFFSET`, and Introduction to `UPDATE`.
+- **[Theory 12](THEORY/Theory12.md)**: `UPDATE`, `CASE` Statements & `UPDATE` with `LIMIT`.
 
 ### 💻 Practical
 Get your hands dirty with real SQL queries and commands:
@@ -40,6 +42,9 @@ Get your hands dirty with real SQL queries and commands:
 - **[Practical 07](PRACTICAL/Practical07)**: Working with various Data Types, including Numeric (TINYINT, DECIMAL) and String (TEXT, ENUM, SET).
 - **[Practical 08](PRACTICAL/Practical08)**: Working with Date and Time Data Types.
 - **[Practical 09](PRACTICAL/Practical09)**: Fetching data using the `SELECT` command.
+- **[Practical 10](PRACTICAL/Practical10)**: Query Filtering and Sorting (`IS NULL`, `IS NOT NULL`, `ORDER BY`).
+- **[Practical 11](PRACTICAL/Practical11)**: `ORDER BY` with `DISTINCT`, `LIMIT`, `OFFSET`, and `UPDATE` statements.
+- **[Practical 12](PRACTICAL/Practical12)**: Using `UPDATE` with `CASE` Statements and `LIMIT`.
 
 ### 📝 Assignments
 Test your knowledge with hands-on practice problems:
