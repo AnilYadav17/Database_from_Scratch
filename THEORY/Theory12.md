@@ -1,0 +1,57 @@
+## MULIPLE COLUMN UPDATES
+
+We can update multiple columns in same.
+
+```SQL
+UPDATE employeesup set salary=2000,city='Bhopal',department="hr" where employee_id=5;
+```
+
+<br>
+
+### UPDATE Using COMPAIRISION OPERATOR;
+
+```sql
+mysql> update employeeup set salary=55000 where salary<50000;
+```
+
+```
+update employeeup set salary=90000 where experience = 5;
+```
+
+**_1) Write a query to give 5000 increment to IT employees having atleast 5 years of experience._**
+
+```sql
+update employeeup set salary=salary+50000 where department="it" and experience >= 5;
+```
+
+**_ii) Write a query to give increment of 3000 to employee of HR or FINANCE department._**
+
+```sql
+mysql> update employeeup set salary=salary+3000 where department="HR" or department="Finance";
+```
+
+**_iii) give increment of 4000 to three deparments using IN._**
+
+```sql
+update employeeup set salary=salary+3000 where department in ("HR","Finance","Sales");
+```
+
+**_iv) Write a query to give increment of 10000 to all the employees outside HR and Finance department._**
+
+```sql
+update employeeup set salary=salary+10000 where department not in ("HR","Finance");
+```
+
+**_v) WAQ to increment 7000 to all the employees whose salary is between 60000 and 70000_**
+
+```sql
+update employeeup set salary=salary+7000 where salary between 60000 and 70000;
+```
+
+**_vi) WAQ to move all employees to it department whose name start with A._**
+
+**_vii) WAQ to update all the employee cities to goa, who do not have is any city_**
+
+```sql
+update employeeup set city = "Goa" where city is null;
+```
