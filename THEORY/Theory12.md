@@ -114,6 +114,6 @@ update  employeeup set salary= case  when department = 'IT' then salary*1.1  whe
 WAQ to give increment of 15% whose experience is greater than 8year, give increment of 10% whose is greater than 5 , give increment of 7 % whose ex is greater then 3 year , else 5%
 
 ```sql
-> update  employeeup set salary= case  when experience>8 then salary*1.15  when experienc
+update  employeeup set salary= case  when experience>8 then salary*1.15  when experienc
 e>5 then salary*1.10  when experience>3 then salary*1.07  else salary*1.05 end;
 ```
