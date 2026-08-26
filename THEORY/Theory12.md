@@ -55,3 +55,36 @@ update employeeup set salary=salary+7000 where salary between 60000 and 70000;
 ```sql
 update employeeup set city = "Goa" where city is null;
 ```
+
+**_viii) WAQ to give increment of 10% to all it employees_**
+
+```sql
+update employeeup set salary= salary*1.1 where department='it';
+```
+
+**_ix)WAQ to give 15% increment to it employees having more than 5 years of experience and salary below 80000_**
+
+```sql
+update employeeup set salary= salary*1.15 where department='it' and experience >= 5 and salary < 80000;
+```
+
+**_x) WAQ to give 10% increment to those employeess whose joined before 2020_**
+
+```sql
+update employeeup set salary= salary*1.10 where joining_date < "2020-01-01";
+```
+
+<br><br>
+
+## CASE STATEMENTS
+
+Case is a conditional expression in my sql used to return different values based of different conditions.
+It works similar to if else in programming language.
+
+```sql
+case
+    when condition1 then result1
+    when condition2 then result2
+    else result
+end
+```
