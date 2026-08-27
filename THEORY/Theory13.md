@@ -229,3 +229,24 @@ mysql> select * from accounts;
 |   101 | Anil    |  8000.00 |
 |   102 | Abhi    | 22000.00 |
 |   103 | Harsh   | 30000.00 |
++-------+---------+----------+
+3 rows in set (0.00 sec)
+
+mysql> update accounts set balance=balance+2000 where accid=101;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from accounts;
++-------+---------+----------+
+| accid | accname | balance  |
++-------+---------+----------+
+|   101 | Anil    | 10000.00 |
+|   102 | Abhi    | 22000.00 |
+|   103 | Harsh   | 30000.00 |
++-------+---------+----------+
+3 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from accounts;
