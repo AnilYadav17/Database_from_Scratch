@@ -208,3 +208,24 @@ mysql> select * from accounts;
 |   102 | Abhi    | 22000.00 |
 |   103 | Harsh   | 30000.00 |
 +-------+---------+----------+
+3 rows in set (0.00 sec)
+```
+
+**_OBSERVATION_** <br>
+-> The `UPDATE` on `accid=101` (balance changed from 8000 → 11000) was **not committed**, so it was still part of the open/pending transaction.<br>
+-> Firing `ROLLBACK` **undid** this uncommitted change, and the balance of `accid=101` reverted back to `8000.00`.<br>
+-> Note: `accid=102` shows `19000.00` before rollback but `22000.00` after — this value was already committed earlier (from a previous transaction), so it stays as it was; ROLLBACK only affects the **uncommitted** change made in the current transaction (on `accid=101`), not previously committed data.
+
+### EXAMPLE -> ROLLBACK has no effect without an active transaction
+
+```sql
+mysql> start transaction;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from accounts;
++-------+---------+----------+
+| accid | accname | balance  |
++-------+---------+----------+
+|   101 | Anil    |  8000.00 |
+|   102 | Abhi    | 22000.00 |
+|   103 | Harsh   | 30000.00 |
