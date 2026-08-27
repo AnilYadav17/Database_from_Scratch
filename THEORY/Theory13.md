@@ -166,3 +166,24 @@ mysql> select * from accounts;
 -> `ROLLBACK` only works for changes made **after** the last `COMMIT` (i.e., within the current, still-open transaction).
 
 ### **_ROLLBACK_**
+
+-> It is used to UNDO changes made during the current transaction. <br>
+-> Undoes changes made during the current transaction (reverts to the last COMMIT point).
+
+### EXAMPLE -> ROLLBACK undoes changes
+
+```sql
+mysql> select * from accounts;
++-------+---------+----------+
+| accid | accname | balance  |
++-------+---------+----------+
+|   101 | Anil    |  8000.00 |
+|   102 | Abhi    | 19000.00 |
+|   103 | Harsh   | 30000.00 |
++-------+---------+----------+
+3 rows in set (0.00 sec)
+
+mysql> update accounts set balance=balance+3000 where accid=101;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
