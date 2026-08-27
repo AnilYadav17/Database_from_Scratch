@@ -82,3 +82,24 @@ TCL commands are used to manage TRANSACTIONS in a Database.<br>
 TRANSACTION is a group of SQL statements that should be treated as one logical unit of work.<br>
 
 **_TOP COMMANDS_** <br>
+i) COMMIT <BR>
+ii) ROLLBACK <BR>
+iii) SAVEPOINT<BR>
+iv) ROLLBACK TO SAVEPOINT<BR>
+v) RELEASE SAVEPOINT<BR>
+vi) START TRANSACTION<BR>
+
+**_SYNTAX_**
+
+```sql
+syntax>
+start transaction;
+sql statement1;
+sql statement2;
+sql statement3;
+commit;
+
+OR
+begin;
+sql statements;
+commit;
