@@ -103,3 +103,24 @@ OR
 begin;
 sql statements;
 commit;
+```
+
+### COMMIT
+
+Permanently saves all changes made during the current transaction.
+
+### EXAMPLE -> COMMIT makes changes permanent
+
+```sql
+mysql> select * from accounts;
++-------+---------+----------+
+| accid | accname | balance  |
++-------+---------+----------+
+|   101 | Anil    | 10000.00 |
+|   102 | Abhi    | 20000.00 |
+|   103 | Harsh   | 30000.00 |
++-------+---------+----------+
+3 rows in set (0.00 sec)
+
+mysql> start transaction;
+Query OK, 0 rows affected (0.00 sec)
