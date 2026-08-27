@@ -271,3 +271,24 @@ mysql> select * from accounts;
 | accid | accname | balance  |
 +-------+---------+----------+
 |   101 | Anil    | 10000.00 |
+|   102 | Abhi    | 22000.00 |
+|   103 | Harsh   | 30000.00 |
++-------+---------+----------+
+3 rows in set (0.00 sec)
+```
+
+**_OBSERVATION_** <br>
+-> First block: `START TRANSACTION` was fired explicitly, so the `UPDATE` (101 → 10000) was part of an **open transaction**. `ROLLBACK` successfully undid it, and balance went back to `8000.00`.<br>
+-> Second block: `ROLLBACK` **ended** the previous transaction. After that, MySQL went back to its default **autocommit = ON** mode.<br>
+-> Since **no fresh `START TRANSACTION`** was fired before the second `UPDATE`, that `UPDATE` (101 → 10000) got **auto-committed immediately** on its own (it became its own single-statement transaction).<br>
+-> So when `ROLLBACK` was fired again, there was **no pending/uncommitted transaction** left to undo — hence balance stayed at `10000.00` instead of reverting to `8000.00`.<br>
+
+**_KEY TAKEAWAY_** <br>
+-> `ROLLBACK` / `COMMIT` only works on the **currently active transaction**.<br>
+-> Once a transaction ends (via `COMMIT` or `ROLLBACK`), you **must** fire `START TRANSACTION` (or `BEGIN`) again before making further changes — otherwise, with autocommit ON, each statement commits itself instantly and cannot be rolled back.
+
+<br>
+
+### EXAMPLE -> ROLLBACK has no effect after DDL (implicit commit) + no active transaction
+
+```sql
