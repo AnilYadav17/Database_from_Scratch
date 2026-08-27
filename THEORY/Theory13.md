@@ -40,3 +40,24 @@ delete from employeeup order by salary limit 1;
 
 ```sql
 delete from employeeup where department = "IT" order by salary limit 1;
+```
+
+**_WAQ to delete IT or HR employees whose salary is below 60000_**
+
+```sql
+delete from employeeup where department in ("IT","HR") and salary > 60000;
+```
+
+### TRUNCATE vs DELETE
+
+| Aspect             | TRUNCATE                                                 | DELETE                                                                                         |
+| ------------------ | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Type               | DDL (Data Definition Language)                           | DML (Data Manipulation Language)                                                               |
+| WHERE clause       | Not allowed                                              | Allowed                                                                                        |
+| Row selection      | Removes all rows directly                                | Can delete selected rows                                                                       |
+| Conditions         | No conditions possible                                   | Conditions can be used                                                                         |
+| ORDER BY / LIMIT   | Cannot be used                                           | Can be used                                                                                    |
+| Deletion mechanism | Deallocates table data directly (deallocates data pages) | Follows row-by-row deletion semantics                                                          |
+| Commit behavior    | Implicit commit — rollback not possible                  | Can be rolled back when used within a transaction (under appropriate transactional conditions) |
+| Auto Increment     | Counter resets — next insert starts from one             | Does not reset auto increment                                                                  |
+
