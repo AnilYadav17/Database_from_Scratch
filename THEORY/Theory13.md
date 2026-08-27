@@ -292,3 +292,24 @@ mysql> select * from accounts;
 ### EXAMPLE -> ROLLBACK has no effect after DDL (implicit commit) + no active transaction
 
 ```sql
+mysql> alter table accounts add column `add` varchar(20);
+Query OK, 0 rows affected (0.43 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> insert into accounts values (105,"Sahil",6.0001,"Indore");
+Query OK, 1 row affected, 1 warning (0.08 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from accounts;
++-------+---------+----------+--------+
+| accid | accname | balance  | add    |
++-------+---------+----------+--------+
+|   101 | Anil    | 10000.00 | NULL   |
+|   102 | Abhi    | 22000.00 | NULL   |
+|   103 | Harsh   | 30000.00 | NULL   |
+|   104 | Bhuma   | 40000.00 | NULL   |
+|   105 | Sahil   |     6.00 | Indore |
++-------+---------+----------+--------+
+5 rows in set (0.00 sec)
