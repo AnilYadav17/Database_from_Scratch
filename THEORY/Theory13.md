@@ -313,3 +313,15 @@ mysql> select * from accounts;
 |   105 | Sahil   |     6.00 | Indore |
 +-------+---------+----------+--------+
 5 rows in set (0.00 sec)
+```
+
+**_OBSERVATION_** <br>
+-> `ALTER TABLE ... ADD COLUMN` is a **DDL** statement — DDL statements cause an **implicit COMMIT** in MySQL, automatically committing any pending transaction and ending it.<br>
+-> No `START TRANSACTION` was fired **after** the `ALTER TABLE`, so autocommit mode (default = ON) was active.<br>
+-> The `INSERT` for `accid=105` therefore got **auto-committed instantly** on its own — it was never part of an open transaction.<br>
+-> When `ROLLBACK` was fired next, there was **nothing pending** to undo — so the row `105, Sahil, 6.00, Indore` remained permanently in the table.<br>
+-> `1 warning` on the `INSERT` is because `6.0001` was inserted into `balance DECIMAL(10,2)` (or similar) and got **rounded/truncated to `6.00`** — precision loss beyond 2 decimal places.<br>
+
+**_KEY TAKEAWAY_** <br>
+-> **DDL statements (`CREATE`, `ALTER`, `DROP`, `TRUNCATE`) always cause an implicit COMMIT** — they cannot be rolled back, and they also silently commit any DML changes pending before them in the same session.<br>
+-> To roll back an `INSERT`/`UPDATE`/`DELETE`, you must be **inside an active transaction** (`START TRANSACTION` fired, and no DDL or `COMMIT`/`ROLLBACK` executed in between) — otherwise, with autocommit ON, every statement is its own mini-transaction and commits itself immediately.
