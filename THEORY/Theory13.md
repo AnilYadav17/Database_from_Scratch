@@ -61,3 +61,24 @@ delete from employeeup where department in ("IT","HR") and salary > 60000;
 | Commit behavior    | Implicit commit — rollback not possible                  | Can be rolled back when used within a transaction (under appropriate transactional conditions) |
 | Auto Increment     | Counter resets — next insert starts from one             | Does not reset auto increment                                                                  |
 
+### DELETE vs DROP
+
+| Aspect                      | DELETE                              | DROP                                               |
+| --------------------------- | ----------------------------------- | -------------------------------------------------- |
+| Type                        | DML                                 | DDL                                                |
+| Scope                       | Removes rows                        | Removes the database object itself                 |
+| Table structure             | Remains after deletion              | Removed after drop                                 |
+| Columns, Constraints, Index | Remain                              | Removed                                            |
+| WHERE clause                | Allowed                             | Not allowed                                        |
+| Row selection               | Selected or all rows can be deleted | Not applicable — entire object is removed          |
+| Rollback                    | Possible                            | Not possible                                       |
+| Auto Increment              | Not reset                           | No concept applies — object is removed permanently |
+
+<br><br>
+
+## TCL -> TRANSACTION CONTROL LANGUAGE
+
+TCL commands are used to manage TRANSACTIONS in a Database.<br>
+TRANSACTION is a group of SQL statements that should be treated as one logical unit of work.<br>
+
+**_TOP COMMANDS_** <br>
