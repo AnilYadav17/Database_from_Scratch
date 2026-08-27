@@ -145,3 +145,24 @@ mysql> select * from accounts;
 
 mysql> commit;
 Query OK, 0 rows affected (0.08 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from accounts;
++-------+---------+----------+
+| accid | accname | balance  |
++-------+---------+----------+
+|   101 | Anil    |  8000.00 |
+|   102 | Abhi    | 22000.00 |
+|   103 | Harsh   | 30000.00 |
++-------+---------+----------+
+3 rows in set (0.00 sec)
+```
+
+**_OBSERVATION_** <br>
+-> Once `COMMIT` is executed, the changes (balance of 101 → 8000, 102 → 22000) are permanently saved to the database.<br>
+-> After `COMMIT`, firing `ROLLBACK` has **no effect** — data remains as it was after commit, because there is no active/pending transaction left to undo.<br>
+-> `ROLLBACK` only works for changes made **after** the last `COMMIT` (i.e., within the current, still-open transaction).
+
+### **_ROLLBACK_**
