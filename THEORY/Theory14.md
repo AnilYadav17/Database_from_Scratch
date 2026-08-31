@@ -60,4 +60,35 @@ WHERE oderid = 102;
 RELEASE SAVEPOINT orderconfirmed;
 ```
 
-If we perform ROLLBACK then entire TRANSACTION is cancelled and the SAVEPOINT is also gone. Therefor if we use cmnd **_rollback to Savepoint Savepoint_Name_**,then it will say savepoint_name does not exist.
+If we perform ROLLBACK then entire TRANSACTION is cancelled and the SAVEPOINT is also gone. Therefor if we use cmnd **_rollback to Savepoint Savepoint_Name_**, then it will say savepoint_name does not exist.
+
+If we perform commit then no Save Point will be remain.
+
+<br>
+
+---
+
+# AUTO COMMIT
+
+`AUTO COMMIT` is a MySQL setting that determines whether each sql statement is automatically commited as soon as it executes.
+
+By default MySQL usually has auto commit=1 or autocommit=ON,That means every every successfull transaction statement is automatically commited.
+
+```sql
+mysql> select @@autocommit;
++--------------+
+| @@autocommit |
++--------------+
+|            1 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> show variables like 'autocommit';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| autocommit    | ON    |
++---------------+-------+
+1 row in set (0.05 sec)
+
+```
