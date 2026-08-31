@@ -32,6 +32,8 @@ We can finally use `COMMIT` to permanently save the remaining changes.
 
 **ROLLBACK TO SAVEPOINT does not end the Transaction.**
 
+<br>
+
 ---
 
 # RELEASE SAVEPOINT
@@ -43,3 +45,19 @@ RELEASE SAVEPOINT SP1;
 ```
 
 After releasing a savepoint, we cannot rollback to that savepoint.
+
+```sql
+UPDATE orders
+SET orderstatus = 'Confirmed'
+WHERE oderid = 102;
+
+SAVEPOINT orderconfirmed;
+
+UPDATE orders
+SET amount = amount - 5000
+WHERE oderid = 102;
+
+RELEASE SAVEPOINT orderconfirmed;
+```
+
+If we perform ROLLBACK then entire TRANSACTION is cancelled and the SAVEPOINT is also gone. Therefor if we use cmnd **_rollback to Savepoint Savepoint_Name_**,then it will say savepoint_name does not exist.
