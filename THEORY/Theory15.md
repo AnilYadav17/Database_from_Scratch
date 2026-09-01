@@ -236,8 +236,8 @@ so,
 
 ```
 
-\*\*\*CHECK CONSTRAINTS WITH UPDATE
-Check constraint does not only check new insertions But also on updtion.
+**_CHECK CONSTRAINTS WITH UPDATE
+Check constraint does not only check new insertions But also on updtion._**
 
 <br>
 
