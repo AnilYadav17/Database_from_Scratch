@@ -101,6 +101,23 @@ UNIQUE prevents duplicate values but NOT NULL prevents missing values.
 
 ```sql
 
+mysql> create table employee4(id int,email varchar(20) unique);
+Query OK, 0 rows affected (1.68 sec)
+
+mysql> insert into employee4(id) VALUES (201);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into employee4(id) VALUES (202);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from employee4;
++------+-------+
+| id   | email |
+--+------+-------+
+--|  201 | NULL  |
+--|  202 | NULL  |
+---+------+-------+
+--2 rows in set (0.01 sec)
 
 ```
 
@@ -110,4 +127,25 @@ If an application requires every employee to have an email and taht should be un
 
 ```sql
 create table employee3(id int,email varchar(20) unique not null);
+```
+
+### UNIQUE VS PRIMARY KEY
+
+PRIMARY KEY ->
+Uniquely identify row values.
+It can not contain NULL.
+One per table is allowed.
+
+UNIQUE ->
+Prevents duplicates.
+It can contain NULL.
+Multiple possible in a table.
+Used for alternate candidate key.
+
+```sql
+create table employee5(id int primary key,name varchar(20) unique,email varchar(20) unique);
+---Query OK, 0 rows affected (1.55 sec)
+
+create table employee6(id int primary key,name varchar(20) primary key,email varchar(20) unique);
+---ERROR 1068 (42000): Multiple primary key defined
 ```
