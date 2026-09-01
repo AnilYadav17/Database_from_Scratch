@@ -48,6 +48,9 @@ Get your hands dirty with real SQL queries and commands:
 - **[Practical 10](PRACTICAL/Practical10)**: Query Filtering and Sorting (`IS NULL`, `IS NOT NULL`, `ORDER BY`).
 - **[Practical 11](PRACTICAL/Practical11)**: `ORDER BY` with `DISTINCT`, `LIMIT`, `OFFSET`, and `UPDATE` statements.
 - **[Practical 12](PRACTICAL/Practical12)**: Using `UPDATE` with `CASE` Statements and `LIMIT`.
+- **[Practical 13](PRACTICAL/Practical13)**: Practicing `DELETE` command and TCL (`COMMIT`, `ROLLBACK`).
+- **[Practical 14](PRACTICAL/Practical14)**: Practicing `SAVEPOINT`, `RELEASE SAVEPOINT`, and `AUTO COMMIT`.
+- **[Practical 15](PRACTICAL/Practical15)**: Working with Constraints (`NOT NULL`, `UNIQUE`, and `CHECK`).
 
 ### 📝 Assignments
 Test your knowledge with hands-on practice problems:
