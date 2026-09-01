@@ -60,3 +60,75 @@ CREATE TABLE employee3 (
 );
 
 
+==================================================
+5. CHECK Constraint
+==================================================
+
+CREATE TABLE employee6 (
+    id INT,
+    name VARCHAR(20),
+    age INT CHECK (age >= 18)
+);
+
+INSERT INTO employee6 VALUES (101, 'Anil', 19);
+-- Invalid
+-- INSERT INTO employee6 VALUES (102, 'Abhi', 16);
+
+
+==================================================
+6. CHECK Constraint with IN
+==================================================
+
+CREATE TABLE employee7 (
+    id INT,
+    name VARCHAR(20),
+    dno INT CHECK (dno IN (10, 20, 30))
+);
+
+-- Invalid
+-- INSERT INTO employee7 VALUES (101, 'Anil', 40);
+
+
+==================================================
+7. CHECK Constraint with Multiple Conditions
+==================================================
+
+CREATE TABLE employee9 (
+    id INT,
+    name VARCHAR(20),
+    age INT,
+    salary DECIMAL(10, 2),
+    CHECK (age >= 18 AND salary >= 10000)
+);
+
+INSERT INTO employee9 VALUES (102, 'Abhi', 19, 19000);
+-- Invalid
+-- INSERT INTO employee9 VALUES (101, 'Anil', 17, 9000);
+
+
+==================================================
+8. CHECK Constraint with BETWEEN
+==================================================
+
+CREATE TABLE employee10 (
+    id INT,
+    name VARCHAR(20),
+    marks INT,
+    CHECK (marks BETWEEN 0 AND 100)
+);
+
+INSERT INTO employee10 VALUES (101, 'Anii', 100);
+-- Invalid
+-- INSERT INTO employee10 VALUES (101, 'Anii', 101);
+
+
+==================================================
+9. CHECK Constraint with Complex Logic
+==================================================
+
+CREATE TABLE employee11 (
+    id INT,
+    salary INT,
+    ex INT,
+    CHECK ((salary >= 15000 AND ex < 2) OR (ex > 2 AND salary >= 25000))
+);
