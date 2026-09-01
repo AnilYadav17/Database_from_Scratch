@@ -19,3 +19,20 @@ ROLLBACK TO SAVEPOINT orderconfirmed;
 COMMIT;
 
 
+==================================================
+2. Release Savepoint
+==================================================
+
+START TRANSACTION;
+
+UPDATE orders SET orderstatus = 'Confirmed' WHERE oderid = 102;
+
+SAVEPOINT orderconfirmed;
+
+UPDATE orders SET amount = amount - 5000 WHERE oderid = 102;
+
+RELEASE SAVEPOINT orderconfirmed;
+
+COMMIT;
+
+
