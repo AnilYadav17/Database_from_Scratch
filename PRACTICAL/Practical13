@@ -23,3 +23,10 @@ DELETE FROM employeeup WHERE department = 'IT' AND experience > 3;
 DELETE FROM employeeup WHERE department NOT IN ('IT', 'HR');
 
 
+==================================================
+4. Delete employees who joined before 2020
+==================================================
+
+DELETE FROM employeeup WHERE joining_date < '2020-01-01';
+
+
