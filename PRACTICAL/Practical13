@@ -70,3 +70,12 @@ UPDATE accounts SET balance = balance + 3000 WHERE accid = 101;
 ROLLBACK;
 
 
+==================================================
+10. Rollback has no effect after DDL (implicit commit)
+==================================================
+
+ALTER TABLE accounts ADD COLUMN \`add\` VARCHAR(20);
+INSERT INTO accounts VALUES (105, 'Sahil', 6.00, 'Indore');
+ROLLBACK;
+-- The INSERT is not rolled back because there was no active transaction 
+-- started after the ALTER TABLE (which implicitly commits).
