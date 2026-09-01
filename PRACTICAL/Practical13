@@ -37,3 +37,17 @@ DELETE FROM employeeup WHERE joining_date < '2020-01-01';
 DELETE FROM employeeup ORDER BY salary LIMIT 1;
 
 
+==================================================
+6. Delete lowest paid IT employee
+==================================================
+
+DELETE FROM employeeup WHERE department = 'IT' ORDER BY salary LIMIT 1;
+
+
+==================================================
+7. Delete IT or HR employees whose salary is below 60000
+==================================================
+
+DELETE FROM employeeup WHERE department IN ('IT', 'HR') AND salary > 60000;
+
+
