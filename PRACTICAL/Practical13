@@ -61,3 +61,12 @@ UPDATE accounts SET balance = balance + 2000 WHERE accid = 102;
 COMMIT;
 
 
+==================================================
+9. Start Transaction and Rollback
+==================================================
+
+START TRANSACTION;
+UPDATE accounts SET balance = balance + 3000 WHERE accid = 101;
+ROLLBACK;
+
+
