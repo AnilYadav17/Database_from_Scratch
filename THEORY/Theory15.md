@@ -212,3 +212,31 @@ insert into employee9 values(102,"Abhi",19,19000);
 insert into employee9 values(101,"Anil",19,9000);
 --ERROR 3819 (HY000): Check constraint 'employee9_chk_1' is violated.
 ```
+
+```sql
+create table employee10(id int,name varchar(20),marks int, check(marks between 0 and 100));
+--Query OK, 0 rows affected (1.14 sec)
+
+insert into employee10 values (101,"Anii",100);
+--Query OK, 1 row affected (0.09 sec)
+
+insert into employee10 values (101,"Anii",101);
+--ERROR 3819 (HY000): Check constraint 'employee10_chk_1' is violated.
+```
+
+**_EXAMPLE_**
+
+```sql
+create table employee11(id int,salary int, ex int , check ((salary>=15000 and ex <2 ) or (ex>2 and salary>=25000)));
+```
+
+so,
+
+```sql
+
+```
+
+<BR>
+> CHECK CONSTRAINTS WITH UPDATE<BR>
+
+Check constraint does not only check new insertions .
