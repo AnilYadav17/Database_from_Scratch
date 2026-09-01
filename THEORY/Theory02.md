@@ -1,34 +1,45 @@
-### 1. DDL (Data Definition Language) 
--> Its is used to create, define, delete the structure of database structure.
--> They deals with structure of the objects.
--> They interact with database directly , they enforce an implicit commit before and after the statement.
--> In it we can not undo(rollback) the changes.
-->  Auto commit before and after after DDL Command.
--> They are faster than other commands. 
-Example : CREATE, ALTER, DROP, TRUNCATE, RENAME.
-	
+# Types of SQL Commands
 
-### 2. DML - DATA  MANIPULATION LANGUAGE
--> Deals with the data only.
--> These commands interect with buffer first then with the database.
--> We can undo or rollback the changes.
--> They are slow as compare to DDL commands.
--> They are used to manipulate the data stored inside the database tables.
--> It does not create or modify the table structure.
-EXAMPLES :- INSERT, UPDATE ,DELETE etc.
+## 1. DDL (Data Definition Language)
 
-### 3. DQL - DATA QUERY LANGUAGE
--> It is a subset of SQL that is used to retrieve(fetch) data from one or more database tables.
--> It allow users to view , search , filter Data.
-EXAMPLE :- SELECT 
+- It is used to create, define, and delete the structure of a database.
+- Deals with the structure of the objects.
+- Interacts with the database directly; enforces an implicit commit before and after the statement.
+- We cannot undo (rollback) the changes.
+- Auto-commit occurs before and after a DDL Command.
+- Faster than other commands.
 
-### 4. TCL - TRANSACTION CONTROL LANGUAGE
--> It is a category of SQL and used to manage transactios in a database.
--> A TRANSACTION is sequence of one or more SQL statements that are treated as a single unit of work.
--> A set of DML OPERATIONS with commit or rollback is called TRANSACTION.
--> Every TRANSACTION will start with DML operations and commit or rollback is a ending point to these transactions.
-   This commit maybe implicit or explicit. 
-EXAMPLE:- BEGIN ,COMMIT ,ROLLBACK ,SAVEPOINT ,SETTRANSACTION 
+**Examples:** `CREATE`, `ALTER`, `DROP`, `TRUNCATE`, `RENAME`.
 
-### 5. DCL - DATA CONTROL LANGUAGE
--> It is a subset of SQL which is used to control access to database.
+## 2. DML (Data Manipulation Language)
+
+- Deals with the data only.
+- These commands interact with the buffer first, then with the database.
+- We can undo or rollback the changes.
+- Slower compared to DDL commands.
+- Used to manipulate the data stored inside database tables.
+- Does not create or modify the table structure.
+
+**Examples:** `INSERT`, `UPDATE`, `DELETE`, etc.
+
+## 3. DQL (Data Query Language)
+
+- A subset of SQL used to retrieve (fetch) data from one or more database tables.
+- Allows users to view, search, and filter data.
+
+**Example:** `SELECT`.
+
+## 4. TCL (Transaction Control Language)
+
+- A category of SQL used to manage transactions in a database.
+- A **TRANSACTION** is a sequence of one or more SQL statements treated as a single unit of work.
+- A set of DML operations combined with a commit or rollback is called a TRANSACTION.
+- Every transaction starts with DML operations, and a commit or rollback is the ending point for these transactions. This commit may be implicit or explicit.
+
+**Examples:** `BEGIN`, `COMMIT`, `ROLLBACK`, `SAVEPOINT`, `SET TRANSACTION`.
+
+## 5. DCL (Data Control Language)
+
+- A subset of SQL used to control access to the database.
+
+**Examples:** `GRANT`, `REVOKE`.
