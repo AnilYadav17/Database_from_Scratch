@@ -30,3 +30,10 @@ DELETE FROM employeeup WHERE department NOT IN ('IT', 'HR');
 DELETE FROM employeeup WHERE joining_date < '2020-01-01';
 
 
+==================================================
+5. Delete the employee with the lowest salary
+==================================================
+
+DELETE FROM employeeup ORDER BY salary LIMIT 1;
+
+
