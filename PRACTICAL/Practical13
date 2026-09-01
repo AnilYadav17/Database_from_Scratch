@@ -51,3 +51,13 @@ DELETE FROM employeeup WHERE department = 'IT' ORDER BY salary LIMIT 1;
 DELETE FROM employeeup WHERE department IN ('IT', 'HR') AND salary > 60000;
 
 
+==================================================
+8. Start Transaction and Commit
+==================================================
+
+START TRANSACTION;
+UPDATE accounts SET balance = balance - 2000 WHERE accid = 101;
+UPDATE accounts SET balance = balance + 2000 WHERE accid = 102;
+COMMIT;
+
+
