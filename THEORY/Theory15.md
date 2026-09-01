@@ -149,3 +149,30 @@ create table employee5(id int primary key,name varchar(20) unique,email varchar(
 create table employee6(id int primary key,name varchar(20) primary key,email varchar(20) unique);
 ---ERROR 1068 (42000): Multiple primary key defined
 ```
+
+### (iii) CHECK CONSTRAINTS
+
+Domain constraints used to restrict the values that can be inserted or uodated in a column based on specified condition.
+Ensured data stored n a column satisfied a particular condition.
+
+```sql
+SYSNTAX>
+create table tablename (columnname datatypee check(condition))
+```
+
+**_EXAMPLE_**
+
+```sql
+create table employee6(id int,name varchar(20),age int check(age>=18));
+--Query OK, 0 rows affected (0.58 sec)
+```
+
+SO ->
+
+```sql
+insert into employee6 values(101,"Anil",19);
+--Query OK, 1 row affected (0.08 sec)
+
+insert into employee6 values(102,"Abhi",16);
+--ERROR 3819 (HY000): Check constraint 'employee6_chk_1' is violated.
+```
