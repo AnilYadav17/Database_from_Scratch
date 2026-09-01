@@ -160,7 +160,7 @@ SYSNTAX>
 create table tablename (columnname datatypee check(condition))
 ```
 
-**_EXAMPLE_**
+**_EXAMPLE1_**
 
 ```sql
 create table employee6(id int,name varchar(20),age int check(age>=18));
@@ -175,4 +175,40 @@ insert into employee6 values(101,"Anil",19);
 
 insert into employee6 values(102,"Abhi",16);
 --ERROR 3819 (HY000): Check constraint 'employee6_chk_1' is violated.
+```
+
+**_EXAMPLE2_**
+
+```sql
+create table employee7(id int,name varchar(20),dno int check(dno in (10,20,30)));
+
+insert into employee7 values (101,"Anil",40);
+--ERROR 3819 (HY000): Check constraint 'employee7_chk_1' is violated.
+
+insert into employee7(id,name) values (102,"Anii");
+--Query OK, 1 row affected (0.13 sec)
+```
+
+```sql
+create table employee8(id int,name varchar(20),dno int check(dno in (10,20,30)) not null);
+```
+
+<br>
+
+> CHECK CONSTRAINTS WTIH MULTIPLE CONDITIONS:
+
+CHECK can contain multiple conditions using operator.
+
+```sql
+mysql> create table employee9(id int,name varchar(20),age int,salary decimal(10,2), check(age>=18 and salary>=10000));
+Query OK, 0 rows affected (1.28 sec)
+
+mysql> insert into employee9 values(101,"Anil",17,9000);
+---ERROR 3819 (HY000): Check constraint 'employee9_chk_1' is violated.
+
+insert into employee9 values(102,"Abhi",19,19000);
+---Query OK, 1 row affected (0.14 sec)
+
+insert into employee9 values(101,"Anil",19,9000);
+--ERROR 3819 (HY000): Check constraint 'employee9_chk_1' is violated.
 ```
