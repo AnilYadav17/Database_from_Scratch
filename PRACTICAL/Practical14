@@ -36,3 +36,16 @@ RELEASE SAVEPOINT orderconfirmed;
 COMMIT;
 
 
+==================================================
+3. Check and Set Autocommit
+==================================================
+
+SELECT @@autocommit;
+
+SHOW VARIABLES LIKE 'autocommit';
+
+SET AUTOCOMMIT = 0;
+
+UPDATE orders SET amount = amount + 500 WHERE oderid = 101;
+
+COMMIT;
