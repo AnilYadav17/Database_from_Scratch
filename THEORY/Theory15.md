@@ -92,3 +92,22 @@ insert into employee2 values (101,502,402);
 ```
 
 From the above example it is clear that combinations shoudl be unique.
+
+<br>
+
+### UNIQUE VS NOT NULL
+
+UNIQUE prevents duplicate values but NOT NULL prevents missing values.
+
+```sql
+
+
+```
+
+From the above example it is clear that email can not be duplicated but NULL handling is different from ordinary value.
+
+If an application requires every employee to have an email and taht should be unique.
+
+```sql
+create table employee3(id int,email varchar(20) unique not null);
+```
