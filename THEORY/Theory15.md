@@ -236,7 +236,13 @@ so,
 
 ```
 
-<BR>
-> CHECK CONSTRAINTS WITH UPDATE<BR>
+\*\*\*CHECK CONSTRAINTS WITH UPDATE
+Check constraint does not only check new insertions But also on updtion.
 
-Check constraint does not only check new insertions .
+<br>
+
+## COLUMN LEVEL and TABLE LEVEL CONSTRAINTS:
+
+Column Level constraints the condition is written directly with the column , this is commonly used when the condition relates to one column.
+
+Table Level constraits , Where the condition is defined separately, it is usefull when the condition envolves multiple columns.
