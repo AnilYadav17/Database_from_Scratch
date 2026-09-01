@@ -16,3 +16,10 @@ DELETE FROM employeeup WHERE department = 'HR';
 DELETE FROM employeeup WHERE department = 'IT' AND experience > 3;
 
 
+==================================================
+3. Delete employees who are not from IT or HR
+==================================================
+
+DELETE FROM employeeup WHERE department NOT IN ('IT', 'HR');
+
+
