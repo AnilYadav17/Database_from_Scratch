@@ -1,0 +1,20 @@
+==================================================
+# MYSQL PRACTICAL 15
+==================================================
+
+==================================================
+1. NOT NULL Constraint
+==================================================
+
+CREATE TABLE employee (
+    id INT,
+    name VARCHAR(20) NOT NULL,
+    salary DECIMAL(20, 2)
+);
+
+INSERT INTO employee VALUES (101, 'null', 50000);
+INSERT INTO employee VALUES (103, '', 50000);
+-- Invalid
+-- INSERT INTO employee VALUES (102, NULL, 50000);
+
+
