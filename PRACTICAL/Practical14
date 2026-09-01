@@ -1,0 +1,21 @@
+==================================================
+# MYSQL PRACTICAL 14
+==================================================
+
+==================================================
+1. Rollback to Savepoint
+==================================================
+
+START TRANSACTION;
+
+UPDATE orders SET orderstatus = 'Confirmed' WHERE oderid = 102;
+
+SAVEPOINT orderconfirmed;
+
+UPDATE orders SET amount = amount - 5000 WHERE oderid = 102;
+
+ROLLBACK TO SAVEPOINT orderconfirmed;
+
+COMMIT;
+
+
