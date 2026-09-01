@@ -9,3 +9,10 @@
 DELETE FROM employeeup WHERE department = 'HR';
 
 
+==================================================
+2. Delete IT employees having more than 3 years of experience
+==================================================
+
+DELETE FROM employeeup WHERE department = 'IT' AND experience > 3;
+
+
