@@ -30,6 +30,9 @@ Dive deep into core concepts and terminology:
 - **[Theory 10](THEORY/Theory10.md)**: Query Filtering and Sorting (`IS NULL`, `IS NOT NULL`, `ORDER BY`, Operator Precedence).
 - **[Theory 11](THEORY/Theory11.md)**: `ORDER BY` with `DISTINCT`, `LIMIT`, `OFFSET`, and Introduction to `UPDATE`.
 - **[Theory 12](THEORY/Theory12.md)**: `UPDATE`, `CASE` Statements & `UPDATE` with `LIMIT`.
+- **[Theory 13](THEORY/Theory13.md)**: `DELETE` command, `TRUNCATE` vs `DELETE`, `DELETE` vs `DROP`, and TCL (`COMMIT`, `ROLLBACK`).
+- **[Theory 14](THEORY/Theory14.md)**: `SAVEPOINT`, `RELEASE SAVEPOINT`, `AUTO COMMIT`, and difference between `AUTOCOMMIT` and `COMMIT`.
+- **[Theory 15](THEORY/Theory15.md)**: Constraints (Domain Integrity) - `NOT NULL`, `UNIQUE`, and `CHECK`.
 
 ### 💻 Practical
 Get your hands dirty with real SQL queries and commands:
