@@ -33,6 +33,8 @@ Dive deep into core concepts and terminology:
 - **[Theory 13](THEORY/Theory13.md)**: `DELETE` command, `TRUNCATE` vs `DELETE`, `DELETE` vs `DROP`, and TCL (`COMMIT`, `ROLLBACK`).
 - **[Theory 14](THEORY/Theory14.md)**: `SAVEPOINT`, `RELEASE SAVEPOINT`, `AUTO COMMIT`, and difference between `AUTOCOMMIT` and `COMMIT`.
 - **[Theory 15](THEORY/Theory15.md)**: Constraints (Domain Integrity) - `NOT NULL`, `UNIQUE`, and `CHECK`.
+- **[Theory 16](THEORY/Theory16.md)**: Naming Constraints, `DEFAULT` Constraint, and `DEFAULT` with Datetime.
+- **[Theory 17](THEORY/Theory17.md)**: SQL Functions, Single Row (Scalar) vs Aggregate Functions, and String Functions.
 
 ### 💻 Practical
 Get your hands dirty with real SQL queries and commands:
