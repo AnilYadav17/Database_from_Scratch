@@ -1,0 +1,193 @@
+QNO 1: Matrix Transpose & Diagonal Transformation(3.5 marks)
+
+Write a Python program that accepts an N × N square matrix from the user.
+
+The program must:
+
+Display the original matrix.
+Find and display the Main Diagonal elements.
+Find and display the Secondary Diagonal elements.
+Create the transpose of the matrix.
+In the transposed matrix, swap each Main Diagonal element with the corresponding Secondary Diagonal element.
+Display the final matrix.
+The original matrix must not be modified.
+Input
+Enter the size of matrix: 4
+
+Enter matrix elements:
+10 20 30 40
+50 60 70 80
+90 15 25 35
+45 55 65 75
+Expected Output
+Original Matrix:
+10 20 30 40
+50 60 70 80
+90 15 25 35
+45 55 65 75
+
+Main Diagonal Elements:
+10 60 25 75
+
+Secondary Diagonal Elements:
+40 70 15 45
+
+Transpose Matrix:
+10 50 90 45
+20 60 15 55
+30 70 25 65
+40 80 35 75
+
+Final Matrix After Diagonal Swapping:
+45 50 90 10
+20 15 60 55
+30 25 70 65
+75 80 35 40
+
+
+Conditions
+Use Python nested lists.
+Matrix size must be taken from the user.
+Do not use NumPy.
+Do not use zip().
+Do not use built-in matrix operations.
+Do not modify the original matrix.
+
+
+QNO 2: Find the Longest Substring That Appears at Both Ends(3.5 marks)
+
+Problem Statement Given a string S, find the longest substring that
+appears both as a prefix (beginning) and as a suffix (ending) of the
+string.
+
+The prefix and suffix must not be equal to the entire string itself. If
+multiple such substrings exist, return the longest one. If no such
+substring exists, print “Not Found”.
+
+Note: The prefix and suffix may overlap.
+
+Input Format - A single line containing the string S.
+
+Output Format - Print the longest substring that appears as both a
+prefix and a suffix. - If no such substring exists, print: Not Found
+
+Constraints 1 ≤ |S| ≤ 100000 S consists of lowercase English letters
+only.
+
+Examples
+
+1)  Input: ababcab Output: ab
+
+2)  Input: level Output: l
+
+3)  Input: abcabc Output: abc
+
+4)  Input: abcdef Output: Not Found
+
+5)  Input: aaaa Output: aaa
+
+Sample Test Cases
+
+1)  Input: banana Output: Not Found
+
+2)  Input: abcdabc Output: abc
+
+3)  Input: xyzxyz Output: xyz
+
+4)  Input: ababab Output: abab
+
+
+
+6)  Input: a Output: Not Found
+
+7)  Input: aaaaaa Output: aaaaa
+
+8)  Input: racecar Output: r
+
+9)  Input: abababab Output: ababab
+
+10) Input: abcab Output: ab
+
+
+
+
+
+QUESTION 3: LIBRARY BOOK RECORD ANALYSIS(3 marks)
+
+A library wants to maintain and analyze its book records using NamedTuple.
+
+Each book contains the following information:
+
+Fields:
+book_id, title, author, price
+
+Requirements:
+Read N book records from the user and store them in a list of NamedTuple.
+Display all book details.
+Find and display the most expensive book.
+Find and display the cheapest book.
+Calculate and display the average price of all books.
+Display all books whose price is greater than the average book price.
+Test Case
+
+Input:
+
+Enter number of books: 6
+
+Enter details for Book 1:
+Enter Book ID: B201
+Enter Title: C Programming
+Enter Author: Robert
+Enter Price: 400
+
+Enter details for Book 2:
+Enter Book ID: B202
+Enter Title: Web Development
+Enter Author: Martin
+Enter Price: 650
+
+Enter details for Book 3:
+Enter Book ID: B203
+Enter Title: Python Advanced
+Enter Author: Robert
+Enter Price: 800
+
+Enter details for Book 4:
+Enter Book ID: B204
+Enter Title: Database Systems
+Enter Author: Thomas
+Enter Price: 500
+
+Enter details for Book 5:
+Enter Book ID: B205
+Enter Title: Machine Learning
+Enter Author: David
+Enter Price: 900
+
+Enter details for Book 6:
+Enter Book ID: B206
+Enter Title: Computer Networks
+Enter Author: Martin
+Enter Price: 350
+Expected Output
+All Book Details:
+B201 C Programming Robert 400
+B202 Web Development Martin 650
+B203 Python Advanced Robert 800
+B204 Database Systems Thomas 500
+B205 Machine Learning David 900
+B206 Computer Networks Martin 350
+
+Most Expensive Book:
+B205 Machine Learning David 900
+
+Cheapest Book:
+B206 Computer Networks Martin 350
+
+Average Book Price:
+600.0
+
+Books With Price Greater Than Average:
+B202 Web Development Martin 650
+B203 Python Advanced Robert 800
+B205 Machine Learning David 900
