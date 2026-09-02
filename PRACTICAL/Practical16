@@ -1,0 +1,68 @@
+==================================================
+# MYSQL PRACTICAL 16
+==================================================
+
+==================================================
+1. NAMING a Check Constraint
+==================================================
+
+CREATE TABLE employee_chk (
+    id INT,
+    name VARCHAR(20),
+    age INT,
+    CONSTRAINT chk_age CHECK(age >= 18)
+);
+
+INSERT INTO employee_chk VALUES (101, 'Anil', 20);
+-- Invalid (fails chk_age constraint)
+-- INSERT INTO employee_chk VALUES (102, 'Rohan', 16);
+
+
+==================================================
+2. DEFAULT Constraint
+==================================================
+
+CREATE TABLE employee_def (
+    id INT PRIMARY KEY,
+    name VARCHAR(20),
+    status VARCHAR(20) DEFAULT 'Active'
+);
+
+DESC employee_def;
+
+INSERT INTO employee_def (id, name) VALUES (101, 'Anil');
+SELECT * FROM employee_def;
+
+
+==================================================
+3. DEFAULT with Date Time
+==================================================
+
+CREATE TABLE employee_date (
+    id INT,
+    name VARCHAR(20),
+    createdate DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO employee_date (id, name) VALUES (1, 'Alice');
+INSERT INTO employee_date (id, name) VALUES (2, 'Bob');
+SELECT * FROM employee_date;
+
+
+==================================================
+4. Multiple Constraints (NOT NULL, DEFAULT, CHECK)
+==================================================
+
+CREATE TABLE employee_multi (
+    id INT NOT NULL,
+    name VARCHAR(20),
+    dno INT DEFAULT 10 CHECK(dno IN (10, 20, 30))
+);
+
+INSERT INTO employee_multi (id, name) VALUES (1, 'John');
+-- Invalid (violates check constraint)
+-- INSERT INTO employee_multi (id, name, dno) VALUES (2, 'Doe', 40);
+-- Invalid (violates NOT NULL)
+-- INSERT INTO employee_multi (name) VALUES ('Jane');
+
+SELECT * FROM employee_multi;
