@@ -1,130 +1,125 @@
-# Data Types in MYSQL
+# Data Types in MySQL
 
-- A data type defines what kind of value a column can store.
+A data type defines what kind of value a column can store:
 - How much storage is required.
 - What kind of values are allowed.
-- What operations can be performed.
+- What operations can be performed on the data.
 
-## Types:
+## Major Categories of Data Types
 
-1. Numeric
-2. String
-3. Date and Time
-4. JSON
-
----
-
-## 1. Numeric:
-
-- Numeric data types are used to store numeric values such as integers and decimal numbers.
-- They allow database to perform mathematical operations.
-
-Example: int, tinyint, smallint, bigint, decimal, float, double.
-
-![image](images/image.png)
-
-**NOTE:**
-- BY DEFAULT, INTEGER TYPES ARE SIGNED SO THEY CAN STORE POSITIVE AND NEGATIVE VALUES.
-- UNSIGNED DOES NOT ALLOW NEGATIVE VALUES AND INCREASE THE POSITIVE RANGE.
-
-```sql
-create table demo1(id tinyint unsigned);
-desc demo1;
-```
-
-### Decimal-
-
-- It is used for exact decimal values.
-
-```sql
-decimal(m,d)
-m= total digits
-d= digits after decimal
-
-salary decimal(10,2)
-```
-
-### Float & Double -
-
-- It is used for approximate decimal values.
-
-```sql
-float ----- Lower precision
-double ---- higher decimal
-decimal --- exact precision
-```
+1. **Numeric Data Types**
+2. **String Data Types**
+3. **Date and Time Data Types**
+4. **JSON / Spatial Data Types**
 
 ---
 
-## 2. String:
+## 1. Numeric Data Types
 
-- It is used for text.
+Numeric data types are used to store numeric values such as integers and decimal numbers. They allow the database to perform arithmetic and mathematical operations.
 
-Example: char, varchar
+**Examples:** `TINYINT`, `SMALLINT`, `MEDIUMINT`, `INT`, `BIGINT`, `DECIMAL`, `FLOAT`, `DOUBLE`.
 
-### a. Char-
+![Numeric Data Types](images/image.png)
 
-- Fixed length string
+### Integer Types and Modifiers
 
-```sql
-countrycode char(2)
-IN
-US
-UK
-```
-
-### b. Varchar-
-
-- Variable length string
-- It is most commonly used string type in application development.
+- **SIGNED (Default):** Can store both positive and negative values.
+- **UNSIGNED:** Disallows negative values, effectively doubling the positive range.
 
 ```sql
-name varchar(100)
+CREATE TABLE demo1 (
+    id TINYINT UNSIGNED
+);
+
+DESC demo1;
 ```
 
-### c. Text-
+### Exact vs. Approximate Numeric Types
 
-- It is used for larger text.
-
-Example: `tinytext` —— 255 bytes, `text` ——— 65535 bytes, `mediumtext`, `longtext`.
+#### DECIMAL
+Used for exact decimal values (financial transactions, currency, precision calculations):
+- `DECIMAL(M, D)`
+  - `M` = Total number of digits (precision)
+  - `D` = Number of digits after the decimal point (scale)
 
 ```sql
-create table demo2(id int, description text);
-desc demo2;
+salary DECIMAL(10, 2)
 ```
 
-### d. enum-
+#### FLOAT & DOUBLE
+Used for approximate decimal values (scientific calculations, continuous measurements):
+- `FLOAT` — Single precision (lower precision)
+- `DOUBLE` — Double precision (higher precision)
+- `DECIMAL` — Exact precision
 
-- It allows one value from a predefined list.
+---
+
+## 2. String Data Types
+
+String data types are used to store text, characters, and predefined values.
+
+### a. CHAR
+- **Fixed-length** character string.
+- Padded with spaces up to the defined length if input is shorter.
 
 ```sql
-status enum('active' , 'onleave' , 'inactive')
-```
-```sql
-create table demo3(id int, status enum('active' , 'inactive' , 'onleave'));
-
-insert into demo3 values(101,'active');
-insert into demo3 values(102,'onleave');
-select * from demo3;
-insert into demo3 values(103,'yes'); -- This will cause an error as 'yes' is not in the enum list
+country_code CHAR(2)  -- 'IN', 'US', 'UK'
 ```
 
-### e. set-
-
-- It allows multiple values from a predefined list.
+### b. VARCHAR
+- **Variable-length** character string.
+- Stores only the actual characters plus length bytes.
+- The most commonly used string type in application development.
 
 ```sql
-skills set('java','python','SQL','react')
+name VARCHAR(100)
 ```
 
-- Here, multiple values can be selected.
-- Set is less commonly used in modern application database design.
-- For complex relationships, a separate mapping table is created.
-
-```sql
-create table demo4(id int, name varchar(100), status enum('leave','active'), skills set('java','python','SQL','react'));
-```
+### c. TEXT
+- Used for larger text content where `VARCHAR` limit is insufficient.
+- Available variants: `TINYTEXT` (255 bytes), `TEXT` (65,535 bytes), `MEDIUMTEXT` (16MB), `LONGTEXT` (4GB).
 
 ```sql
-insert into demo4 values (101,'kuldeep','active','python'), (102,'dhruv','leave','java,python,SQL');
+CREATE TABLE demo2 (
+    id INT, 
+    description TEXT
+);
+
+DESC demo2;
 ```
+
+### d. ENUM
+- A string object whose value is chosen from a **single value** out of a predefined list of permitted values.
+
+```sql
+CREATE TABLE demo3 (
+    id INT, 
+    status ENUM('active', 'inactive', 'onleave')
+);
+
+INSERT INTO demo3 VALUES (101, 'active');
+INSERT INTO demo3 VALUES (102, 'onleave');
+SELECT * FROM demo3;
+
+-- The following will cause an error because 'yes' is not in the ENUM list:
+-- INSERT INTO demo3 VALUES (103, 'yes');
+```
+
+### e. SET
+- A string object that can have **zero or more values** chosen from a predefined list of permitted values.
+
+```sql
+CREATE TABLE demo4 (
+    id INT, 
+    name VARCHAR(100), 
+    status ENUM('leave', 'active'), 
+    skills SET('java', 'python', 'SQL', 'react')
+);
+
+INSERT INTO demo4 VALUES 
+    (101, 'kuldeep', 'active', 'python'), 
+    (102, 'dhruv', 'leave', 'java,python,SQL');
+```
+
+> **Note:** While `SET` allows multiple values in a single column, relational design often prefers separate junction/mapping tables for many-to-many relationships.
