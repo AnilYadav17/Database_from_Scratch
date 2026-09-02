@@ -53,6 +53,8 @@ Get your hands dirty with real SQL queries and commands:
 - **[Practical 13](PRACTICAL/Practical13)**: Practicing `DELETE` command and TCL (`COMMIT`, `ROLLBACK`).
 - **[Practical 14](PRACTICAL/Practical14)**: Practicing `SAVEPOINT`, `RELEASE SAVEPOINT`, and `AUTO COMMIT`.
 - **[Practical 15](PRACTICAL/Practical15)**: Working with Constraints (`NOT NULL`, `UNIQUE`, and `CHECK`).
+- **[Practical 16](PRACTICAL/Practical16)**: Using Named Constraints, `DEFAULT` constraint, and tracking time with `CURRENT_TIMESTAMP`.
+- **[Practical 17](PRACTICAL/Practical17)**: Using String Functions such as `UPPER`, `LOWER`, `LENGTH`, `CONCAT`, and `SUBSTRING`.
 
 ### 📝 Assignments
 Test your knowledge with hands-on practice problems:
