@@ -1,0 +1,35 @@
+==================================================
+# MYSQL PRACTICAL 17
+==================================================
+
+==================================================
+1. STRING FUNCTIONS
+==================================================
+
+CREATE TABLE student_func (
+    student_id INT,
+    name VARCHAR(50),
+    age INT,
+    city VARCHAR(50)
+);
+
+INSERT INTO student_func VALUES (1, 'Anil', 21, 'goa');
+INSERT INTO student_func VALUES (2, 'Rahul', 22, 'goa');
+INSERT INTO student_func VALUES (3, 'Amit', 20, 'goa');
+
+SELECT * FROM student_func;
+
+-- UPPER() function
+SELECT name, UPPER(name) AS uppercase_name FROM student_func;
+
+-- LOWER() function
+SELECT name, LOWER(name) AS lowercase_name FROM student_func;
+
+-- LENGTH() function
+SELECT name, LENGTH(name) AS name_length FROM student_func;
+
+-- CONCAT() function
+SELECT CONCAT(name, ' from ', city) AS student_info FROM student_func;
+
+-- SUBSTRING() function
+SELECT name, SUBSTRING(name, 1, 2) AS short_name FROM student_func;
