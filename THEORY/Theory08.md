@@ -1,78 +1,87 @@
-# Date and Time Data Types in MYSQL
+# Date and Time Data Types in MySQL
 
-MySQL provides the following types of Date and Time data types:
+MySQL provides comprehensive support for temporal data through several Date and Time data types:
 
-1. **Date**: It will store date only. Example: `2026-08-13`
-2. **Time**: It will store time only. Example: `14:30:45`
-3. **DateTime**: It will store both date and time. Example: `2026-08-13 14:30:45`
-4. **TimeStamp**: It also stores date + time.
-5. **Year**: It will store year only.
+1. **`DATE`**: Stores date only (`YYYY-MM-DD`). Example: `2026-08-13`
+2. **`TIME`**: Stores time only (`HH:MM:SS`). Example: `14:30:45`
+3. **`DATETIME`**: Stores both date and time (`YYYY-MM-DD HH:MM:SS`). Example: `2026-08-13 14:30:45`
+4. **`TIMESTAMP`**: Stores date and time with automatic timezone handling and timestamps.
+5. **`YEAR`**: Stores 4-digit year value. Example: `2026`
 
 ---
 
-## 1. Date
+## 1. DATE
 
-- Date stores only the date.
-- Format: `YYYY-MM-DD`.
-- Use date when time is not required, like date of birth, joining date, invoice date, order date, etc.
+- Stores date without time components.
+- Standard format: `YYYY-MM-DD`.
+- Ideal for values like date of birth, joining date, invoice date, and event dates.
 
 ```sql
-CREATE TABLE employeedt(
+CREATE TABLE employeedt (
     id INT, 
     name VARCHAR(20), 
     birthdate DATE
 );
 ```
 
-## 2. Time
+---
 
-- Format: `HH:MM:SS`
-- It stores time only. Example: start time `09:30:45`
+## 2. TIME
+
+- Stores time of day or elapsed time intervals.
+- Standard format: `HH:MM:SS`.
 
 ```sql
-CREATE TABLE classschedule(
+CREATE TABLE classschedule (
     classid INT, 
     classname VARCHAR(30), 
     starttime TIME
 );
 ```
 
-## 3. DateTime
+---
 
-- It stores both date and time.
-- Format: `YYYY-MM-DD HH:MM:SS`
+## 3. DATETIME
+
+- Stores both date and time components.
+- Standard format: `YYYY-MM-DD HH:MM:SS`.
+- Value range: `'1000-01-01 00:00:00'` to `'9999-12-31 23:59:59'`.
 
 ```sql
-CREATE TABLE appointment(
+CREATE TABLE appointment (
     apid INT, 
     cusname VARCHAR(20), 
     aptime DATETIME
 );
 ```
 
-## 4. TimeStamp
+---
 
-- It also stores date + time.
-- One of its major advantages is that it can work with MySQL's automatic current time features.
-- `CURRENT_TIMESTAMP` returns current date and time.
+## 4. TIMESTAMP
+
+- Stores date and time values converted to UTC for storage and converted back to the current session time zone on retrieval.
+- Value range: `'1970-01-01 00:00:01'` UTC to `'2038-01-19 03:14:07'` UTC.
+- Supports automatic record initialization (`DEFAULT CURRENT_TIMESTAMP`) and automatic modification tracking (`ON UPDATE CURRENT_TIMESTAMP`).
 
 ```sql
-CREATE TABLE employeedt1(
+CREATE TABLE employeedt1 (
     id INT, 
     name VARCHAR(20), 
     createdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
 
-### Datetime vs TimeStamp
+### DATETIME vs. TIMESTAMP Comparison
 
-- Both can store date and time.
-- DateTime stores date and time values as given. It does not perform automatic time zone conversion.
-- TimeStamp converts values between the session time zone.
-- `ON UPDATE CURRENT_TIMESTAMP`: This is useful for tracking when a row was last modified.
+| Feature | DATETIME | TIMESTAMP |
+| :--- | :--- | :--- |
+| **Storage Range** | `1000-01-01` to `9999-12-31` | `1970-01-01` to `2038-01-19` (UTC) |
+| **Storage Size** | 5 bytes (+ fractional seconds) | 4 bytes (+ fractional seconds) |
+| **Timezone Support** | Stores exact constant value | Converts between session timezone and UTC |
+| **Auto-update** | Supported in modern MySQL | Supported (widely used for audits) |
 
 ```sql
-CREATE TABLE employeedt3(
+CREATE TABLE employeedt3 (
     id INT, 
     name VARCHAR(20), 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -80,12 +89,15 @@ CREATE TABLE employeedt3(
 );
 ```
 
-## 5. Year
+---
 
-- It stores only year.
+## 5. YEAR
+
+- Stores a 4-digit year.
+- Valid range: `1901` to `2155` (and `0000`).
 
 ```sql
-CREATE TABLE vehicle1(
+CREATE TABLE vehicle1 (
     vid INT, 
     model VARCHAR(20), 
     mfg_year YEAR
@@ -94,20 +106,15 @@ CREATE TABLE vehicle1(
 
 ---
 
-## 6. Boolean in MySQL
+## 6. BOOLEAN in MySQL
 
-- It is used when column should represent a True/False condition.
 - In MySQL, `BOOLEAN` and `BOOL` are synonyms for `TINYINT(1)`.
-- MySQL does not provide a separate boolean numeric storage type. 
-- Here, 1 historically represents display width, not storage size or restriction to values 0 and 1.
-- `TRUE` is stored as 1, `FALSE` is stored as 0.
+- `TRUE` is stored and returned as `1`, `FALSE` is stored and returned as `0`.
 
 ```sql
-CREATE TABLE employeedt4(
+CREATE TABLE employeedt4 (
     id INT, 
     name VARCHAR(20), 
     is_active BOOLEAN
 );
 ```
-
-*(Note: Binary data types will be covered later.)*
