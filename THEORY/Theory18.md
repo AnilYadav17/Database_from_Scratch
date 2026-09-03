@@ -16,3 +16,17 @@ select department,count(*) from employees where salary > 50000 group by departme
 
 
 ***WAQ to find the highest salary in each department considering only active employees.***
+```sql
+select department,count(*) from employees where status ="Active"
+group by department;
+```
+
+***WAQ to find the number of active employees for each department and city.***
+```sql
+select department,city,count(*) from employees where status = "Active" order by department,city;
+```
+
+***WAQ to find department wise employees count, who joined after january2025.***
+```sql
+select department,count(*) from employees where joining_date > "2025-01-01" group by department;
+```
