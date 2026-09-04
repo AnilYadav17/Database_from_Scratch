@@ -30,3 +30,21 @@ select department,city,count(*) from employees where status = "Active" order by 
 ```sql
 select department,count(*) from employees where joining_date > "2025-01-01" group by department;
 ```
+
+***WAQ to find total salary of each department and display departments from highest total salary to lowest total salary***
+```sql
+ select department,sum(salary) from employees group by department order by sum(salary) desc;
+```
+
+***WAQ to find the number of employees in each department and display departments from highest employees to lowest employees.***<br>
+
+***WAQ to find top two departments based on total salary***
+```sql
+select department,sum(salary) from employees group by department
+order by sum(salary) desc limit 2;
+```
+<BR>
+
+> CAN WE USE OFFSET WITH THIS ?   -> YES
+<BR>
+
