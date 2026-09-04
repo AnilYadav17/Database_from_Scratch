@@ -212,3 +212,53 @@ Other Functions:
 Q48. LAST_DAY(joining_date)
 Q49. STR_TO_DATE() on string dates
 Q50. Final HR Attendance Report
+
+
+==================================================
+ASSIGNMENT 6: MYSQL STRING FUNCTIONS
+==================================================
+
+Table: employee_directory
+Columns:
+emp_id          INT PRIMARY KEY AUTO_INCREMENT
+first_name      VARCHAR(50) NOT NULL
+last_name       VARCHAR(50) NOT NULL
+email           VARCHAR(100) NOT NULL
+phone_number    VARCHAR(20) NOT NULL
+city            VARCHAR(50) NOT NULL
+job_title       VARCHAR(50) NOT NULL
+notes           VARCHAR(255) NULL
+
+Case Conversion Functions:
+Q1. UPPER() / UCASE(): Display employee's first and last name concatenated in all UPPERCASE.
+Q2. LOWER() / LCASE(): Standardize all email addresses to LOWERCASE.
+
+Length Functions:
+Q3. LENGTH() vs CHAR_LENGTH(): Display employee first name, byte length, and character length.
+
+Concatenation Functions:
+Q4. CONCAT(): Combine first_name, last_name, and job_title formatted as 'Aarav Sharma (Software Engineer)'.
+Q5. CONCAT_WS(): Display first_name, last_name, city, and phone_number separated by comma space ', '.
+
+Substring & Extraction Functions:
+Q6. SUBSTRING() / SUBSTR(): Extract first 5 characters of first_name.
+Q7. LEFT(): Extract first 3 digits (network/area code) of phone_number.
+Q8. RIGHT(): Extract last 4 digits of phone_number.
+
+Padding Functions:
+Q9. LPAD(): Format custom employee code like 'EMP-0001' by zero-padding emp_id.
+Q10. RPAD(): Format city to fixed width of 12 characters, right-padded with dots ('.').
+
+Whitespace Cleaning Functions:
+Q11. TRIM(), LTRIM(), RTRIM(): Clean leading, trailing, and surrounding whitespace on notes column.
+
+Search & Replacement Functions:
+Q12. REPLACE(): Replace hyphens ('-') with spaces (' ') in phone_number.
+Q13. INSTR() / LOCATE(): Find numerical index position of '@' in email.
+Q14. REVERSE(): Display reversed first_name.
+Q15. REPEAT(): Generate 5 stars ('★') badge using REPEAT().
+
+Advanced Practical Applications:
+Q16. SUBSTRING + LOCATE: Dynamically extract email domain name (everything after '@').
+Q17. SUBSTRING + LOCATE: Dynamically extract email username (everything before '@').
+Q18. Phone Masking: Mask phone number so only first 3 and last 4 digits are visible ('987-***-3210').
