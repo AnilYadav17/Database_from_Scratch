@@ -1,0 +1,214 @@
+==================================================
+ASSIGNMENT 1: CONDITIONAL & CONTROL FLOW FUNCTIONS
+==================================================
+
+Table: staff
+Columns:
+staff_id    INT, Primary Key, Auto Increment
+staff_name  VARCHAR(50)
+department  VARCHAR(30)
+city        VARCHAR(30)
+salary      DECIMAL(10,2)
+experience  INT
+age         INT
+email       VARCHAR(100), NULL allowed
+phone       VARCHAR(15), NULL allowed
+bonus       DECIMAL(10,2), NULL allowed
+status      VARCHAR(20)
+
+Q1. IF()
+Display staff_name, salary, and salary status. If salary is ₹60,000 or more, show 'High Salary', otherwise 'Low Salary'.
+
+Q2. IF()
+Display staff_name and experience status. If experience is 5 or more, show 'Experienced', otherwise 'Fresher'.
+
+Q3. IFNULL()
+Display staff_name and email. If email is NULL, display 'Email Not Available'.
+
+Q4. COALESCE()
+Display staff_name and contact information. Give priority to phone → email → 'No Contact'.
+
+Q5. NULLIF()
+Display staff_name and salary. If salary is exactly ₹50,000, return NULL; otherwise return the actual salary.
+
+Q6. CASE
+Create a salary category:
+salary >= 80,000 → 'High'
+salary >= 60,000 → 'Medium'
+Otherwise → 'Low'
+
+Q7. CASE + AND/OR
+Create an employee category:
+IT + experience >= 5 → 'IT Experienced'
+Finance + salary >= 70,000 → 'Finance High Earner'
+HR + experience >= 3 → 'HR Experienced'
+Otherwise → 'Other'
+
+
+==================================================
+ASSIGNMENT 2: MYSQL TYPE CONVERSION ASSIGNMENT
+==================================================
+
+Scenario:
+A financial analytics company manages transactions, billing schedules, user registrations, and account balances using MySQL. Because data comes in from legacy flat files, API payloads, and external payment gateways, several columns contain mixed formats, text-based numbers, unformatted date strings, and floating-point representations.
+
+The finance and compliance teams need reports that require explicit and implicit type conversions (CAST, CONVERT, date/time parsing, and numeric coercion) to ensure mathematical accuracy and standardized data formats.
+
+Table Name: transaction_records
+Columns:
+- transaction_id (VARCHAR(20), PRIMARY KEY)
+- customer_name (VARCHAR(50), NOT NULL)
+- amount_str (VARCHAR(30), NOT NULL)
+- discount_pct (DECIMAL(5,2), NULL)
+- tx_date_text (VARCHAR(30), NOT NULL)
+- created_timestamp (DATETIME, NOT NULL)
+- status_code (VARCHAR(5), NOT NULL)
+
+Data Setup Script:
+CREATE TABLE transaction_records (transaction_id VARCHAR(20) PRIMARY KEY, customer_name VARCHAR(50) NOT NULL, amount_str VARCHAR(30) NOT NULL, discount_pct DECIMAL(5,2), tx_date_text VARCHAR(30) NOT NULL, created_timestamp DATETIME NOT NULL, status_code VARCHAR(5) NOT NULL);
+INSERT INTO transaction_records VALUES ('TXN-1001', 'Rahul Sharma', '15400.50', 5.50, '15/01/2025', '2025-01-15 10:30:00', '1'), ('TXN-1002', 'Priya Verma', '8200.00', 0.00, '22/01/2025', '2025-01-22 14:15:30', '1'), ('TXN-1003', 'Amit Patel', '12050.75', 10.00, '05/02/2025', '2025-02-05 09:45:12', '0'), ('TXN-1004', 'Neha Singh', '4500.25', NULL, '18/02/2025', '2025-02-18 16:20:00', '1'), ('TXN-1005', 'Rohit Jain', '23000.00', 12.50, '01/03/2025', '2025-03-01 11:10:05', '0'), ('TXN-1006', 'Sneha Gupta', '999.90', 2.00, '12/03/2025', '2025-03-12 18:00:00', '1'), ('TXN-1007', 'Vikas Yadav', '17500.80', 7.25, '25/03/2025', '2025-03-25 08:05:40', '1'), ('TXN-1008', 'Anjali Mehta', '3100.00', NULL, '04/04/2025', '2025-04-04 12:50:22', '0');
+
+QUESTIONS:
+Q1. Convert amount_str into a SIGNED integer using CAST().
+Q2. Convert amount_str explicitly into a DECIMAL(10,2) numerical value using CONVERT().
+Q3. Display transaction_id, customer_name, and discount_pct joined together formatted like 'TXN-1001 : Rahul Sharma : 5.50' using CAST(... AS CHAR).
+Q4. Convert tx_date_text (DD/MM/YYYY) into a valid MySQL DATE type using STR_TO_DATE().
+Q5. Extract and display only the date portion (YYYY-MM-DD) from created_timestamp by casting as DATE.
+Q6. Format created_timestamp into readable string "15th January 2025" using date formatting.
+Q7. Convert tx_date_text to DATE and display the day of the week.
+Q8. Extract numerical sequence from transaction_id ('1001' from 'TXN-1001') and convert to UNSIGNED integer.
+Q9. Evaluate status_code: 'Active' for '1' and 'Inactive' for '0'.
+Q10. Calculate net transaction amount = Amount - (Amount * Discount / 100). Treat NULL discount as 0%.
+
+
+==================================================
+ASSIGNMENT 3: MYSQL NUMERIC FUNCTIONS
+==================================================
+
+Table: numeric_practice
+Columns:
+id              INT, Primary Key
+employee_name   VARCHAR(50)
+salary          DECIMAL(10,2)
+bonus           DECIMAL(10,2)
+experience      DECIMAL(5,2)
+score           DECIMAL(5,2)
+number_value    DECIMAL(10,3)
+
+Q1 — ABS(): Display employee_name, number_value, absolute_value.
+Q2 — CEIL(): Display employee_name, salary, rounded_salary (rounded upward).
+Q3 — FLOOR(): Display employee_name, salary, rounded_salary (rounded downward).
+Q4 — ROUND(): Display employee_name, score, rounded_score (to 1 decimal place).
+Q5 — MOD(): Find all employees whose id is even using MOD().
+
+
+==================================================
+ASSIGNMENT 4: MYSQL NULL HANDLING FUNCTIONS
+==================================================
+
+Table: employee_performance
+Columns:
+employee_id     INT PRIMARY KEY
+employee_name   VARCHAR(50)
+department      VARCHAR(30)
+salary          DECIMAL(10,2)
+bonus           DECIMAL(10,2)
+sales_amount    DECIMAL(12,2)
+commission      DECIMAL(10,2)
+target_amount   DECIMAL(12,2)
+email           VARCHAR(100)
+alternate_email VARCHAR(100)
+
+Q1 — Total Earnings = Salary + Bonus + Commission (treating NULL as 0).
+Q2 — Contact Information: priority to primary email → alternate_email → 'NO CONTACT AVAILABLE'.
+Q3 — Sales Target Achievement % = (sales_amount / target_amount) * 100 without division-by-zero.
+Q4 — Commission % = (commission / sales_amount) * 100 without division-by-zero.
+Q5 — Combined NULL Handling: employee_id, employee_name, contact_information, bonus_amount (treating NULL bonus as 0).
+
+
+==================================================
+ASSIGNMENT 5: SQL DATE AND TIME FUNCTIONS (50 Qs)
+==================================================
+
+Table: employee_attendance
+Columns:
+attendance_id       INT, Primary Key, Auto Increment
+employee_id         INT
+employee_name       VARCHAR(50)
+department          VARCHAR(30)
+city                VARCHAR(30)
+date_of_birth       DATE
+joining_date        DATE
+project_start_date  DATETIME
+attendance_date     DATE
+login_time          DATETIME
+logout_time         DATETIME
+salary              DECIMAL(10,2)
+attendance_status   VARCHAR(20)
+
+Questions:
+Basic Date Functions:
+Q1. DAY(date_of_birth)
+Q2. DAYOFMONTH(attendance_date)
+Q3. MONTH(date_of_birth)
+Q4. Attendance records in August using MONTH()
+Q5. YEAR(joining_date)
+Q6. Attendance records in year 2026 using YEAR()
+Q7. QUARTER(joining_date)
+Q8. WEEK(attendance_date)
+Q9. DAYOFWEEK(attendance_date)
+Q10. Attendance on Saturday or Sunday using DAYOFWEEK()
+
+Date Name Functions:
+Q11. MONTHNAME(joining_date)
+Q12. DAYNAME(attendance_date)
+Q13. MONTHNAME(date_of_birth)
+Q14. Attendance occurred on Monday using DAYNAME()
+Q15. DAYNAME() + MONTHNAME()
+
+Current Date & Time Functions:
+Q16. CURDATE()
+Q17. CURRENT_DATE()
+Q18. NOW()
+Q19. CURRENT_TIMESTAMP()
+Q20. NOW() vs CURRENT_TIMESTAMP()
+Q21. CURTIME()
+Q22. CURRENT_TIME()
+Q23. Date and Time Components
+
+EXTRACT() Function:
+Q24. EXTRACT(YEAR FROM joining_date)
+Q25. EXTRACT(MONTH FROM date_of_birth)
+Q26. EXTRACT(DAY FROM attendance_date)
+Q27. EXTRACT(HOUR FROM login_time)
+Q28. EXTRACT(MINUTE FROM login_time)
+Q29. EXTRACT(SECOND FROM login_time)
+
+Date Addition & Subtraction:
+Q30. DATE_ADD(joining_date, INTERVAL 30 DAY)
+Q31. First work anniversary DATE_ADD(joining_date, INTERVAL 1 YEAR)
+Q32. DATE_ADD(project_start_date, INTERVAL 3 MONTH)
+Q33. DATE_SUB(attendance_date, INTERVAL 30 DAY)
+Q34. DATE_SUB(joining_date, INTERVAL 1 YEAR)
+Q35. Expected retirement date DATE_ADD(date_of_birth, INTERVAL 60 YEAR)
+
+Date Difference Functions:
+Q36. DATEDIFF(attendance_date, joining_date)
+Q37. DATEDIFF(CURDATE(), joining_date)
+Q38. TIMESTAMPDIFF(YEAR, joining_date, CURDATE())
+Q39. TIMESTAMPDIFF(YEAR, date_of_birth, CURDATE())
+Q40. TIMESTAMPDIFF(HOUR, login_time, logout_time)
+Q41. TIMESTAMPDIFF(MINUTE, login_time, logout_time)
+Q42. TIMEDIFF(logout_time, login_time)
+
+Date & Time Formatting:
+Q43. DATE(project_start_date)
+Q44. TIME(login_time)
+Q45. DATE_FORMAT(joining_date, '%d-%m-%Y')
+Q46. DATE_FORMAT(attendance_date, '%d %M %Y')
+Q47. DATE_FORMAT(login_time, '%r')
+
+Other Functions:
+Q48. LAST_DAY(joining_date)
+Q49. STR_TO_DATE() on string dates
+Q50. Final HR Attendance Report
