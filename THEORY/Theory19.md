@@ -116,4 +116,3 @@ select department,city from employee_batch group by department,city;
 9 rows in set (0.00 sec)
 We can use group by without aggregate in that case it will give one row for each group
 ```
-## Diff b/w distinct and group by
