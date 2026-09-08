@@ -1,0 +1,151 @@
+==================================================
+# MYSQL PRACTICAL 20
+==================================================
+
+==================================================
+1. FOREIGN KEY Basics (Departments & Employees)
+==================================================
+
+-- Parent Table: departments
+CREATE TABLE IF NOT EXISTS departments (
+    did INT PRIMARY KEY,
+    dname VARCHAR(30) NOT NULL
+);
+
+-- Child Table: employees referencing departments
+CREATE TABLE IF NOT EXISTS employees (
+    empid INT PRIMARY KEY,
+    empname VARCHAR(50) NOT NULL,
+    deptid INT,
+    CONSTRAINT fk_emp_dept FOREIGN KEY (deptid) REFERENCES departments(did)
+);
+
+-- Insert Parent Records
+INSERT INTO departments VALUES 
+(1, 'IT'),
+(2, 'HR'),
+(3, 'Finance');
+
+-- Insert Valid Child Records
+INSERT INTO employees VALUES (101, 'Anil', 1);
+INSERT INTO employees VALUES (102, 'Harsh', 2);
+
+SELECT * FROM departments;
+SELECT * FROM employees;
+
+-- ❌ Invalid Insert: Department 10 does NOT exist in parent table (Fails with Error 1452)
+-- INSERT INTO employees VALUES (104, 'Abhi', 10);
+
+-- ❌ Invalid Delete: Cannot delete department 1 while employees reference it (Fails with Error 1451)
+-- DELETE FROM departments WHERE did = 1;
+
+
+==================================================
+2. Cascading Referential Actions (ON DELETE CASCADE, ON UPDATE CASCADE)
+==================================================
+
+-- Parent Table: customers
+CREATE TABLE IF NOT EXISTS customers (
+    cid INT PRIMARY KEY,
+    cname VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE
+);
+
+-- Child Table: orders
+CREATE TABLE IF NOT EXISTS orders (
+    oid INT PRIMARY KEY,
+    odate DATE NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    custid INT,
+    CONSTRAINT fk_orders_cust FOREIGN KEY (custid) 
+        REFERENCES customers(cid)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+-- Insert Customer Records
+INSERT INTO customers VALUES 
+(101, 'Anil', 'anil@example.com'),
+(102, 'Dipu', 'dipu@example.com'),
+(103, 'Rashmika', 'rashmika@example.com');
+
+-- Insert Order Records
+INSERT INTO orders VALUES 
+(1, '2026-09-07', 499.00, 101),
+(2, '2026-09-08', 499.00, 101),
+(3, '2026-09-09', 999.00, 103);
+
+SELECT * FROM customers;
+SELECT * FROM orders;
+
+-- Testing ON UPDATE CASCADE: Update customer ID 101 to 105
+UPDATE customers SET cid = 105 WHERE cid = 101;
+-- Notice orders with custid 101 automatically updated to 105
+SELECT * FROM orders;
+
+-- Testing ON DELETE CASCADE: Delete customer 105
+DELETE FROM customers WHERE cid = 105;
+-- Notice orders associated with customer 105 are automatically removed
+SELECT * FROM orders;
+
+
+==================================================
+3. Multiple Foreign Keys (Doctors, Patients & Appointments)
+==================================================
+
+-- Parent 1: doctors
+CREATE TABLE IF NOT EXISTS doctors (
+    did INT PRIMARY KEY,
+    dname VARCHAR(50) NOT NULL,
+    spec VARCHAR(50),
+    address VARCHAR(100)
+);
+
+-- Parent 2: patients
+CREATE TABLE IF NOT EXISTS patients (
+    pid INT PRIMARY KEY,
+    pname VARCHAR(50) NOT NULL,
+    disease VARCHAR(50),
+    address VARCHAR(100)
+);
+
+-- Child Table: appointments referencing both doctors and patients
+CREATE TABLE IF NOT EXISTS appointments (
+    aid INT PRIMARY KEY,
+    did INT,
+    pid INT,
+    app_date DATE NOT NULL,
+    CONSTRAINT fk_app_doctor FOREIGN KEY (did) REFERENCES doctors(did) ON DELETE CASCADE,
+    CONSTRAINT fk_app_patient FOREIGN KEY (pid) REFERENCES patients(pid) ON DELETE CASCADE
+);
+
+-- Insert Parents
+INSERT INTO doctors VALUES 
+(101, 'Anil', 'Cardiologist', 'Mumbai'),
+(102, 'Priya', 'Neurologist', 'Pune');
+
+INSERT INTO patients VALUES 
+(1, 'Abhi', 'Fever', 'Indore'),
+(2, 'Sneha', 'Migraine', 'Bhopal');
+
+-- Insert Appointments
+INSERT INTO appointments VALUES (201, 101, 1, '2026-09-07');
+INSERT INTO appointments VALUES (202, 102, 2, '2026-09-08');
+
+SELECT * FROM appointments;
+
+
+==================================================
+4. Managing Foreign Keys Using ALTER TABLE
+==================================================
+
+-- Dropping a foreign key constraint
+ALTER TABLE employees DROP FOREIGN KEY fk_emp_dept;
+
+-- Re-adding the foreign key constraint
+ALTER TABLE employees 
+ADD CONSTRAINT fk_emp_dept 
+FOREIGN KEY (deptid) REFERENCES departments(did)
+ON DELETE SET NULL
+ON UPDATE CASCADE;
+
