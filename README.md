@@ -35,6 +35,9 @@ Dive deep into core concepts and terminology:
 - **[Theory 15](THEORY/Theory15.md)**: Constraints (Domain Integrity) - `NOT NULL`, `UNIQUE`, and `CHECK`.
 - **[Theory 16](THEORY/Theory16.md)**: Naming Constraints, `DEFAULT` Constraint, and `DEFAULT` with Datetime.
 - **[Theory 17](THEORY/Theory17.md)**: SQL Functions, Single Row (Scalar) vs Aggregate Functions, and String Functions.
+- **[Theory 18](THEORY/Theory18.md)**: Data Aggregation with `GROUP BY`, combining `WHERE` with `GROUP BY`, multi-column groupings, and `LIMIT`/`OFFSET`.
+- **[Theory 19](THEORY/Theory19.md)**: Filtering Groups with `HAVING`, `WHERE` vs `HAVING`, `GROUP BY` rules, and hierarchical summaries with `WITH ROLLUP`.
+- **[Theory 20](THEORY/Theory20.md)**: Foreign Keys & Referential Integrity, Parent-Child table relationships, and Cascading actions (`ON DELETE`/`ON UPDATE CASCADE`).
 
 ### 💻 Practical
 Get your hands dirty with real SQL queries and commands:
@@ -55,6 +58,9 @@ Get your hands dirty with real SQL queries and commands:
 - **[Practical 15](PRACTICAL/Practical15)**: Working with Constraints (`NOT NULL`, `UNIQUE`, and `CHECK`).
 - **[Practical 16](PRACTICAL/Practical16)**: Using Named Constraints, `DEFAULT` constraint, and tracking time with `CURRENT_TIMESTAMP`.
 - **[Practical 17](PRACTICAL/Practical17)**: Using String Functions such as `UPPER`, `LOWER`, `LENGTH`, `CONCAT`, and `SUBSTRING`.
+- **[Practical 18](PRACTICAL/Practical18)**: Practicing `GROUP BY` with `WHERE`, multi-column grouping, sorting aggregated results, and `LIMIT`/`OFFSET`.
+- **[Practical 19](PRACTICAL/Practical19)**: Working with the `HAVING` clause, comparing `WHERE` and `HAVING`, applying `GROUP BY` rules, and using `WITH ROLLUP`.
+- **[Practical 20](PRACTICAL/Practical20)**: Implementing Foreign Keys, enforcing Referential Integrity, handling Parent-Child tables, cascading updates/deletions, and `ALTER TABLE` operations.
 
 ### 📝 Assignments
 Test your knowledge with hands-on practice problems:
