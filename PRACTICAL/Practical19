@@ -1,0 +1,119 @@
+==================================================
+# MYSQL PRACTICAL 19
+==================================================
+
+==================================================
+1. Setup Table: employee_batch
+==================================================
+
+CREATE TABLE IF NOT EXISTS employee_batch (
+    emp_id INT PRIMARY KEY AUTO_INCREMENT,
+    emp_name VARCHAR(50) NOT NULL,
+    department VARCHAR(30) NOT NULL,
+    city VARCHAR(30),
+    salary DECIMAL(10,2) NOT NULL,
+    status VARCHAR(20) NOT NULL
+);
+
+INSERT INTO employee_batch (emp_name, department, city, salary, status) VALUES
+('Anil', 'IT', 'Pune', 85000.00, 'Active'),
+('Harsh', 'IT', 'Delhi', 72000.00, 'Active'),
+('Abhi', 'IT', NULL, 58001.20, 'Inactive'),
+('Priya', 'Finance', 'Delhi', 95000.50, 'Active'),
+('Sneha', 'Finance', 'Pune', 89000.60, 'Active'),
+('Rohan', 'Finance', 'Bhopal', 92000.00, 'Active'),
+('Kavita', 'Sales', 'Indore', 65000.00, 'Active'),
+('Deepak', 'Sales', 'Mumbai', 78001.45, 'Active'),
+('Vikram', 'Sales', 'Pune', 75000.00, 'Inactive');
+
+SELECT * FROM employee_batch;
+
+
+==================================================
+2. Filtering Groups Using HAVING
+==================================================
+
+-- Find departments having more than 2 employees
+SELECT department, COUNT(*) AS employee_count 
+FROM employee_batch 
+GROUP BY department 
+HAVING COUNT(*) > 2;
+
+-- Find departments where total salary exceeds 2,00,000
+SELECT department, SUM(salary) AS total_salary 
+FROM employee_batch 
+GROUP BY department 
+HAVING SUM(salary) > 200000;
+
+-- Find departments where employee count > 2 AND average salary > 50,000
+SELECT department, COUNT(*) AS emp_count, AVG(salary) AS avg_salary 
+FROM employee_batch 
+GROUP BY department 
+HAVING COUNT(*) > 2 AND AVG(salary) > 50000;
+
+-- Find departments having at least 2 active employees (WHERE + GROUP BY + HAVING)
+SELECT department, COUNT(*) AS active_count 
+FROM employee_batch 
+WHERE status = 'Active' 
+GROUP BY department 
+HAVING COUNT(*) >= 2;
+
+
+==================================================
+3. WHERE vs HAVING Comparison
+==================================================
+
+-- WHERE filters individual rows before grouping
+SELECT department, AVG(salary) AS avg_active_salary 
+FROM employee_batch 
+WHERE status = 'Active' 
+GROUP BY department;
+
+-- HAVING filters grouped aggregates after grouping
+SELECT department, AVG(salary) AS avg_salary 
+FROM employee_batch 
+GROUP BY department 
+HAVING AVG(salary) > 75000;
+
+-- Combining both: WHERE filters rows, HAVING filters aggregated groups
+SELECT department, AVG(salary) AS avg_active_salary 
+FROM employee_batch 
+WHERE status = 'Active' 
+GROUP BY department 
+HAVING AVG(salary) > 75000;
+
+
+==================================================
+4. GROUP BY Rules & Multi-column Grouping
+==================================================
+
+-- Rule 1: Columns in SELECT must appear in GROUP BY (or be aggregated)
+SELECT department, city, COUNT(*) AS total_count 
+FROM employee_batch 
+GROUP BY department, city;
+
+-- Rule 2: Using GROUP BY without aggregate function returns distinct combinations
+SELECT department, city 
+FROM employee_batch 
+GROUP BY department, city;
+
+-- Rule 3: Single column distinct groups
+SELECT department 
+FROM employee_batch 
+GROUP BY department;
+
+
+==================================================
+5. WITH ROLLUP (Subtotals and Grand Totals)
+==================================================
+
+-- Single-column ROLLUP: Calculates department sums and an overall Grand Total (NULL row)
+SELECT department, SUM(salary) AS total_salary 
+FROM employee_batch 
+GROUP BY department WITH ROLLUP;
+
+-- Multi-column ROLLUP: Calculates subtotals per department and city, and grand totals
+SELECT department, city, SUM(salary) AS total_salary, COUNT(*) AS total_employees 
+FROM employee_batch 
+GROUP BY department, city WITH ROLLUP;
+
