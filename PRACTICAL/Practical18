@@ -1,0 +1,109 @@
+==================================================
+# MYSQL PRACTICAL 18
+==================================================
+
+==================================================
+1. Setup Table: employees
+==================================================
+
+CREATE TABLE IF NOT EXISTS employees (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    department VARCHAR(30) NOT NULL,
+    city VARCHAR(30) NOT NULL,
+    salary DECIMAL(10,2) NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    joining_date DATE NOT NULL
+);
+
+INSERT INTO employees (name, department, city, salary, status, joining_date) VALUES
+('Anil', 'IT', 'Pune', 75000.00, 'Active', '2024-02-15'),
+('Abhi', 'IT', 'Delhi', 52000.00, 'Active', '2025-03-10'),
+('Rohan', 'IT', 'Pune', 48000.00, 'Inactive', '2023-11-20'),
+('Priya', 'HR', 'Indore', 62000.00, 'Active', '2024-08-01'),
+('Sneha', 'HR', 'Bhopal', 45000.00, 'Active', '2025-02-14'),
+('Rahul', 'HR', 'Indore', 58000.00, 'Inactive', '2023-05-18'),
+('Vikas', 'Finance', 'Mumbai', 82000.00, 'Active', '2024-01-10'),
+('Neha', 'Finance', 'Pune', 68000.00, 'Active', '2025-04-05'),
+('Aman', 'Finance', 'Delhi', 55000.00, 'Active', '2025-06-12'),
+('Pooja', 'Sales', 'Indore', 51000.00, 'Active', '2024-09-25');
+
+SELECT * FROM employees;
+
+
+==================================================
+2. GROUP BY with WHERE Clause (Row Filtering)
+==================================================
+
+-- Average salary of employees in each department whose salary > 50,000
+SELECT department, AVG(salary) AS avg_salary 
+FROM employees 
+WHERE salary > 50000 
+GROUP BY department;
+
+-- Number of employees in each department whose salary > 50,000
+SELECT department, COUNT(*) AS emp_count 
+FROM employees 
+WHERE salary > 50000 
+GROUP BY department;
+
+-- Highest salary in each department considering only Active employees
+SELECT department, MAX(salary) AS max_salary 
+FROM employees 
+WHERE status = 'Active' 
+GROUP BY department;
+
+-- Department-wise employee count who joined after January 1, 2025
+SELECT department, COUNT(*) AS joined_after_2025 
+FROM employees 
+WHERE joining_date > '2025-01-01' 
+GROUP BY department;
+
+
+==================================================
+3. GROUP BY Multiple Columns
+==================================================
+
+-- Number of active employees for each department and city
+SELECT department, city, COUNT(*) AS active_count 
+FROM employees 
+WHERE status = 'Active' 
+GROUP BY department, city 
+ORDER BY department, city;
+
+
+==================================================
+4. GROUP BY with ORDER BY
+==================================================
+
+-- Total salary of each department displayed from highest to lowest
+SELECT department, SUM(salary) AS total_salary 
+FROM employees 
+GROUP BY department 
+ORDER BY SUM(salary) DESC;
+
+-- Number of employees in each department displayed from highest to lowest
+SELECT department, COUNT(*) AS total_employees 
+FROM employees 
+GROUP BY department 
+ORDER BY COUNT(*) DESC;
+
+
+==================================================
+5. GROUP BY with LIMIT and OFFSET
+==================================================
+
+-- Top 2 departments based on total salary payout
+SELECT department, SUM(salary) AS total_salary 
+FROM employees 
+GROUP BY department 
+ORDER BY SUM(salary) DESC 
+LIMIT 2;
+
+-- Using OFFSET: Department with the 2nd highest total salary
+SELECT department, SUM(salary) AS total_salary 
+FROM employees 
+GROUP BY department 
+ORDER BY SUM(salary) DESC 
+LIMIT 1 OFFSET 1;
+
