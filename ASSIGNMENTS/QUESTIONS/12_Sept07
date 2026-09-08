@@ -1,0 +1,92 @@
+1.
+Create two tables representing a company hierarchy:
+
+Table 1 (Parent): `departments`
+- `dept_id` (INT, Primary Key)
+- `dept_name` (VARCHAR(50), NOT NULL)
+
+Table 2 (Child): `employees`
+- `emp_id` (INT, Primary Key)
+- `emp_name` (VARCHAR(50), NOT NULL)
+- `dept_id` (INT, Foreign Key referencing `departments(dept_id)`)
+
+Tasks:
+a) Insert records into `departments`:
+   (1, 'IT'), (2, 'HR'), (3, 'Finance')
+b) Insert valid employee records:
+   (101, 'Alice', 1)
+   (102, 'Bob', 2)
+c) Attempt to insert an employee with `dept_id = 10` and observe the referential integrity error (Error 1452).
+d) Attempt to delete department `1` from `departments` while employee `101` is referencing it, and observe Error 1451.
+
+
+2.
+Create an E-Commerce system with Cascading updates and deletes:
+
+Table 1 (Parent): `customers`
+- `customer_id` (INT, Primary Key)
+- `customer_name` (VARCHAR(50), NOT NULL)
+- `email` (VARCHAR(100), UNIQUE)
+
+Table 2 (Child): `orders`
+- `order_id` (INT, Primary Key)
+- `order_date` (DATE, NOT NULL)
+- `amount` (DECIMAL(10,2), NOT NULL)
+- `customer_id` (INT, Foreign Key referencing `customers(customer_id)`)
+- Enforce `ON DELETE CASCADE` and `ON UPDATE CASCADE`
+
+Tasks:
+a) Insert 3 customers and 4 corresponding orders.
+b) Update a customer's `customer_id` in the `customers` table, and verify that matching `customer_id` in `orders` updates automatically.
+c) Delete a customer from `customers`, and verify that all associated orders in `orders` are automatically deleted.
+
+
+3.
+Create a Healthcare Appointment Management system with multiple foreign keys:
+
+Table 1 (Parent): `doctors`
+- `doctor_id` (INT, Primary Key)
+- `doctor_name` (VARCHAR(50), NOT NULL)
+- `specialization` (VARCHAR(50))
+
+Table 2 (Parent): `patients`
+- `patient_id` (INT, Primary Key)
+- `patient_name` (VARCHAR(50), NOT NULL)
+- `age` (INT)
+
+Table 3 (Child): `appointments`
+- `appointment_id` (INT, Primary Key)
+- `doctor_id` (INT, Foreign Key referencing `doctors(doctor_id)`)
+- `patient_id` (INT, Foreign Key referencing `patients(patient_id)`)
+- `appointment_date` (DATE, NOT NULL)
+
+Tasks:
+a) Insert 2 doctors and 3 patients.
+b) Insert 3 appointments linking valid doctors and patients.
+c) Attempt to book an appointment with a non-existent `doctor_id` or `patient_id` and observe constraint failure.
+
+
+4.
+Create a College Course Enrollment system with `ON DELETE SET NULL`:
+
+Table 1 (Parent): `courses`
+- `course_id` (INT, Primary Key)
+- `course_name` (VARCHAR(50), NOT NULL)
+
+Table 2 (Child): `enrollments`
+- `enrollment_id` (INT, Primary Key)
+- `student_name` (VARCHAR(50), NOT NULL)
+- `course_id` (INT, NULL allowed, Foreign Key referencing `courses(course_id)` ON DELETE SET NULL)
+
+Tasks:
+a) Insert courses and enrollments.
+b) Delete a course from `courses` and verify that the enrolled student's `course_id` is set to `NULL` without removing the enrollment record.
+
+
+5.
+Managing Foreign Keys using `ALTER TABLE`:
+
+Given existing tables `projects` and `project_tasks`:
+- Add a foreign key constraint named `fk_task_project` to `project_tasks(project_id)` referencing `projects(project_id)`.
+- Verify the foreign key constraint using `SHOW CREATE TABLE project_tasks`.
+- Drop the foreign key constraint `fk_task_project` using `ALTER TABLE`.
