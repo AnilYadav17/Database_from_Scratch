@@ -1,0 +1,74 @@
+==================================================
+# MYSQL PRACTICAL 21
+==================================================
+
+==================================================
+1. FOREIGN KEY with NULL Values
+==================================================
+
+-- Parent Table: department17
+CREATE TABLE IF NOT EXISTS department17 (
+    deptid INT PRIMARY KEY,
+    dname VARCHAR(30)
+);
+
+-- Child Table: employee17
+CREATE TABLE IF NOT EXISTS employee17 (
+    empid INT PRIMARY KEY,
+    empname VARCHAR(20),
+    deptid INT,
+    FOREIGN KEY(deptid) REFERENCES department17(deptid)
+);
+
+-- Insert Departments
+INSERT INTO department17 VALUES (1, 'HR'), (2, 'IT'), (3, 'Finance');
+
+-- Insert Valid Employees
+INSERT INTO employee17 VALUES (101, 'Anil', 1), (102, 'Abhi', 2), (103, 'Harsh', 3);
+
+-- Insert Employee with NULL Department (Valid because FK allows NULL)
+INSERT INTO employee17(empid, empname) VALUES (104, 'Harsh');
+
+SELECT * FROM employee17;
+
+==================================================
+2. FOREIGN KEY with UNIQUE KEY
+==================================================
+
+-- Parent Table: DEPARTMENT18
+CREATE TABLE IF NOT EXISTS DEPARTMENT18 (
+    deptid INT PRIMARY KEY,
+    deptcode VARCHAR(20) UNIQUE
+);
+
+-- Child Table: EMPLOYEE18 referencing UNIQUE KEY instead of PRIMARY KEY
+CREATE TABLE IF NOT EXISTS EMPLOYEE18 (
+    emptid INT PRIMARY KEY,
+    empname VARCHAR(20),
+    dcode VARCHAR(20),
+    FOREIGN KEY (dcode) REFERENCES DEPARTMENT18(deptcode)
+);
+
+-- Insert Parent Records
+INSERT INTO DEPARTMENT18 VALUES (1, 'IT'), (2, 'CS');
+
+-- Insert Child Records
+INSERT INTO EMPLOYEE18 VALUES (101, 'Anil', 'IT'), (102, 'Abhi', 'CS');
+
+SELECT * FROM DEPARTMENT18;
+SELECT * FROM EMPLOYEE18;
+
+==================================================
+3. NAMING A FOREIGN KEY
+==================================================
+
+-- Creating a table with a named Foreign Key Constraint
+CREATE TABLE IF NOT EXISTS EMPLOYEE19 (
+    emptid INT PRIMARY KEY,
+    empname VARCHAR(20),
+    dcode VARCHAR(20),
+    CONSTRAINT fk_employee_department FOREIGN KEY (dcode) REFERENCES DEPARTMENT18(deptcode)
+);
+
+-- Show create table to verify constraint name
+SHOW CREATE TABLE EMPLOYEE19;

@@ -38,6 +38,7 @@ Dive deep into core concepts and terminology:
 - **[Theory 18](THEORY/Theory18.md)**: Data Aggregation with `GROUP BY`, combining `WHERE` with `GROUP BY`, multi-column groupings, and `LIMIT`/`OFFSET`.
 - **[Theory 19](THEORY/Theory19.md)**: Filtering Groups with `HAVING`, `WHERE` vs `HAVING`, `GROUP BY` rules, and hierarchical summaries with `WITH ROLLUP`.
 - **[Theory 20](THEORY/Theory20.md)**: Foreign Keys & Referential Integrity, Parent-Child table relationships, and Cascading actions (`ON DELETE`/`ON UPDATE CASCADE`).
+- **[Theory 21](THEORY/Theory21.md)**: Foreign Key Advantages, Foreign Key vs Primary Key, Foreign Key with Unique Key, and Naming a Foreign Key.
 
 ### 💻 Practical
 Get your hands dirty with real SQL queries and commands:
@@ -61,6 +62,7 @@ Get your hands dirty with real SQL queries and commands:
 - **[Practical 18](PRACTICAL/Practical18)**: Practicing `GROUP BY` with `WHERE`, multi-column grouping, sorting aggregated results, and `LIMIT`/`OFFSET`.
 - **[Practical 19](PRACTICAL/Practical19)**: Working with the `HAVING` clause, comparing `WHERE` and `HAVING`, applying `GROUP BY` rules, and using `WITH ROLLUP`.
 - **[Practical 20](PRACTICAL/Practical20)**: Implementing Foreign Keys, enforcing Referential Integrity, handling Parent-Child tables, cascading updates/deletions, and `ALTER TABLE` operations.
+- **[Practical 21](PRACTICAL/Practical21)**: Working with NULL values in Foreign Keys, Foreign Key referencing a UNIQUE KEY, and Naming a Foreign Key constraint.
 
 ### 📝 Assignments
 Test your knowledge with hands-on practice problems:
