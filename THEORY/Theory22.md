@@ -173,3 +173,61 @@ INSERT INTO employee187 VALUES
 SELECT * FROM department187;
 SELECT * FROM employee187;
 ```
+
+<BR>
+
+## RELATIONSHIP
+
+In a relational database a relationship descreate tabele department187(deptid int primary key,deptname varchar(20));
+
+CREATE TABLE employee187 (
+empid INT PRIMARY KEY,
+empname VARCHAR(20),
+deptid INT NULL,
+FOREIGN KEY (deptid)
+REFERENCES department187(deptid)
+ON UPDATE SET CASCADE ON DELETE CASCADE
+);cribes how rows in one table are connected to rows in another table.
+
+### (i) ONE TO ONE RELATIONSHIP
+
+It means one row in table A is associated with atmost one row in table b and one row in table b is associated with atmost table A.
+
+**_Examples_**<br>
+One employee have one employee card.<br>
+One person with one passport.<br>
+One user with one profile.<br>
+
+```sql
+DROP TABLE IF EXISTS empcard;
+DROP TABLE IF EXISTS employee189;
+
+CREATE TABLE employee189 (
+    epmid INT PRIMARY KEY,
+    empname VARCHAR(20)
+);
+
+INSERT INTO employee189 VALUES
+(101, 'Anil'),
+(102, 'Jugal');
+
+CREATE TABLE empcard (
+    cardid INT PRIMARY KEY,
+    empid INT UNIQUE,
+    cardnumber VARCHAR(20),
+    FOREIGN KEY (empid)
+        REFERENCES employee189(epmid)
+);
+
+INSERT INTO empcard VALUES
+(1, 101, 'Card111'),
+(2, 102, 'Card222');
+
+SELECT * FROM employee189;
+SELECT * FROM empcard;
+
+-- Testing ONE-TO-ONE:
+-- This will fail because employee 101 already has a card
+INSERT INTO empcard VALUES
+(3, 101, 'Card333');
+```
