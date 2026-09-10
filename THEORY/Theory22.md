@@ -130,3 +130,46 @@ WHERE deptid = 101;
 SELECT * FROM department186;
 SELECT * FROM employee186;
 ```
+
+### TO DO ....?
+
+1. How to add foreign key constraints if tables are created.
+
+<BR>
+
+## COMBINING ON DELETE and ON UPDATE
+
+```sql
+DROP TABLE IF EXISTS employee187;
+DROP TABLE IF EXISTS department187;
+
+CREATE TABLE department187 (
+    deptid INT PRIMARY KEY,
+    deptname VARCHAR(20)
+);
+
+INSERT INTO department187 VALUES
+(101, 'CSE'),
+(102, 'IT'),
+(103, 'HR');
+
+CREATE TABLE employee187 (
+    empid INT PRIMARY KEY,
+    empname VARCHAR(20),
+    deptid INT NULL,
+    FOREIGN KEY (deptid)
+        REFERENCES department187(deptid)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
+INSERT INTO employee187 VALUES
+(1, 'Anil', 101),
+(2, 'Abhi', 101),
+(3, 'Purab', 102),
+(4, 'Ravi', 102),
+(5, 'Amit', 103);
+
+SELECT * FROM department187;
+SELECT * FROM employee187;
+```
