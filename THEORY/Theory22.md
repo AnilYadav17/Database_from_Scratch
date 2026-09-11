@@ -232,32 +232,4 @@ INSERT INTO empcard VALUES
 (3, 101, 'Card333');
 ```
 
-### (ii) ONE TO MANY RELATIONSHIP
 
-It means one row in table A can be associated with multiple rows in another table but each child rows belongs to one parent.
-
-**_The foriegn is placed on the many side.
-One company can have departments.One Employee with many skills_**
-
-### (iii) MANY TO ONE RELATIONSHIP
-
-It is similar to One To Many but viewd from the opposite direction.
-
-### (iv) MANY TO MANY RELATIONSHIP
-
-It means one row in table a can be associated with many rows in table B and One row in table B can also be associated with many rows in table A.
-
-M : N
-
-Suppose we have student table and course table
-like <br>
-Deepika -> Java <br>
-Deepika -> Python <br>
-Deepika -> React
-
-Java -> Rashmika
-Java -> Anil
-
-**_We can not directly create many to many relationships using 2 tables.Because in that case we have to repeat the student information there we need third table.The additional table is called JUNCTION TABLE.BRIDGE TABLE/MAPPING TABLE/ASSPCIATED TABLE._**
-
-LIKE here we will create student_course
